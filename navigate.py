@@ -9,7 +9,7 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from helperfunctions import expand_province_tree , expand_district_tree , open_config_file
+from helperfunctions import *
 
 
 
@@ -43,24 +43,9 @@ time.sleep(6)
 expand_province_tree('Cidade De Maputo',chrome_browser)
 time.sleep(1)
 expand_district_tree('Katembe',chrome_browser)
-
-
-
-
-"""
-#def selectprovince(province_name,browser_webdriver):
-    #chrome_browser.implicitly_wait(10)
-    #chrome_browser=chrome_browser.find_element_by_xpath("//li[@id='orgUnitj9Inbtfw3Wu']/span[contains(@class,'toggle')]")
-    #expand_root_tree=browser_webdriver.find_element_by_xpath("//li[@id='orgUnitwafWzemVbX4']/a[contains(@class, 'selected')]")
-    #expand_root_tree.click()
-   if province_name=='Cidade De Maputo':
-            expand_prov_tree=chrome_browser.find_element_by_xpath("//*[@id='orgUnitebcn8hWYrg3']/span[1]")
-            expand_prov_tree.click()
-        elif province_name=='Inhambane':
-            expand_prov_tree = chrome_browser.find_element_by_xpath("//*[@id='orgUnitebcn8hWYrg3']/span/img")
-            expand_prov_tree.click()
-        else:
-            print('No province provided') """
-
-
-#selectprovince('Cidade De Maputo',chrome_browser)
+time.sleep(2)
+select_province('catembe_cs', chrome_browser)
+time.sleep(1)
+select_form('C&T_Resumo de Cuidados e Tratamento',chrome_browser)
+time.sleep(1)
+select_period('Novembro 2020',chrome_browser)

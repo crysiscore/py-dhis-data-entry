@@ -1,72 +1,80 @@
 import yaml
+import time
 
-dict_distritos_maputo = {'kamaxakeni': 0, 'Kampfumu': 1, 'Kamubukwana': 2, 'Kanyaka': 3, 'Katembe': 4, 'Nlhamankulu': 5}
-
+dict_distritos_maputo = ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
+unidades_sanitarias = [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
+   'polana_canico_cs','1_alto_mae_csurb','hospital_central_de_mapito_hc','hospital_central_pediatrico_de_maputo_hc','malhangalene_cs','maxaquene_csurb',
+  'Hospital_militar_de_maputo','polana_cimento_csurb','porto_csurb','bagamoio_cs','hospital_psiquiatrico_do_infulene_cs','inhagoia_ps',
+ 'magoanine_tenda_psa','zimpeto_ps','inhaca_ps','catembe_cs','chamissava_cs','incassane_cs','mutsekwa_ps','centro_de_saude_do_chamanculo_cs',
+'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
+forms =['C&T_Resumo de Cuidados e Tratamento']
+periodos = ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
 
 def open_config_file(filename):
-    with open(filename + '.yaml', 'r') as f:
+    with open(filename, 'r') as f:
         try:
-            dict = yaml.load(f)
+            dict = yaml.safe_load(f)
         except IOError as err:
-            print 'error while reading fild' + filename + 'Details:' + str(err.message)
+            print ("error while reading file" + filename + 'Details:' + str(err.args))
+        except yaml.YAMLError as exc:
+            print ("error while reading file" + filename + 'Details:' + str(exc.message))
     return dict
 
 
-def get_district_position(prov_dist, distrit_name):
-    return prov_dist.get(distrit_name)
+def get_district_position(distrit_name):
+    return dict_distritos_maputo.index(distrit_name)
 
+def get_province_position(province_name):
+    return unidades_sanitarias.index(province_name)
 
 def expand_province_tree(province_name, browser_webdriver):
+    expand_root_tree=browser_webdriver.find_element_by_xpath("//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]")
+    expand_root_tree.click()
+    time.sleep(3)
     if province_name == 'Cidade De Maputo':
-        expand_prov_tree = browser_webdriver.find_element_by_xpath("//*[@id='orgUnitebcn8hWYrg3']/span/img")
+        expand_prov_tree = browser_webdriver.find_element_by_xpath("//li[@id='orgUnitebcn8hWYrg3']/span/img")
         expand_prov_tree.click()
     elif province_name == 'Inhambane':
-        expand_prov_tree = browser_webdriver.find_element_by_xpath("//*[@id='orgUnitebcn8hWYrg3']/span/img")
+        expand_prov_tree = browser_webdriver.find_element_by_xpath("//li[@id='orgUnitebcn8hWYrg3']/span/img")
         expand_prov_tree.click()
     else:
         print('No province provided')
 
 
-def expand_district_tree(dict_distritos,district_name):
-    dict = open_config_file('configbkp')
-    list = dict["distritos"]
-    dist_index= get_district_position(dict_distritos,district_name)
-    a= list[dist_index]
-    #b= list[dist_index][district_name]
-    print dist_index
-    print  district_name
-    print list[dist_index]
-    print list[dist_index]
-    #print b
+def expand_district_tree(district_name,browser_webdriver):
+   
+    dictionary = open_config_file('org_units.yaml')
+    index = get_district_position(district_name)
+    print(index)
+    xpath = dictionary['distritos'][index][district_name]['xpath']
+    print(xpath)
+    district_element= browser_webdriver.find_element_by_xpath(xpath)
+    district_element.click()
+  
 
-    #xpath = list[dist_index][district_name]['xpath']
-    #print dist_index
-    #print list[dist_index]
-    #print list[dist_index]['Kamaxakeni']
-    #xpath = list[dist_index]['xpath']
-    #expand_dist_tree = browser_webdriver.find_element_by_xpath()
-    #expand_dist_tree.click()
-    #print xpath
+def select_province(province_name,browser_webdriver):
+    
+    dictionary = open_config_file('org_units.yaml')
+    index = get_province_position(province_name)
+    xpath = dictionary['unidades_sanitarias'][index][province_name]['xpath']
+    #name = dictionary['unidades_sanitarias'][index][province_name]['name']
+    #province = dictionary['unidades_sanitarias'][index][province_name]['province']
+    #district = dictionary['unidades_sanitarias'][index][province_name]['district']
+      
+    province_element= browser_webdriver.find_element_by_xpath(xpath)
+    province_element.click()
+ 
+
+def select_form(form_name, browser_webdriver ):
+     #select_form_box_element = browser_webdriver.find_element_by_xpath("//*[@id='selectedDataSetId']")
+     #select_form_box_element.click()
+     #form_name ='C&T_Resumo de Cuidados e Tratamento'
+     xpath = "//select[@name='selectedDataSetId']/option[text()=" + "'" + form_name + "' ]"
+     print(xpath)
+     form_element = browser_webdriver.find_element_by_xpath(xpath).click()
 
 
-#with open('configbkp.yaml', 'r') as f:
-#    dict = yaml.load(f)
-
-
-#expand_district_tree(dict_distritos_maputo,"Kamaxakeni")
-
-expand_district_tree(dict_distritos_maputo,'kamaxakeni')
-# print list['albasine_cs']['province']
-# distrito = dict["distritos"]
-# print list['albasine_cs']['province']
-# xpath = distrito['Kamaxakeni']
-# print dict.get(2)
-# print dict["distritos"]
-# print list['albasine_cs']
-# print list['albasine_cs']['province']
-# print list['albasine_cs']['district']
-# print list['albasine_cs']['xpath']
-# print list['albasine_cs']['name']
-# print xpathKamaxakeni
-# print xpath['xpath']
-# print distrito['Kamaxakeni']
+def select_period(periodo,browser_webdriver):
+    xpath = "//select[@name='selectedPeriodId']/option[text()=" + "'" + periodo + "' ]"
+    print(xpath)
+    form_element = browser_webdriver.find_element_by_xpath(xpath).click()
