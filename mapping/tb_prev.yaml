@@ -1,0 +1,81 @@
+#
+# TB_PREV (Numerator): Number of ART patients who completed a course of TB preventive therapy during the reporting period
+TB_PREV_NUMERATOR:
+ - tb_prev_numerator_new_on_art_unknown_age_f:
+     xpath: '//input[@id="v3sXw778NxO-yMpLKZDlcn1-val"]'
+     cell: 'B8'
+ - tb_prev_numerator_new_on_art_unknown_age_m:
+     xpath: '//input[@id="Wx9Uz7PftUn-yMpLKZDlcn1-val"]'
+     cell: 'B9'
+ - tb_prev_numerator_new_on_art_menor_15_f:
+     xpath: '//input[@id="VfjYJuhRxWB-jE4Nk7jIxgx"]'
+     cell: 'C8'
+ - tb_prev_numerator_new_on_art_menor_15_m:
+     xpath: '//input[@id="VfjYJuhRxWB-ZpzA9LqkAje-val"]'
+     cell: 'C9'
+ - tb_prev_numerator_new_on_art_maior_15_f:
+     xpath: '//input[@id="VfjYJuhRxWB-TBpB0fMsm4a-val"]'
+     cell: 'D8'
+ - tb_prev_numerator_new_on_art_maior_15_m:
+     xpath: '//input[@id="VfjYJuhRxWB-ystHMfiTva3-val"]'
+     cell: 'D9'
+#Already on art
+ - tb_prev_numerator_already_on_art_unknown_age_f:
+     xpath: '//input[@id="QmPOcmjh1ea-yMpLKZDlcn1-val"]'
+     cell: 'E8'
+ - tb_prev_numerator_already_on_art_unknown_age_m:
+     xpath: '//input[@id="xfeOrHkF8hJ-yMpLKZDlcn1-val"]'
+     cell: 'E9'
+ - tb_prev_numerator_already_on_art_menor_15_f:
+     xpath: '//input[@id="rK7xgT5CwW7-jE4Nk7jIxgx-val"]'
+     cell: 'F8'
+ - tb_prev_numerator_already_on_art_menor_15_m:
+     xpath: '//input[@id="rK7xgT5CwW7-ZpzA9LqkAje-val"]'
+     cell: 'F9'
+ - tb_prev_numerator_already_on_art_maior_15_f:
+     xpath: '//input[@id="rK7xgT5CwW7-TBpB0fMsm4a-val"]'
+     cell: 'G8'
+ - tb_prev_numerator_already_on_art_maior_15_m:
+     xpath: '//input[@id="rK7xgT5CwW7-ystHMfiTva3-val"]'
+     cell: 'G9'
+
+#
+#TB_PREV (Denominator):Number of ART patients who are expected to complete a course of TB preventive therapy during the reporting period (for programs using continuous IPT
+TB_PREV_DENOMINATOR:
+ - tb_prev_denominator_new_on_art_unknown_age_f:
+     xpath: '//input[@id="WtKt0tJvLB5-yMpLKZDlcn1-val"]'
+     cell: 'J8'
+ - tb_prev_denominator_new_on_art_unknown_age_m:
+     xpath: '//input[@id="kglKWMNTK2R-yMpLKZDlcn1-val"]'
+     cell: 'J9'
+ - tb_prev_denominator_new_on_art_menor_15_f:
+     xpath: '//input[@id="R4ecIXD6C0c-jE4Nk7jIxgx-val"]'
+     cell: 'K8'
+ - tb_prev_denominator_new_on_art_menor_15_m:
+     xpath: '//input[@id="R4ecIXD6C0c-ZpzA9LqkAje-val"]'
+     cell: 'K9'
+ - tb_prev_denominator_new_on_art_maior_15_f:
+     xpath: '//input[@id="R4ecIXD6C0c-TBpB0fMsm4a-val"]'
+     cell: 'L8'
+ - tb_prev_denominator_new_on_art_maior_15_m:
+     xpath: '//input[@id="R4ecIXD6C0c-ystHMfiTva3-val"]'
+     cell: 'L9'
+#Already on art
+ - tb_prev_denominator_already_on_art_unknown_age_f:
+     xpath: '//input[@id="nAhgXZpSeUu-yMpLKZDlcn1-val"]'
+     cell: 'M8'
+ - tb_prev_denominator_already_on_art_unknown_age_m:
+     xpath: '//input[@id="PB83HgRGKXV-yMpLKZDlcn1-val"]'
+     cell: 'M9'
+ - tb_prev_denominator_already_on_art_menor_15_f:
+     xpath: '//input[@id="H6sIzQ7BCjR-jE4Nk7jIxgx-val"]'
+     cell: 'N8'
+ - tb_prev_denominator_already_on_art_menor_15_m:
+     xpath: '//input[@id="H6sIzQ7BCjR-ZpzA9LqkAje-val"]'
+     cell: 'N9'
+ - tb_prev_denominator_already_on_art_maior_15_f:
+     xpath: '//input[@id="H6sIzQ7BCjR-TBpB0fMsm4a-val"]'
+     cell: 'O8'
+ - tb_prev_denominator_already_on_art_maior_15_m:
+     xpath: '//input[@id="H6sIzQ7BCjR-ystHMfiTva3-val"]'
+     cell: 'O9'
