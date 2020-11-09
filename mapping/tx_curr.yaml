@@ -1,4 +1,4 @@
-# TX_NEW
+# TX_CURR
 TX_curr:
  - tx_curr_unknown_age_f:
      xpath: '//input[@id="MiU8OoF2IWV-yMpLKZDlcn1-val"]'
@@ -59,7 +59,7 @@ TX_curr:
      cell: 'K28'
  - tx_curr_35_39_m:
      xpath: '//input[@id="sWzPEHi17Fs-yMpLKZDlcn1-val"]'
-     cell: 'K28'
+     cell: 'K29'
  - tx_curr_40_44_f:
      xpath: '//input[@id="YaU9frk0poS-yMpLKZDlcn1-val"]'
      cell: 'L29'
@@ -68,7 +68,7 @@ TX_curr:
      cell: 'L28'
  - tx_curr_45_49_f:
      xpath: '//input[@id="gUazhu13yfw-yMpLKZDlcn1-val"]'
-     cell: 'M29'
+     cell: 'M28'
  - tx_curr_45_49_m:
      xpath: '//input[@id="w3Zf9XsDkv6-yMpLKZDlcn1-val"]'
      cell: 'M29'
@@ -93,4 +93,67 @@ TX_curr:
  - tx_curr_people_in_prison:
      xpath: '//input[@id="kPpyPDigVUU-yMpLKZDlcn1-val"]'
      cell: 'L32'
+
+# <3 months of ARVs (not MMD) 
+ - tx_curr_mdd_unknown_age_f:
+     xpath: '//input[@id="Fq0yUVZrreT-yMpLKZDlcn1-val"]'
+     cell: 'B37'
+ - tx_curr_mdd_unknown_age_m:
+     xpath: '//input[@id="FhaCHPvfY4V-yMpLKZDlcn1-val"]'
+     cell: 'B38'
+ - tx_curr_mdd_menor_15_f:
+     xpath: '//input[@id="T6xfcni3xxE-jE4Nk7jIxgx-val"]'
+     cell: 'C37'
+ - tx_curr_mdd_menor_15_m:
+     xpath: '//input[@id="T6xfcni3xxE-ZpzA9LqkAje-val"]'
+     cell: 'C38'
+ - tx_curr_mdd_maior_15_f:
+     xpath: '//input[@id="T6xfcni3xxE-TBpB0fMsm4a-val"]'
+     cell: 'D37'
+ - tx_curr_mdd_maior_15_m:
+     xpath: '//input[@id="T6xfcni3xxE-ystHMfiTva3-val"]'
+     cell: 'D38'
+
+
+# 3-5 months of ARVs 
+ - tx_curr_3_5_arv_unknown_age_f:
+     xpath: '//input[@id="yrluRgAZZ9J-yMpLKZDlcn1-val"]'
+     cell: 'F37'
+ - tx_curr_3_5_arv_unknown_age_m:
+     xpath: '//input[@id="OvvHEkwhrls-yMpLKZDlcn1-val"]'
+     cell: 'F38'
+ - tx_curr_3_5_arv_menor_15_f:
+     xpath: '//input[@id="OvDNgYVSZUW-jE4Nk7jIxgx-val"]'
+     cell: 'G37'
+ - tx_curr_3_5_arv_menor_15_m:
+     xpath: '//input[@id="OvDNgYVSZUW-ZpzA9LqkAje-val"]'
+     cell: 'G38'
+ - tx_curr_3_5_arv_maior_15_f:
+     xpath: '//input[@id="OvDNgYVSZUW-TBpB0fMsm4a-val"]'
+     cell: 'H37'
+ - tx_curr_3_5_arv_maior_15_m:
+     xpath: '//input[@id="OvDNgYVSZUW-ystHMfiTva3-val"]'
+     cell: 'H38'
+
+
+# 6 or more months of ARVs
+ - tx_curr_6_more_arv_unknown_age_f:
+     xpath: '//input[@id="aQ2E1ez05tU-yMpLKZDlcn1-val"]'
+     cell: 'J37'
+ - tx_curr_6_more_arv_unknown_age_m:
+     xpath: '//input[@id="fvfKL7uXsvn-yMpLKZDlcn1-val"]'
+     cell: 'J38'
+ - tx_curr_6_more_arv_menor_15_f:
+     xpath: '//input[@id="O4rfmcF7PQJ-jE4Nk7jIxgx-val"]'
+     cell: 'K37'
+ - tx_curr_6_more_arv_menor_15_m:
+     xpath: '//input[@id="O4rfmcF7PQJ-ZpzA9LqkAje-val"]'
+     cell: 'K38'
+ - tx_curr_6_more_arv_maior_15_f:
+     xpath: '//input[@id="O4rfmcF7PQJ-TBpB0fMsm4a-val"]'
+     cell: 'L37'
+ - tx_curr_6_more_arv_maior_15_m:
+     xpath: '//input[@id="O4rfmcF7PQJ-ystHMfiTva3-val"]'
+     cell: 'L38'
+
 
