@@ -59,16 +59,16 @@ TX_NEW:
      cell: 'K18'
  - txnew_35_39_m:
      xpath: '//input[@id="dRA75CqxKvt-yMpLKZDlcn1-val"]'
-     cell: 'K18'
+     cell: 'K19'
  - txnew_40_44_f:
      xpath: '//input[@id="WI5VXnj8o32-yMpLKZDlcn1-val"]'
-     cell: 'L19'
+     cell: 'L18'
  - txnew_40_44_m:
      xpath: '//input[@id="IOl0l6AiVXo-yMpLKZDlcn1-val"]'
-     cell: 'L18'
+     cell: 'L19'
  - txnew_45_49_f:
      xpath: '//input[@id="I0k8BH1eRhy-yMpLKZDlcn1-val"]'
-     cell: 'M19'
+     cell: 'M18'
  - txnew_45_49_m:
      xpath: '//input[@id="vGp8xAOfIKh-yMpLKZDlcn1-val"]'
      cell: 'M19'

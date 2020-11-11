@@ -3,9 +3,9 @@ import time
 
 dict_distritos_maputo = ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
 unidades_sanitarias = [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
-   'polana_canico_cs','1_alto_mae_csurb','hospital_central_de_mapito_hc','hospital_central_pediatrico_de_maputo_hc','malhangalene_cs','maxaquene_csurb',
-  'Hospital_militar_de_maputo','polana_cimento_csurb','porto_csurb','bagamoio_cs','hospital_psiquiatrico_do_infulene_cs','inhagoia_ps',
- 'magoanine_tenda_psa','zimpeto_ps','inhaca_ps','catembe_cs','chamissava_cs','incassane_cs','mutsekwa_ps','centro_de_saude_do_chamanculo_cs',
+'polana_canico_cs','1_alto_mae_csurb','hospital_central_de_mapito_hc','hospital_central_pediatrico_de_maputo_hc','malhangalene_cs','maxaquene_csurb',
+'Hospital_militar_de_maputo','polana_cimento_csurb','porto_csurb','bagamoio_cs','hospital_psiquiatrico_do_infulene_cs','inhagoia_ps',
+'magoanine_tenda_psa','zimpeto_ps','inhaca_ps','catembe_cs','chamissava_cs','incassane_cs','mutsekwa_ps','centro_de_saude_do_chamanculo_cs',
 'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 forms =['C&T_Resumo de Cuidados e Tratamento']
 periodos = ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
@@ -76,5 +76,38 @@ def select_form(form_name, browser_webdriver ):
 
 def select_period(periodo,browser_webdriver):
     xpath = "//select[@name='selectedPeriodId']/option[text()=" + "'" + periodo + "' ]"
-    print(xpath)
+    #print(xpath)
     form_element = browser_webdriver.find_element_by_xpath(xpath).click()
+
+
+def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_file,browser_webdriver):
+    
+    indicator_yaml = open_config_file(indicator_map_file)
+
+    for k in range(len(indicator_yaml[indicator_name])):
+        key = str(indicator_yaml[indicator_name][k].keys())
+        f_index = key.find("['")
+        s_index = key.find("']")
+        indicator = key[f_index+2:s_index]
+        #print(indicator)
+        xpath = indicator_yaml[indicator_name][k][indicator]['xpath']
+        cell_ref = indicator_yaml[indicator_name][k][indicator]['cell']
+        
+        try:
+          cell_value = active_sheet[cell_ref].value
+          if cell_value is None:
+              #skip 
+              print (cell_ref + " is empty")
+              log_file.write(cell_ref + " is an empty cell." + '\n' ) 
+          else:
+              print(cell_ref +" : " + str(cell_value))
+              input_element = browser_webdriver.find_element_by_xpath(xpath)
+              input_element.send_keys(cell_value)
+
+        except Exception as e:
+
+          print("An exception occurred in key : %s" % indicator )
+          print(str(e) )        
+          log_file.write("An exception occurred in key : %s" % indicator + '\n')
+          #log_file.close()
+    

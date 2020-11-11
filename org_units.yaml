@@ -93,7 +93,7 @@ unidades_sanitarias:
     province: Maputo
     xpath: '//li[@id="orgUnitvLT0ry3CDSL"]/a'
 
--  hospital_central_pediatrico_de_mapito_hc:
+-  hospital_central_pediatrico_de_maputo_hc:
     name: Hopsital Central Pediatrico de Maputo HC
     district: Kampfumu
     province: Maputo

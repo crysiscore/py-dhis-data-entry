@@ -1,0 +1,23 @@
+# Additional Data
+ADDITIONAL_DATA:
+ - additional_sex_f:
+     xpath: '//input[@id="UDyhpaSzI7W-XogsjHikdai-val"]'
+     cell: 'C144'
+ - additional_sex_m:
+     xpath: '//input[@id="UDyhpaSzI7W-UBZMXYIrEv9-val"]'
+     cell: 'B144'
+ - additional_age_0_4:
+     xpath: '//input[@id="jRv9cLwT0zv-YvHgrPfHyqE-val"]'
+     cell: 'D144'
+ - additional_age_5_14:
+     xpath: '//input[@id="jRv9cLwT0zv-dnDpr0ttANt-val"]'
+     cell: 'E144'
+ - additional_age_15_mais:
+     xpath: '//input[@id="jRv9cLwT0zv-wawzJQi9WvA-val"]'
+     cell: 'F144'
+ - additional_art_0_14:
+     xpath: '//input[@id="CvNtCfjUi6k-k3Lklkj3et4-val"]'
+     cell: 'I144'
+ - additional_art_15_mais:
+     xpath: '//input[@id="CvNtCfjUi6k-SeQsBSGpSfI-val"]'
+     cell: 'J144'

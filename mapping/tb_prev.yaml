@@ -8,7 +8,7 @@ TB_PREV_NUMERATOR:
      xpath: '//input[@id="Wx9Uz7PftUn-yMpLKZDlcn1-val"]'
      cell: 'B9'
  - tb_prev_numerator_new_on_art_menor_15_f:
-     xpath: '//input[@id="VfjYJuhRxWB-jE4Nk7jIxgx"]'
+     xpath: '//input[@id="VfjYJuhRxWB-jE4Nk7jIxgx-val"]'
      cell: 'C8'
  - tb_prev_numerator_new_on_art_menor_15_m:
      xpath: '//input[@id="VfjYJuhRxWB-ZpzA9LqkAje-val"]'
@@ -19,8 +19,7 @@ TB_PREV_NUMERATOR:
  - tb_prev_numerator_new_on_art_maior_15_m:
      xpath: '//input[@id="VfjYJuhRxWB-ystHMfiTva3-val"]'
      cell: 'D9'
-#Already on art
- - tb_prev_numerator_already_on_art_unknown_age_f:
+ - tb_prev_numerator_already_on_art_unknown_age_f:             ### #Already on art
      xpath: '//input[@id="QmPOcmjh1ea-yMpLKZDlcn1-val"]'
      cell: 'E8'
  - tb_prev_numerator_already_on_art_unknown_age_m:
@@ -38,11 +37,7 @@ TB_PREV_NUMERATOR:
  - tb_prev_numerator_already_on_art_maior_15_m:
      xpath: '//input[@id="rK7xgT5CwW7-ystHMfiTva3-val"]'
      cell: 'G9'
-
-#
-#TB_PREV (Denominator):Number of ART patients who are expected to complete a course of TB preventive therapy during the reporting period (for programs using continuous IPT
-TB_PREV_DENOMINATOR:
- - tb_prev_denominator_new_on_art_unknown_age_f:
+ - tb_prev_denominator_new_on_art_unknown_age_f:                 ### TB_PREV_DENOMINATOR:
      xpath: '//input[@id="WtKt0tJvLB5-yMpLKZDlcn1-val"]'
      cell: 'J8'
  - tb_prev_denominator_new_on_art_unknown_age_m:
@@ -60,8 +55,7 @@ TB_PREV_DENOMINATOR:
  - tb_prev_denominator_new_on_art_maior_15_m:
      xpath: '//input[@id="R4ecIXD6C0c-ystHMfiTva3-val"]'
      cell: 'L9'
-#Already on art
- - tb_prev_denominator_already_on_art_unknown_age_f:
+ - tb_prev_denominator_already_on_art_unknown_age_f:                 ##Already on art
      xpath: '//input[@id="nAhgXZpSeUu-yMpLKZDlcn1-val"]'
      cell: 'M8'
  - tb_prev_denominator_already_on_art_unknown_age_m:
