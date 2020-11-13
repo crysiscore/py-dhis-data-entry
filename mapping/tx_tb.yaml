@@ -1,5 +1,41 @@
-# TX_TB_DENOMINATOR
-TX_TB_DENOMINATOR:
+# TX_TB
+TX_TB:
+ - tx_tb_numerator_unknown_age_new_art_f:
+     xpath: '//input[@id="R8HHqleWe3Q-yMpLKZDlcn1-val"]'
+     cell: 'B83'
+ - tx_tb_numerator_unknown_age_new_art_m:
+     xpath: '//input[@id="eUXU92Om1eR-yMpLKZDlcn1-val"]'
+     cell: 'E83'
+ - tx_tb_numerator_unknown_age_already_art_f:
+     xpath: '//input[@id="q4eDeYnLatH-yMpLKZDlcn1-val"]'
+     cell: 'B84'
+ - tx_tb_numerator_unknown_age_already_art_m:
+     xpath: '//input[@id="trkyugVrCPy-yMpLKZDlcn1-val"]'
+     cell: 'E84'
+ - tx_tb_numerator_menor_15_new_art_f:
+     xpath: '//input[@id="aBPA42BLrOT-jE4Nk7jIxgx-val"]'
+     cell: 'C83'
+ - tx_tb_numerator_menor_15_new_art_m:
+     xpath: '//input[@id="vSszxBWt4Gc-ZpzA9LqkAje-val"]'
+     cell: 'F83'
+ - tx_tb_numerator_menor_15_already_art_f:
+     xpath: '//input[@id="HqRKDUKpcqq-jE4Nk7jIxgx-val"]'
+     cell: 'C84'
+ - tx_tb_numerator_menor_15_already_art_m:
+     xpath: '//input[@id="ei4NDQAipa3-jE4Nk7jIxgx-val"]'
+     cell: 'F84'
+ - tx_tb_numerator_maior_15_new_art_f:
+     xpath: '//input[@id="aBPA42BLrOT-TBpB0fMsm4a-val"]'
+     cell: 'D83'
+ - tx_tb_numerator_maior_15_new_art_m:
+     xpath: '//input[@id="vSszxBWt4Gc-TBpB0fMsm4a-val"]'
+     cell: 'G83'
+ - tx_tb_numerator_maior_15_already_art_f:
+     xpath: '//input[@id="HqRKDUKpcqq-ystHMfiTva3-val"]'
+     cell: 'D84'
+ - tx_tb_numerator_maior_15_already_art_m:
+     xpath: '//input[@id="ei4NDQAipa3-ystHMfiTva3-val"]'
+     cell: 'G84'
  - tx_tb_deno_unknown_age_new_art_sp_f:
      xpath: '//input[@id="wzyWvtorGbf-yMpLKZDlcn1-val"]'
      cell: 'B91'
@@ -72,7 +108,6 @@ TX_TB_DENOMINATOR:
  - tx_tb_deno_maior_15_already_art_sn_m:
      xpath: '//input[@id="Dw6VPWls9lv-TBpB0fMsm4a-val"]'
      cell: 'M92'
-
 # Number of ART patients who had a specimen sent for bacteriologic diagnosis of active TB disease
  - tx_tb_deno_smear:
      xpath: '//input[@id="d50uHkEmn4i-yMpLKZDlcn1-val"]'
@@ -83,3 +118,7 @@ TX_TB_DENOMINATOR:
  - tx_tb_deno_other_n_expert:
      xpath: '//input[@id="FvT9LHmvLJu-yMpLKZDlcn1-val"]'
      cell: 'I97'
+ - tx_tb_positive_result_return:
+     xpath: '//input[@id="E7H3HZij7k6-yMpLKZDlcn1-val"]'
+     cell: 'O97'
+

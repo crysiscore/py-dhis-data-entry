@@ -1,10 +1,10 @@
 # Additional Data
 ADDITIONAL_DATA:
  - additional_sex_f:
-     xpath: '//input[@id="UDyhpaSzI7W-XogsjHikdai-val"]'
+     xpath: '//input[@id="UDyhpaSzI7W-UBZMXYIrEv9-val"]'
      cell: 'C144'
  - additional_sex_m:
-     xpath: '//input[@id="UDyhpaSzI7W-UBZMXYIrEv9-val"]'
+     xpath: '//input[@id="UDyhpaSzI7W-XogsjHikdai-val"]'
      cell: 'B144'
  - additional_age_0_4:
      xpath: '//input[@id="jRv9cLwT0zv-YvHgrPfHyqE-val"]'

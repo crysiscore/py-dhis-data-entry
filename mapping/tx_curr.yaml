@@ -62,10 +62,10 @@ TX_CURR:
      cell: 'K29'
  - tx_curr_40_44_f:
      xpath: '//input[@id="YaU9frk0poS-yMpLKZDlcn1-val"]'
-     cell: 'L29'
+     cell: 'L28'
  - tx_curr_40_44_m:
      xpath: '//input[@id="O7x1IVta6nS-yMpLKZDlcn1-val"]'
-     cell: 'L28'
+     cell: 'L29'
  - tx_curr_45_49_f:
      xpath: '//input[@id="gUazhu13yfw-yMpLKZDlcn1-val"]'
      cell: 'M28'

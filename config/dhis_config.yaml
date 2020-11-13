@@ -3,10 +3,10 @@ dhis2_username: Agnaldo.Samuel
 dhis2_password: MysticHigh2020!
 
 
-# Parametrizacao de importacao
+# Parametrizacao 
 #  ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
 #  Escolha o distrito
-distrito: Nlhamankulu
+distrito: Kamubukwana
 
 
 #[ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
@@ -16,14 +16,27 @@ distrito: Nlhamankulu
 #  'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 
 # Escolha a US
-unidade_sanitaria: xipamanine_csurb
+unidade_sanitaria: magoanine_tenda_psa
 
 # Periodo
 # ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
 
-periodo: Setembro 2020
+periodo: Dezembro 2020
 
 # Formularios
 # ['C&T_Resumo de Cuidados e Tratamento']
 
 formulario: 'C&T_Resumo de Cuidados e Tratamento'
+
+# Location do excell:  data/albazine_ct.xlsx
+# default : C:\py-dhis-data-entry\data\albazine.xlsx
+excell_location: 'data/albazine_ct.xlsx'
+
+# nome da planilha 
+sheet_name: Sheet1
+
+
+# DHIS url
+# default http://mail.ccsaude.org.mz:9090/dhis/
+dhis_url: http://localhost:9090/dhis/
+

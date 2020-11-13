@@ -1,14 +1,6 @@
 import yaml
 import time
-
-dict_distritos_maputo = ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
-unidades_sanitarias = [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
-'polana_canico_cs','1_alto_mae_csurb','hospital_central_de_mapito_hc','hospital_central_pediatrico_de_maputo_hc','malhangalene_cs','maxaquene_csurb',
-'Hospital_militar_de_maputo','polana_cimento_csurb','porto_csurb','bagamoio_cs','hospital_psiquiatrico_do_infulene_cs','inhagoia_ps',
-'magoanine_tenda_psa','zimpeto_ps','inhaca_ps','catembe_cs','chamissava_cs','incassane_cs','mutsekwa_ps','centro_de_saude_do_chamanculo_cs',
-'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
-forms =['C&T_Resumo de Cuidados e Tratamento']
-periodos = ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
+from config.extra_config import *
 
 def open_config_file(filename):
     with open(filename, 'r') as f:
@@ -17,7 +9,7 @@ def open_config_file(filename):
         except IOError as err:
             print ("error while reading file" + filename + 'Details:' + str(err.args))
         except yaml.YAMLError as exc:
-            print ("error while reading file" + filename + 'Details:' + str(exc.message))
+            print ("error while reading file" + filename + 'Details:' + str(exc.args))
     return dict
 
 
@@ -43,7 +35,7 @@ def expand_province_tree(province_name, browser_webdriver):
 
 def expand_district_tree(district_name,browser_webdriver):
    
-    dictionary = open_config_file('org_units.yaml')
+    dictionary = open_config_file('config/org_units.yaml')
     index = get_district_position(district_name)
     print(index)
     xpath = dictionary['distritos'][index][district_name]['xpath']
@@ -54,7 +46,7 @@ def expand_district_tree(district_name,browser_webdriver):
 
 def select_province(province_name,browser_webdriver):
     
-    dictionary = open_config_file('org_units.yaml')
+    dictionary = open_config_file('config/org_units.yaml')
     index = get_province_position(province_name)
     xpath = dictionary['unidades_sanitarias'][index][province_name]['xpath']
     #name = dictionary['unidades_sanitarias'][index][province_name]['name']
@@ -97,17 +89,65 @@ def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_f
           cell_value = active_sheet[cell_ref].value
           if cell_value is None:
               #skip 
-              print (cell_ref + " is empty")
-              log_file.write(cell_ref + " is an empty cell." + '\n' ) 
+              print (cell_ref + " esta vazia no ficheiro excell.")
+              log_file.write(cell_ref + " esta vazia no ficheiro excell." + '\n' ) 
           else:
               print(cell_ref +" : " + str(cell_value))
               input_element = browser_webdriver.find_element_by_xpath(xpath)
-              input_element.send_keys(cell_value)
+              input_element.send_keys(int(cell_value))
 
         except Exception as e:
 
-          print("An exception occurred in key : %s" % indicator )
+          print("Algum erro ocorreu no campo : %s" % indicator )
           print(str(e) )        
-          log_file.write("An exception occurred in key : %s" % indicator + '\n')
+          log_file.write("Algum erro ocorreu no campo  : %s" % indicator + '\n')
           #log_file.close()
     
+def check_template_integrity(active_sheet, log_file ):
+       cell_ref_trimestral = active_sheet['K2'].value  # must be Trimestral
+       cell_ref_semestral  = active_sheet['N2'].value  # must be Semestral
+       cell_ref_tx_new     = active_sheet['A16'].value  # must be TX_NEW
+       cell_ref_tx_curr  = active_sheet['A26'].value  # must be TX_CURR
+       cell_ref_tx_curr_less_3m = active_sheet['J35'].value  # must be <3 months of ARVs (not MMD) 
+       cell_ref_tx_pvls_brestfeeding = active_sheet['A135'].value  # must be Breastfeeding
+       cell_ref_add_data_geral = active_sheet['M143'].value  # must be GERAL
+       cell_ref_tx_rtt_people_prison = active_sheet['L47'].value # must be People in prison and other closed settings
+
+       if cell_ref_trimestral!='Trimestral':
+           print(cell_ref_trimestral)
+           log_file.write('A celula K2 deve ter o valor: Trimestral '  )
+           return(False)
+       elif cell_ref_semestral!='Semestral':
+           print(cell_ref_semestral)
+           log_file.write('A celula N2 deve ter o valor: Semestral '  )
+           return(False) 
+    
+       elif cell_ref_tx_new!='TX_NEW' :
+           print(cell_ref_tx_new)
+           log_file.write('A celula A16 deve ter o valor: TX_NEW '  )
+           return(False) 
+       elif cell_ref_tx_curr!='TX_CURR':
+           print(cell_ref_tx_curr)
+           log_file.write('A celula A26 deve ter o valor: TX_CURR '  )
+           return(False) 
+       elif cell_ref_tx_curr_less_3m!='6 or more months of ARVs':
+           log_file.write('A celula J35 deve ter o valor: 6 or more months of ARVs '  )
+           print(cell_ref_tx_curr_less_3m)
+           return(False) 
+       elif cell_ref_tx_pvls_brestfeeding!='Breastfeeding':
+           log_file.write('A celula A135 deve ter o valor: Breastfeeding '  )
+           print(cell_ref_tx_pvls_brestfeeding)
+           return(False) 
+       elif cell_ref_add_data_geral!='GERAL':
+           log_file.write('A celula M143 deve ter o valor: GERAL '  )
+           print(cell_ref_add_data_geral)
+           return(False) 
+       elif cell_ref_tx_rtt_people_prison!='People in prison and other closed settings':
+           log_file.write('A celula L47 deve ter o valor: People in prison and other closed settings '  )
+           print(cell_ref_tx_rtt_people_prison)
+           return(False) 
+       else:
+           return(True)
+
+
+       
