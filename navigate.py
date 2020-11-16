@@ -19,8 +19,8 @@ indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_m
 
 
 
-chdir('/home/agnaldo/Git/py-dhis-data-entry')
-#chdir('C:\py-dhis-data-entry')
+#chdir('/home/agnaldo/Git/py-dhis-data-entry')
+chdir('C:/py-dhis-data-entry')
 
 
 # Read dhis2 dhis_config.yaml
@@ -34,10 +34,11 @@ form_name = dhis_config['formulario']
 excell_location = dhis_config['excell_location']
 dhis_url = dhis_config['dhis_url']
 sheet_name = dhis_config['sheet_name']
+override = dhis_config['override']
 
 param_check =True
 
-list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name]
+list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name,override]
 
 
 # ficheiro de logs
@@ -64,15 +65,24 @@ for index, item  in enumerate(list_config):
                  sys.exit()
 
          elif index ==4:
-               if item not in periodos:
-                  print("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis." % item)
-                  log_file.write("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis.\n" % item)
+              other= item.encode('latin-1')
+              decoded = other.decode('utf-8')
+              print('decoded :' + decoded)
+              if decoded not in periodos:
+                  print("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis." % decoded)
+                  log_file.write("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis.\n" % decoded)
                   log_file.write("Erro inesperado!! verifique  e corrige os erros  acima\n")
                   sys.exit()  
          elif index ==5:
               if item not in forms:
                  print("O formulario : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de formularios no dhis." % item)
                  log_file.write("O formulario : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de formularios no dhis.\n" % item)
+                 log_file.write("Erro inesperado!! verifique  e corrige os erros  acima\n")
+                 sys.exit()  
+         elif index ==9:
+              if item not in ['Sim', 'Nao']:
+                 print("O paramentro override : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ." % item)
+                 log_file.write("O paramentro override : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml.\n" % item)
                  log_file.write("Erro inesperado!! verifique  e corrige os erros  acima\n")
                  sys.exit()  
        
@@ -113,7 +123,10 @@ for index, item  in enumerate(list_config):
               print("sheet_name is empty.")
               log_file.write("O parametro nome ds planilha excell  (sheet_name) nao pode ser vazio no ficheiro de configuracoes dhis_config.yaml, preencha e volte a executar\n")
               param_check = False
-
+         elif index ==9:
+              print("override is empty.")
+              log_file.write("O parametro override nao pode ser vazio no ficheiro de configuracoes dhis_config.yaml, preencha e volte a executar\n")
+              param_check = False
 
 if param_check: 
 
@@ -121,13 +134,13 @@ if param_check:
         # verifica se a us pertence ao devido distrito
         if check_us_in_district(us_name,district ):
              print("%s was found in %s ..." %(us_name,district))
-             workbook = load_workbook(excell_location)
+             workbook = load_workbook('data/'+ excell_location)
                # grab the active worksheet
              if sheet_name in workbook.sheetnames:
                   active_sheet = workbook[sheet_name]
                   if check_template_integrity(active_sheet,log_file):
                        # Open chrome browser - Chrome options
-                       driver_loc = "/usr/bin/chromedriver"
+                       driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
                        chrome_options = webdriver.ChromeOptions()
 
                        # default_directory  must be a configurable parameter, and thus should be written to a file
@@ -154,11 +167,15 @@ if param_check:
                        time.sleep(3)
 
                        now = datetime.datetime.now()
-                       if str(now.year) in period:
-                            select_period(period,chrome_browser)
+                       # codificacao correcta de caracteres : problema com acentos
+                       coded_period= period.encode('latin-1')
+                       decoded_period = coded_period.decode('utf-8')
+                       print('decoded :' + decoded_period)
+                       if str(now.year) in decoded_period:
+                            select_period(decoded_period,chrome_browser)
                        else:
                             chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
-                            select_period(period,chrome_browser)
+                            select_period(decoded_period,chrome_browser)
                               
 
                        tb_prev_file_full_path  = "mapping/" + indicators_files[0]
@@ -171,14 +188,14 @@ if param_check:
                        addit_data_file_full_path = "mapping/" + indicators_files[7]
                        time.sleep(1)
                        #indicator_map_file,active_sheet,log_file,browser_webdriver)
-                       fill_indicator_elements('TB_PREV_NUMERATOR', tb_prev_file_full_path,active_sheet,log_file,chrome_browser)
-                       fill_indicator_elements('TX_NEW', tx_new_file_full_path,active_sheet,log_file,chrome_browser)
-                       fill_indicator_elements('TX_CURR', tx_curr_file_full_path,active_sheet,log_file,chrome_browser)
-                       fill_indicator_elements('TX_RTT', tx_rtt_file_full_path,active_sheet,log_file,chrome_browser)
-                       fill_indicator_elements('TX_ML', tx_ml_file_full_path,active_sheet,log_file,chrome_browser)
-                       fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser)
-                       fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser) 
-                       fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser)
+                       fill_indicator_elements('TB_PREV_NUMERATOR', tb_prev_file_full_path,active_sheet,log_file,chrome_browser,override)
+                       fill_indicator_elements('TX_NEW', tx_new_file_full_path,active_sheet,log_file,chrome_browser,override)
+                       fill_indicator_elements('TX_CURR', tx_curr_file_full_path,active_sheet,log_file,chrome_browser,override)
+                       fill_indicator_elements('TX_RTT', tx_rtt_file_full_path,active_sheet,log_file,chrome_browser,override)
+                       fill_indicator_elements('TX_ML', tx_ml_file_full_path,active_sheet,log_file,chrome_browser,override)
+                       fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser,override)
+                       fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser,override) 
+                       fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser,override)
                        exccutar_validacao(chrome_browser)
                   else:
                       print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n" % excell_location)
