@@ -43,8 +43,8 @@ list_config = [username,password,district,us_name,period,form_name,excell_locati
 # ficheiro de logs
 # (same directory) in append mode and 
 log_file = open("logs.txt","a+") 
-
-
+log_file.truncate(0)
+log_file.seek(0)
 # check dhis configuration parameters
 
 for index, item  in enumerate(list_config):
@@ -55,6 +55,7 @@ for index, item  in enumerate(list_config):
                 log_file.write("O distrito: %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de distritos disponiveis no dhis.\n" % item)
                 log_file.write("Erro inesperado!! verifique  e corrige os erros  acima\n")
                 sys.exit()
+              
          elif index ==3:
               if item not in unidades_sanitarias:
                  print("A unidade sanitaria: %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de US disponiveis no dhis." % item)
@@ -117,83 +118,84 @@ for index, item  in enumerate(list_config):
 if param_check: 
 
     try:
-        #ler o ficheiro com dados
-        workbook = load_workbook(excell_location)
-        # grab the active worksheet
-        if sheet_name in workbook.sheetnames:
+        # verifica se a us pertence ao devido distrito
+        if check_us_in_district(us_name,district ):
+             print("%s was found in %s ..." %(us_name,district))
+             workbook = load_workbook(excell_location)
+               # grab the active worksheet
+             if sheet_name in workbook.sheetnames:
+                  active_sheet = workbook[sheet_name]
+                  if check_template_integrity(active_sheet,log_file):
+                       # Open chrome browser - Chrome options
+                       driver_loc = "/usr/bin/chromedriver"
+                       chrome_options = webdriver.ChromeOptions()
 
-            active_sheet = workbook[sheet_name]
-            if check_template_integrity(active_sheet,log_file):       
-                # Open chrome browser - Chrome options
-                driver_loc = "/usr/bin/chromedriver"
-                chrome_options = webdriver.ChromeOptions()
+                       # default_directory  must be a configurable parameter, and thus should be written to a file
+                       #chrome_options.add_argument(
+                       #    "download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")
+                              
+                       chrome_browser = webdriver.Chrome(driver_loc, options=chrome_options) #Optional argument, if not specified will search path.
+                         
+                       chrome_browser.get(dhis_url)
+                       chrome_browser.find_element_by_id("j_username").send_keys(username)
+                       chrome_browser.find_element_by_id("j_password").send_keys(password)
+                       chrome_browser.find_element_by_id("submit").click()
+                       chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
 
-                # default_directory  must be a configurable parameter, and thus should be written to a file
-                #chrome_options.add_argument(
-                #    "download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")
-                    
-                chrome_browser = webdriver.Chrome(driver_loc, options=chrome_options) #Optional argument, if not specified will search path.
-                
-                chrome_browser.get(dhis_url)
-                chrome_browser.find_element_by_id("j_username").send_keys(username)
-                chrome_browser.find_element_by_id("j_password").send_keys(password)
-                chrome_browser.find_element_by_id("submit").click()
-                chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                       #tempo para a pagina terminar de carregar
+                       time.sleep(5)
+                       expand_province_tree('Cidade De Maputo',chrome_browser)
+                       time.sleep(1)
+                       expand_district_tree(district,chrome_browser)
+                       time.sleep(2)
+                       select_province(us_name, chrome_browser)
+                       time.sleep(1)
+                       select_form(form_name,chrome_browser)
+                       time.sleep(3)
 
-                #tempo para a pagina terminar de carregar
-                time.sleep(5)
-                expand_province_tree('Cidade De Maputo',chrome_browser)
-                time.sleep(1)
-                expand_district_tree(district,chrome_browser)
-                time.sleep(2)
-                select_province(us_name, chrome_browser)
-                time.sleep(1)
-                select_form(form_name,chrome_browser)
-                time.sleep(3)
+                       now = datetime.datetime.now()
+                       if str(now.year) in period:
+                            select_period(period,chrome_browser)
+                       else:
+                            chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
+                            select_period(period,chrome_browser)
+                              
 
-                now = datetime.datetime.now()
-
-
-                if str(now.year) in period:
-                    select_period(period,chrome_browser)
-                else:
-                    chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
-                    select_period(period,chrome_browser)
-                    
-
-                tb_prev_file_full_path  = "mapping/" + indicators_files[0]
-                tx_tb_file_full_path    = "mapping/" + indicators_files[1]
-                tx_rtt_file_full_path   = "mapping/" + indicators_files[2]
-                tx_new_file_full_path   = "mapping/" + indicators_files[3]
-                tx_ml_file_full_path    = "mapping/" + indicators_files[4]
-                tx_curr_file_full_path  = "mapping/" + indicators_files[5]
-                tx_pvls_file_full_path  = "mapping/" + indicators_files[6]
-                addit_data_file_full_path = "mapping/" + indicators_files[7]
-                time.sleep(1)
-                #indicator_map_file,active_sheet,log_file,browser_webdriver)
-                fill_indicator_elements('TB_PREV_NUMERATOR', tb_prev_file_full_path,active_sheet,log_file,chrome_browser)
-
-                fill_indicator_elements('TX_NEW', tx_new_file_full_path,active_sheet,log_file,chrome_browser)
-
-                fill_indicator_elements('TX_CURR', tx_curr_file_full_path,active_sheet,log_file,chrome_browser)
-
-                fill_indicator_elements('TX_RTT', tx_rtt_file_full_path,active_sheet,log_file,chrome_browser)
-
-                fill_indicator_elements('TX_ML', tx_ml_file_full_path,active_sheet,log_file,chrome_browser)
-
-                fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser)
-
-                fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser)
-
-                fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser)
-            else:
-                print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n" % excell_location)
-                log_file.write("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n"  % excell_location)
-        else:
-            print('planilha com nome %s nao foi encontrado' % sheet_name )
-            log_file.write('planilha com nome %s nao foi encontrado.\n' % sheet_name )
-            log_file.write("Erro inesperado!! verifique  e corrige os erros  acima.\n")
-            sys.exit("Erro inesperado!! verifique os logs")   
+                       tb_prev_file_full_path  = "mapping/" + indicators_files[0]
+                       tx_tb_file_full_path    = "mapping/" + indicators_files[1]
+                       tx_rtt_file_full_path   = "mapping/" + indicators_files[2]
+                       tx_new_file_full_path   = "mapping/" + indicators_files[3]
+                       tx_ml_file_full_path    = "mapping/" + indicators_files[4]
+                       tx_curr_file_full_path  = "mapping/" + indicators_files[5]
+                       tx_pvls_file_full_path  = "mapping/" + indicators_files[6]
+                       addit_data_file_full_path = "mapping/" + indicators_files[7]
+                       time.sleep(1)
+                       #indicator_map_file,active_sheet,log_file,browser_webdriver)
+                       fill_indicator_elements('TB_PREV_NUMERATOR', tb_prev_file_full_path,active_sheet,log_file,chrome_browser)
+                       fill_indicator_elements('TX_NEW', tx_new_file_full_path,active_sheet,log_file,chrome_browser)
+                       fill_indicator_elements('TX_CURR', tx_curr_file_full_path,active_sheet,log_file,chrome_browser)
+                       fill_indicator_elements('TX_RTT', tx_rtt_file_full_path,active_sheet,log_file,chrome_browser)
+                       fill_indicator_elements('TX_ML', tx_ml_file_full_path,active_sheet,log_file,chrome_browser)
+                       fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser)
+                       fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser) 
+                       fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser)
+                       exccutar_validacao(chrome_browser)
+                  else:
+                      print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n" % excell_location)
+                      log_file.write("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n"  % excell_location)
+             else:
+                 print('planilha com nome %s nao foi encontrado' % sheet_name )
+                 log_file.write('planilha com nome %s nao foi encontrado.\n' % sheet_name )
+                 log_file.write("Erro inesperado!! verifique  e corrige os erros  acima.\n")
+                 sys.exit("Erro inesperado!! verifique os logs")   
+               
+        else: 
+            print('Erro: A unidade sanitaria: %s nao pertence ao distrito  %s no dhis. '  % ( us_name, district ) )
+            log_file.write("Erro: A unidade sanitaria: %s nao pertence ao distrito  %s no dhis.\n:"  % ( us_name, district ) )
+            log_file.write("Verifique as configuracoes  dhis_config.yaml e tente novamente.\n")
+            sys.exit("Erro inesperado!! verifique os logs")
+             #ler o ficheiro com dados
+      
                         
     except FileNotFoundError as fe:
              print("Erro: Ficheiro nao encontrado ( %s ) "  % excell_location)
@@ -209,4 +211,4 @@ if param_check:
 
 else:
     print("Erro: o ficheiro de parametros dhis_config.yaml nao esta devidamente prenchido, verifique os logs em cima.")
-    log_file.write("Erro: o ficheiro de parametros dhis_config.yaml nao esta devidamente prenchido, verifique  e corrige os erros em cima.")
+    log_file.write("Verifique as configuracoes  dhis_config.yaml e tente novamente.\n")

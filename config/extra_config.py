@@ -1,5 +1,3 @@
-#%%
-
 dict_distritos_maputo = ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
 unidades_sanitarias = [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
 'polana_canico_cs','1_alto_mae_csurb','hospital_central_de_mapito_hc','hospital_central_pediatrico_de_maputo_hc','malhangalene_cs','maxaquene_csurb',

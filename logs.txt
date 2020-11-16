@@ -3,15 +3,3 @@ H32 esta vazia no ficheiro excell.
 H48 esta vazia no ficheiro excell.
 H110 esta vazia no ficheiro excell.
 H128 esta vazia no ficheiro excell.
-H22 esta vazia no ficheiro excell.
-H32 esta vazia no ficheiro excell.
-H48 esta vazia no ficheiro excell.
-H110 esta vazia no ficheiro excell.
-H128 esta vazia no ficheiro excell.
-O periodo : Dezembro 2021 ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis.
-Erro inesperado!! verifique  e corrige os erros  acima
-H22 esta vazia no ficheiro excell.
-H32 esta vazia no ficheiro excell.
-H48 esta vazia no ficheiro excell.
-H110 esta vazia no ficheiro excell.
-H128 esta vazia no ficheiro excell.

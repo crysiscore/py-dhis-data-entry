@@ -55,22 +55,45 @@ def select_province(province_name,browser_webdriver):
       
     province_element= browser_webdriver.find_element_by_xpath(xpath)
     province_element.click()
- 
 
+def check_us_in_district(us_name,district_name):
+    dictionary = open_config_file('config/org_units.yaml')
+    org_units = dictionary['unidades_sanitarias']
+    found = False
+    for  i  in range(len(org_units)):
+        
+        value = str(org_units[i])
+        f_index = value.find("{'")
+        s_index = value.find("': {")
+        nome_us_no_dhis = value[f_index+2:s_index]
+        if us_name == nome_us_no_dhis:
+            distrito = str(org_units[i][us_name]['district'])
+            if distrito == district_name:
+                 print("found!")
+                 return(True)
+            else: 
+                return(False)
+    return(found)       
+
+ 
 def select_form(form_name, browser_webdriver ):
      #select_form_box_element = browser_webdriver.find_element_by_xpath("//*[@id='selectedDataSetId']")
      #select_form_box_element.click()
      #form_name ='C&T_Resumo de Cuidados e Tratamento'
      xpath = "//select[@name='selectedDataSetId']/option[text()=" + "'" + form_name + "' ]"
-     print(xpath)
+    #print(xpath)
      form_element = browser_webdriver.find_element_by_xpath(xpath).click()
+
+def exccutar_validacao(browser_webdriver):
+    btn_validate =  browser_webdriver.find_element_by_id('validateButton')
+    btn_validate.click()
 
 
 def select_period(periodo,browser_webdriver):
     xpath = "//select[@name='selectedPeriodId']/option[text()=" + "'" + periodo + "' ]"
     #print(xpath)
-    form_element = browser_webdriver.find_element_by_xpath(xpath).click()
-
+    form_element = browser_webdriver.find_element_by_xpath(xpath)
+    form_element.click()
 
 def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_file,browser_webdriver):
     
@@ -115,35 +138,43 @@ def check_template_integrity(active_sheet, log_file ):
 
        if cell_ref_trimestral!='Trimestral':
            print(cell_ref_trimestral)
-           log_file.write('A celula K2 deve ter o valor: Trimestral '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula K2 deve ter o valor: Trimestral\n'  )
            return(False)
        elif cell_ref_semestral!='Semestral':
            print(cell_ref_semestral)
-           log_file.write('A celula N2 deve ter o valor: Semestral '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula N2 deve ter o valor: Semestral\n'  )
            return(False) 
     
        elif cell_ref_tx_new!='TX_NEW' :
            print(cell_ref_tx_new)
-           log_file.write('A celula A16 deve ter o valor: TX_NEW '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula A16 deve ter o valor: TX_NEW\n'  )
            return(False) 
        elif cell_ref_tx_curr!='TX_CURR':
            print(cell_ref_tx_curr)
-           log_file.write('A celula A26 deve ter o valor: TX_CURR '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula A26 deve ter o valor: TX_CURR\n'  )
            return(False) 
        elif cell_ref_tx_curr_less_3m!='6 or more months of ARVs':
-           log_file.write('A celula J35 deve ter o valor: 6 or more months of ARVs '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula J35 deve ter o valor: 6 or more months of ARVs\n'  )
            print(cell_ref_tx_curr_less_3m)
            return(False) 
        elif cell_ref_tx_pvls_brestfeeding!='Breastfeeding':
-           log_file.write('A celula A135 deve ter o valor: Breastfeeding '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula A135 deve ter o valor: Breastfeeding\n'  )
            print(cell_ref_tx_pvls_brestfeeding)
            return(False) 
        elif cell_ref_add_data_geral!='GERAL':
-           log_file.write('A celula M143 deve ter o valor: GERAL '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula M143 deve ter o valor: GERAL\n'  )
            print(cell_ref_add_data_geral)
            return(False) 
        elif cell_ref_tx_rtt_people_prison!='People in prison and other closed settings':
-           log_file.write('A celula L47 deve ter o valor: People in prison and other closed settings '  )
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula L47 deve ter o valor: People in prison and other closed settings\n'  )
            print(cell_ref_tx_rtt_people_prison)
            return(False) 
        else:
