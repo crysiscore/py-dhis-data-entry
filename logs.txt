@@ -1,5 +1,0 @@
-H22 esta vazia no ficheiro excell.
-H32 esta vazia no ficheiro excell.
-H48 esta vazia no ficheiro excell.
-H110 esta vazia no ficheiro excell.
-H128 esta vazia no ficheiro excell.

@@ -95,37 +95,64 @@ def select_period(periodo,browser_webdriver):
     form_element = browser_webdriver.find_element_by_xpath(xpath)
     form_element.click()
 
-def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_file,browser_webdriver):
+def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_file,browser_webdriver,tipo_entrada):
     
     indicator_yaml = open_config_file(indicator_map_file)
 
-    for k in range(len(indicator_yaml[indicator_name])):
-        key = str(indicator_yaml[indicator_name][k].keys())
-        f_index = key.find("['")
-        s_index = key.find("']")
-        indicator = key[f_index+2:s_index]
-        #print(indicator)
-        xpath = indicator_yaml[indicator_name][k][indicator]['xpath']
-        cell_ref = indicator_yaml[indicator_name][k][indicator]['cell']
-        
-        try:
-          cell_value = active_sheet[cell_ref].value
-          if cell_value is None:
-              #skip 
-              print (cell_ref + " esta vazia no ficheiro excell.")
-              log_file.write(cell_ref + " esta vazia no ficheiro excell." + '\n' ) 
-          else:
-              print(cell_ref +" : " + str(cell_value))
-              input_element = browser_webdriver.find_element_by_xpath(xpath)
-              input_element.send_keys(int(cell_value))
+    if tipo_entrada=='Nao':
+        for k in range(len(indicator_yaml[indicator_name])):
+            key = str(indicator_yaml[indicator_name][k].keys())
+            f_index = key.find("['")
+            s_index = key.find("']")
+            indicator = key[f_index+2:s_index]
+            #print(indicator)
+            xpath = indicator_yaml[indicator_name][k][indicator]['xpath']
+            cell_ref = indicator_yaml[indicator_name][k][indicator]['cell']
+            
+            try:
+                cell_value = active_sheet[cell_ref].value
+                if cell_value is None:
+                    #skip 
+                    print (cell_ref + " esta vazia no ficheiro excell.")
+                    log_file.write(cell_ref + " esta vazia no ficheiro excell." + '\n' ) 
+                else:
+                    print(cell_ref +" : " + str(cell_value))
+                    input_element = browser_webdriver.find_element_by_xpath(xpath)
+                    input_element.send_keys(int(cell_value))
 
-        except Exception as e:
+            except Exception as e:
+                print("Algum erro ocorreu no campo : %s" % indicator )
+                print(str(e) )        
+                log_file.write("Algum erro ocorreu no campo  : %s" % indicator + '\n')
+                #log_file.close()
+    elif tipo_entrada=='Sim':
+        for k in range(len(indicator_yaml[indicator_name])):
+            key = str(indicator_yaml[indicator_name][k].keys())
+            f_index = key.find("['")
+            s_index = key.find("']")
+            indicator = key[f_index+2:s_index]
+            #print(indicator)
+            xpath = indicator_yaml[indicator_name][k][indicator]['xpath']
+            cell_ref = indicator_yaml[indicator_name][k][indicator]['cell']
+            
+            try:
+                cell_value = active_sheet[cell_ref].value
+                if cell_value is None:
+                    #skip 
+                    print (cell_ref + " esta vazia no ficheiro excell.")
+                    log_file.write(cell_ref + " esta vazia no ficheiro excell." + '\n' ) 
+                else:
+                    print(cell_ref +" : " + str(cell_value))
+                    input_element = browser_webdriver.find_element_by_xpath(xpath)
+                    input_element.clear()
+                    input_element.send_keys(int(cell_value))
 
-          print("Algum erro ocorreu no campo : %s" % indicator )
-          print(str(e) )        
-          log_file.write("Algum erro ocorreu no campo  : %s" % indicator + '\n')
-          #log_file.close()
-    
+            except Exception as e:
+                print("Algum erro ocorreu no campo : %s" % indicator )
+                print(str(e) )        
+                log_file.write("Algum erro ocorreu no campo  : %s" % indicator + '\n')
+                #log_file.close() 
+
 def check_template_integrity(active_sheet, log_file ):
        cell_ref_trimestral = active_sheet['K2'].value  # must be Trimestral
        cell_ref_semestral  = active_sheet['N2'].value  # must be Semestral
