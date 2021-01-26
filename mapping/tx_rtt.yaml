@@ -93,3 +93,14 @@ TX_RTT:
  - tx_rtt_people_in_prison:
      xpath: '//input[@id="RPCyBG9rLls-yMpLKZDlcn1-val"]'
      cell: 'L48'
+
+
+
+## new variables by ebe savaio ( auto calculate)
+# - tx_rtt_menor_15:
+#     xpath: '//input[@id="indicatorizmLWoZ8O6o"]'
+#     cell: 'J48'
+# - tx_rtt_maior_15:
+#     xpath: '//input[@id="RPCyBG9rLls-yMpLKZDlcn1-val"]'
+#     cell: 'L48'
+

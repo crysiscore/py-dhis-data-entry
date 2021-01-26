@@ -152,3 +152,14 @@ TX_CURR:
      cell: 'L38'
 
 
+## new variables by ebe savaio
+
+ - tx_curr_periodo_anterior_menor_15:
+     xpath: '//input[@id="Enuc8miw3R2-yMpLKZDlcn1-val"]'
+     cell: 'B30'
+ - tx_curr_periodo_anterior_maior_15:
+     xpath: '//input[@id="KPurrby1gqj-yMpLKZDlcn1-val"]'
+     cell: 'H30'
+ - tx_curr_periodo_anterior_total:
+     xpath: '//input[@id="Aa1uJ5QIQLv-yMpLKZDlcn1-val"]'
+     cell: 'N30'

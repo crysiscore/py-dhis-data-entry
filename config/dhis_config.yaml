@@ -38,10 +38,10 @@ sheet_name: Sheet1
 
 # DHIS url
 # default http://mail.ccsaude.org.mz:9090/dhis/
-dhis_url: http://localhost:9090/dhis/
+dhis_url: http://mail.ccsaude.org.mz:5459/dhis/
 
 
 # 
 #sobrescrever os dados existentes (Sim/Nao)
 # configurar Sim apenas se for para subscrever os dados existentes
-override : Sim
+override : Nao
