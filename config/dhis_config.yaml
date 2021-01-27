@@ -1,12 +1,12 @@
 # dhis2 credentials
-dhis2_username: user.name
-dhis2_password: password
+dhis2_username: Agnaldo.Samuel
+dhis2_password: MysticHigh2020!
 
 
 # Parametrizacao 
 #  ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
 #  Escolha o distrito
-distrito: Nlhamankulu
+distrito: Kamavota
 
 
 #  [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
@@ -16,12 +16,12 @@ distrito: Nlhamankulu
 #  'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 
 # Escolha a US
-unidade_sanitaria: centro_de_saude_do_chamanculo_cs
+unidade_sanitaria: 1_de_junho_cs
 
 # Periodo
 # ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
 
-periodo: Fevereiro 2021
+periodo: Janeiro 2021
 
 # Formularios
 # ['C&T_Resumo de Cuidados e Tratamento']
@@ -30,7 +30,7 @@ formulario: 'C&T_Resumo de Cuidados e Tratamento'
 
 # Location do excell
 # default : entro da pasta C:\py-dhis-data-entry\data\ 
-excell_location: 'albazine_ct_2.xlsx'
+excell_location: 'ct_dhis_actualizado.xlsx'
 
 # nome da planilha 
 sheet_name: Sheet1
@@ -45,3 +45,13 @@ dhis_url: http://mail.ccsaude.org.mz:5459/dhis/
 #sobrescrever os dados existentes (Sim/Nao)
 # configurar Sim apenas se for para subscrever os dados existentes
 override : Nao
+
+##
+# directorio do projecto 
+#default to C:/py-dhis-data-entry
+
+working_dir: /home/agnaldo/Git/py-dhis-data-entry
+
+
+# OS windows otr linux
+os_type: linux

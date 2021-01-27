@@ -18,11 +18,6 @@ indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_m
                     'tx_pvls.yaml','additional_data.yaml']
 
 
-
-chdir('/home/agnaldo/Git/py-dhis-data-entry')
-#chdir('C:/py-dhis-data-entry')
-
-
 # Read dhis2 dhis_config.yaml
 dhis_config = open_config_file("config/dhis_config.yaml")
 username = dhis_config['dhis2_username']
@@ -35,8 +30,15 @@ excell_location = dhis_config['excell_location']
 dhis_url = dhis_config['dhis_url']
 sheet_name = dhis_config['sheet_name']
 override = dhis_config['override']
-
+working_dir = dhis_config['working_dir']
+os_type = dhis_config['os_type']
 param_check =True
+
+
+# TODO check if dir exists
+chdir(working_dir)
+
+
 
 list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name,override]
 
@@ -141,7 +143,11 @@ if param_check:
                   if check_template_integrity(active_sheet,log_file):
                        # Open chrome browser - Chrome options
                        #driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
-                       driver_loc = "/usr/bin/chromedriver"
+                       if os_type == "linux":
+                            driver_loc = "/usr/bin/chromedriver"
+                       else:
+                            driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
+                       
                        chrome_options = webdriver.ChromeOptions()
 
                        # default_directory  must be a configurable parameter, and thus should be written to a file
@@ -159,11 +165,11 @@ if param_check:
                        #tempo para a pagina terminar de carregar
                        time.sleep(5)
                        expand_province_tree('Cidade De Maputo',chrome_browser)
-                       time.sleep(1)
+                       time.sleep(4)
                        expand_district_tree(district,chrome_browser)
-                       time.sleep(2)
+                       time.sleep(4)
                        select_province(us_name, chrome_browser)
-                       time.sleep(1)
+                       time.sleep(4)
                        select_form(form_name,chrome_browser)
                        time.sleep(3)
 
