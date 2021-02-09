@@ -19,7 +19,7 @@ indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_m
 
 
 # Read dhis2 dhis_config.yaml
-dhis_config = open_config_file("config/dhis_config.yaml")
+dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
 username = dhis_config['dhis2_username']
 password = dhis_config['dhis2_password']
 district = dhis_config['distrito']
@@ -148,30 +148,37 @@ if param_check:
                        else:
                             driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
                        
-                       chrome_options = webdriver.ChromeOptions()
+                       #chrome_options = webdriver.ChromeOptions()
 
                        # default_directory  must be a configurable parameter, and thus should be written to a file
                        #chrome_options.add_argument(
                        #    "download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")
                               
-                       chrome_browser = webdriver.Chrome(driver_loc, options=chrome_options) #Optional argument, if not specified will search path.
+                       chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
                          
                        chrome_browser.get(dhis_url)
+                       time.sleep(5)
                        chrome_browser.find_element_by_id("j_username").send_keys(username)
                        chrome_browser.find_element_by_id("j_password").send_keys(password)
                        chrome_browser.find_element_by_id("submit").click()
+                       time.sleep(5)
+     
                        chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
 
                        #tempo para a pagina terminar de carregar
                        time.sleep(5)
+                       wait = WebDriverWait(chrome_browser, 10)
+                       xpath="//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]"
+                       expand_root_tree =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                       expand_root_tree.click()
                        expand_province_tree('Cidade De Maputo',chrome_browser)
-                       time.sleep(4)
+                       #time.sleep(4)
                        expand_district_tree(district,chrome_browser)
-                       time.sleep(4)
+                       #time.sleep(4)
                        select_province(us_name, chrome_browser)
-                       time.sleep(4)
+                       #time.sleep(4)
                        select_form(form_name,chrome_browser)
-                       time.sleep(3)
+                       #time.sleep(3)
 
                        now = datetime.datetime.now()
                        # codificacao correcta de caracteres : problema com acentos
@@ -204,6 +211,7 @@ if param_check:
                        fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser,override) 
                        fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser,override)
                        exccutar_validacao(chrome_browser)
+
                   else:
                       print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n" % excell_location)
                       log_file.write("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n"  % excell_location)
