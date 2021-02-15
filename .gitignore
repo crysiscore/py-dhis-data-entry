@@ -36,6 +36,8 @@ dhis-login.yaml
 pip-log.txt
 pip-delete-this-directory.txt
 
+drivers/
+drivers/*
 # Unit test / coverage reports
 htmlcov/
 .tox/

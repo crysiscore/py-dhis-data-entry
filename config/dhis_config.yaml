@@ -1,12 +1,12 @@
 # dhis2 credentials
-dhis2_username: Agnaldo.Samuel
-dhis2_password: MysticHigh2020!
+dhis2_username: Angelo
+dhis2_password: Angelo2019!
 
 
 # Parametrizacao 
 #  ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
 #  Escolha o distrito
-distrito: Kamavota
+distrito: Kamubukwana
 
 
 #  [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
@@ -16,7 +16,7 @@ distrito: Kamavota
 #  'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 
 # Escolha a US
-unidade_sanitaria: 1_de_junho_cs
+unidade_sanitaria: magoanine_tenda_psa
 
 # Periodo
 # ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
@@ -44,7 +44,7 @@ dhis_url: http://mail.ccsaude.org.mz:5459/dhis/
 # 
 #sobrescrever os dados existentes (Sim/Nao)
 # configurar Sim apenas se for para subscrever os dados existentes
-override : Nao
+override : Sim
 
 ##
 # directorio do projecto 
@@ -52,6 +52,10 @@ override : Nao
 
 working_dir: /home/agnaldo/Git/py-dhis-data-entry
 
-
 # OS windows otr linux
 os_type: linux
+
+
+# Tipo de usuario do DHIS > MEA , admin
+# default: MEA
+user_role: MEA

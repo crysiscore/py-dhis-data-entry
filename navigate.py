@@ -19,7 +19,10 @@ indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_m
 
 
 # Read dhis2 dhis_config.yaml
-dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
+#dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
+
+
+dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
 username = dhis_config['dhis2_username']
 password = dhis_config['dhis2_password']
 district = dhis_config['distrito']
@@ -32,13 +35,12 @@ sheet_name = dhis_config['sheet_name']
 override = dhis_config['override']
 working_dir = dhis_config['working_dir']
 os_type = dhis_config['os_type']
+user_role = dhis_config['user_role']
 param_check =True
 
 
 # TODO check if dir exists
 chdir(working_dir)
-
-
 
 list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name,override]
 
@@ -157,29 +159,35 @@ if param_check:
                        chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
                          
                        chrome_browser.get(dhis_url)
-                       time.sleep(5)
+                       time.sleep(7)
                        chrome_browser.find_element_by_id("j_username").send_keys(username)
                        chrome_browser.find_element_by_id("j_password").send_keys(password)
                        chrome_browser.find_element_by_id("submit").click()
-                       time.sleep(5)
-     
+
+                       time.sleep(15)
                        chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
-
                        #tempo para a pagina terminar de carregar
-                       time.sleep(5)
-                       wait = WebDriverWait(chrome_browser, 10)
-                       xpath="//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]"
-                       expand_root_tree =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
-                       expand_root_tree.click()
-                       expand_province_tree('Cidade De Maputo',chrome_browser)
-                       #time.sleep(4)
-                       expand_district_tree(district,chrome_browser)
-                       #time.sleep(4)
-                       select_province(us_name, chrome_browser)
-                       #time.sleep(4)
-                       select_form(form_name,chrome_browser)
-                       #time.sleep(3)
+                       time.sleep(10)
+                       wait = WebDriverWait(chrome_browser, 15)
+                       if user_role == "admin":
+                            xpath="//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]"
+                            expand_root_tree =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                            expand_root_tree.click()
+                            expand_province_tree('Cidade De Maputo',chrome_browser)
+                            expand_district_tree(district,chrome_browser)
+                            select_province(us_name, chrome_browser)
+                            #time.sleep(4)
+                            select_form(form_name,chrome_browser)
+                            #time.sleep(3)
 
+                       else:
+                            expand_district_tree(district,chrome_browser)
+                            #time.sleep(4)
+                            select_province(us_name, chrome_browser)
+                            #time.sleep(4)
+                            select_form(form_name,chrome_browser)
+                            #time.sleep(3)
+                       time.sleep(2)
                        now = datetime.datetime.now()
                        # codificacao correcta de caracteres : problema com acentos
                        coded_period= period.encode('latin-1')
@@ -191,7 +199,7 @@ if param_check:
                             chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
                             select_period(decoded_period,chrome_browser)
                               
-
+                       time.sleep(3)
                        tb_prev_file_full_path  = "mapping/" + indicators_files[0]
                        tx_tb_file_full_path    = "mapping/" + indicators_files[1]
                        tx_rtt_file_full_path   = "mapping/" + indicators_files[2]
@@ -210,6 +218,7 @@ if param_check:
                        fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser,override)
                        fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser,override) 
                        fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser,override)
+                       
                        exccutar_validacao(chrome_browser)
 
                   else:

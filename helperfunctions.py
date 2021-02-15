@@ -98,7 +98,8 @@ def select_form(form_name, browser_webdriver ):
      form_element.click()
 
 def exccutar_validacao(browser_webdriver):
-    btn_validate =  browser_webdriver.find_element_by_id('validateButton')
+    time.sleep(2)
+    btn_validate =  browser_webdriver.find_element_by_xpath('//input[@id="validateButton"][@value="Executar validação"][@style="width:120px"]')
     btn_validate.click()
 
 

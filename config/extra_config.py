@@ -6,3 +6,5 @@ unidades_sanitarias = [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_
 'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 forms = ['C&T_Resumo de Cuidados e Tratamento']
 periodos = ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
+
+
