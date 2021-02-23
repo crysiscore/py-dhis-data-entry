@@ -15,8 +15,17 @@ import sys
 
 
 indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_ml.yaml','tx_curr.yaml',
-                    'tx_pvls.yaml','additional_data.yaml']
+                    'tx_pvls.yaml','additional_data.yaml','ptv_cpn.yaml']
 
+tb_prev_file_full_path  = "mapping/" + indicators_files[0]
+tx_tb_file_full_path    = "mapping/" + indicators_files[1]
+tx_rtt_file_full_path   = "mapping/" + indicators_files[2]
+tx_new_file_full_path   = "mapping/" + indicators_files[3]
+tx_ml_file_full_path    = "mapping/" + indicators_files[4]
+tx_curr_file_full_path  = "mapping/" + indicators_files[5]
+tx_pvls_file_full_path  = "mapping/" + indicators_files[6]
+addit_data_file_full_path = "mapping/" + indicators_files[7]
+ptv_file_full_path =  "mapping/" + indicators_files[8]
 
 # Read dhis2 dhis_config.yaml
 #dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
@@ -41,7 +50,6 @@ param_check =True
 
 # TODO check if dir exists
 chdir(working_dir)
-
 list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name,override]
 
 
@@ -70,7 +78,7 @@ for index, item  in enumerate(list_config):
 
          elif index ==4:
               other= item.encode('latin-1')
-              decoded = other.decode('utf-8')
+              decoded = other.decode('latin-1')
               print('decoded :' + decoded)
               if decoded not in periodos:
                   print("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis." % decoded)
@@ -142,88 +150,128 @@ if param_check:
                # grab the active worksheet
              if sheet_name in workbook.sheetnames:
                   active_sheet = workbook[sheet_name]
-                  if check_template_integrity(active_sheet,log_file):
-                       # Open chrome browser - Chrome options
-                       #driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
-                       if os_type == "linux":
-                            driver_loc = "/usr/bin/chromedriver"
-                       else:
-                            driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
-                       
-                       #chrome_options = webdriver.ChromeOptions()
-
-                       # default_directory  must be a configurable parameter, and thus should be written to a file
-                       #chrome_options.add_argument(
-                       #    "download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")
-                              
-                       chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
-                         
-                       chrome_browser.get(dhis_url)
-                       time.sleep(7)
-                       chrome_browser.find_element_by_id("j_username").send_keys(username)
-                       chrome_browser.find_element_by_id("j_password").send_keys(password)
-                       chrome_browser.find_element_by_id("submit").click()
-
-                       time.sleep(15)
-                       chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
-                       #tempo para a pagina terminar de carregar
-                       time.sleep(10)
-                       wait = WebDriverWait(chrome_browser, 15)
-                       if user_role == "admin":
-                            xpath="//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]"
-                            expand_root_tree =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
-                            expand_root_tree.click()
-                            expand_province_tree('Cidade De Maputo',chrome_browser)
-                            expand_district_tree(district,chrome_browser)
-                            select_province(us_name, chrome_browser)
-                            #time.sleep(4)
-                            select_form(form_name,chrome_browser)
-                            #time.sleep(3)
-
-                       else:
-                            expand_district_tree(district,chrome_browser)
-                            #time.sleep(4)
-                            select_province(us_name, chrome_browser)
-                            #time.sleep(4)
-                            select_form(form_name,chrome_browser)
-                            #time.sleep(3)
-                       time.sleep(2)
-                       now = datetime.datetime.now()
-                       # codificacao correcta de caracteres : problema com acentos
-                       coded_period= period.encode('latin-1')
-                       decoded_period = coded_period.decode('utf-8')
-                       print('decoded :' + decoded_period)
-                       if str(now.year) in decoded_period:
-                            select_period(decoded_period,chrome_browser)
-                       else:
-                            chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
-                            select_period(decoded_period,chrome_browser)
-                              
-                       time.sleep(3)
-                       tb_prev_file_full_path  = "mapping/" + indicators_files[0]
-                       tx_tb_file_full_path    = "mapping/" + indicators_files[1]
-                       tx_rtt_file_full_path   = "mapping/" + indicators_files[2]
-                       tx_new_file_full_path   = "mapping/" + indicators_files[3]
-                       tx_ml_file_full_path    = "mapping/" + indicators_files[4]
-                       tx_curr_file_full_path  = "mapping/" + indicators_files[5]
-                       tx_pvls_file_full_path  = "mapping/" + indicators_files[6]
-                       addit_data_file_full_path = "mapping/" + indicators_files[7]
-                       time.sleep(1)
-                       #indicator_map_file,active_sheet,log_file,browser_webdriver)
-                       fill_indicator_elements('TB_PREV_NUMERATOR', tb_prev_file_full_path,active_sheet,log_file,chrome_browser,override)
-                       fill_indicator_elements('TX_NEW', tx_new_file_full_path,active_sheet,log_file,chrome_browser,override)
-                       fill_indicator_elements('TX_CURR', tx_curr_file_full_path,active_sheet,log_file,chrome_browser,override)
-                       fill_indicator_elements('TX_RTT', tx_rtt_file_full_path,active_sheet,log_file,chrome_browser,override)
-                       fill_indicator_elements('TX_ML', tx_ml_file_full_path,active_sheet,log_file,chrome_browser,override)
-                       fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser,override)
-                       fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser,override) 
-                       fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser,override)
-                       
-                       exccutar_validacao(chrome_browser)
-
+                  # Open chrome browser - Chrome options
+                  #driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
+                  if os_type == "linux":
+                        driver_loc = "/usr/bin/chromedriver"
                   else:
-                      print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n" % excell_location)
-                      log_file.write("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n"  % excell_location)
+                        driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
+                       
+                  #chrome_options = webdriver.ChromeOptions()
+
+                  # default_directory  must be a configurable parameter, and thus should be written to a file
+                  #chrome_options.add_argument(
+                  #    "download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")
+                  chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
+
+                  if form_name == "PTV-Resumo Mensal de PTV" :
+                       if check_ptv_template_integrity(active_sheet,log_file):
+                            chrome_browser.get(dhis_url)
+                            time.sleep(7)
+                            chrome_browser.find_element_by_id("j_username").send_keys(username)
+                            chrome_browser.find_element_by_id("j_password").send_keys(password)
+                            chrome_browser.find_element_by_id("submit").click()
+
+                            time.sleep(15)
+                            chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                            #tempo para a pagina terminar de carregar
+                            time.sleep(10)
+                            wait = WebDriverWait(chrome_browser, 15)
+                            if user_role == "admin":
+                                 xpath="//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]"
+                                 expand_root_tree =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                                 expand_root_tree.click()
+                                 expand_province_tree('Cidade De Maputo',chrome_browser)
+                                 expand_district_tree(district,chrome_browser)
+                                 select_province(us_name, chrome_browser)
+                                 #time.sleep(4)
+                                 select_form(form_name,chrome_browser)
+                                 #time.sleep(3)
+                            else:
+                                 expand_district_tree(district,chrome_browser)
+                                 #time.sleep(4)
+                                 select_province(us_name, chrome_browser)
+                                 #time.sleep(4)
+                                 select_form(form_name,chrome_browser)
+                                 #time.sleep(3)
+                            time.sleep(2)
+                            now = datetime.datetime.now()
+                            # codificacao correcta de caracteres : problema com acentos
+                            coded_period= period.encode('latin-1')
+                            decoded_period = coded_period.decode('utf-8')
+                            print('decoded :' + decoded_period)
+                            if str(now.year) in decoded_period:
+                                 select_period(decoded_period,chrome_browser)
+                            else:
+                                 chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
+                                 select_period(decoded_period,chrome_browser)
+                                       
+                            time.sleep(3)
+                            fill_indicator_elements('ptv_cpn',ptv_file_full_path,active_sheet,log_file,chrome_browser,override)
+
+                       else:
+                            print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 47, verfique o template e tente novamente\n" % excell_location)
+                            log_file.write("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 47, verfique o template e tente novamente\n"  % excell_location)
+
+                       
+                       #exccutar_validacao(chrome_browser)
+                  elif form_name == "C&T_Resumo de Cuidados e Tratamento" :
+                       if check_ct_template_integrity(active_sheet,log_file):
+                            chrome_browser.get(dhis_url)
+                            time.sleep(7)
+                            chrome_browser.find_element_by_id("j_username").send_keys(username)
+                            chrome_browser.find_element_by_id("j_password").send_keys(password)
+                            chrome_browser.find_element_by_id("submit").click()
+
+                            time.sleep(15)
+                            chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                            #tempo para a pagina terminar de carregar
+                            time.sleep(10)
+                            wait = WebDriverWait(chrome_browser, 15)
+                            if user_role == "admin":
+                                 xpath="//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]"
+                                 expand_root_tree =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                                 expand_root_tree.click()
+                                 expand_province_tree('Cidade De Maputo',chrome_browser)
+                                 expand_district_tree(district,chrome_browser)
+                                 select_province(us_name, chrome_browser)
+                                 #time.sleep(4)
+                                 select_form(form_name,chrome_browser)
+                                 #time.sleep(3)
+                            else:
+                                 expand_district_tree(district,chrome_browser)
+                                 #time.sleep(4)
+                                 select_province(us_name, chrome_browser)
+                                 #time.sleep(4)
+                                 select_form(form_name,chrome_browser)
+                                 #time.sleep(3)
+                            time.sleep(2)
+                            now = datetime.datetime.now()
+                            # codificacao correcta de caracteres : problema com acentos
+                            coded_period= period.encode('latin-1')
+                            decoded_period = coded_period.decode('utf-8')
+                            print('decoded :' + decoded_period)
+                            if str(now.year) in decoded_period:
+                                 select_period(decoded_period,chrome_browser)
+                            else:
+                                 chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
+                                 select_period(decoded_period,chrome_browser)
+                                       
+                            time.sleep(3)
+                            #indicator_map_file,active_sheet,log_file,browser_webdriver)
+                            fill_indicator_elements('TB_PREV_NUMERATOR', tb_prev_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('TX_NEW', tx_new_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('TX_CURR', tx_curr_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('TX_RTT', tx_rtt_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('TX_ML', tx_ml_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser,override) 
+                            fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser,override)
+
+                       else:
+                            print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n" % excell_location)
+                            log_file.write("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n"  % excell_location)
+                       
              else:
                  print('planilha com nome %s nao foi encontrado' % sheet_name )
                  log_file.write('planilha com nome %s nao foi encontrado.\n' % sheet_name )

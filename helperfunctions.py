@@ -98,8 +98,8 @@ def select_form(form_name, browser_webdriver ):
      form_element.click()
 
 def exccutar_validacao(browser_webdriver):
-    time.sleep(2)
-    btn_validate =  browser_webdriver.find_element_by_xpath('//input[@id="validateButton"][@value="Executar validação"][@style="width:120px"]')
+    time.sleep(2) 
+    btn_validate =  browser_webdriver.find_element_by_xpath('//input[@id="validateButton"][@value="Executar validação"][@style="width:120px margin-bottom: 3px"][@style=""]')
     btn_validate.click()
 
 
@@ -115,7 +115,7 @@ def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_f
     
     indicator_yaml = open_config_file(indicator_map_file)
 
-    if tipo_entrada=='Nao':
+    if tipo_entrada=='Nao': # tipo_entrada refers to  the program behaviour beforre  entering the data ie override (tipo_entrada=='Sim')or not tipo_entrada=='Nao'
         for k in range(len(indicator_yaml[indicator_name])):
             key = str(indicator_yaml[indicator_name][k].keys())
             f_index = key.find("['")
@@ -171,7 +171,7 @@ def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_f
                 print("Algum erro ocorreu no campo  : %s" % indicator + '\n')
                 #log_file.close() 
 
-def check_template_integrity(active_sheet, log_file ):
+def check_ct_template_integrity(active_sheet, log_file ):
        cell_ref_trimestral = active_sheet['K2'].value  # must be Trimestral
        cell_ref_semestral  = active_sheet['N2'].value  # must be Semestral
        cell_ref_tx_new     = active_sheet['A16'].value  # must be TX_NEW
@@ -242,4 +242,42 @@ def check_template_integrity(active_sheet, log_file ):
            return(True)
 
 
-       
+def check_ptv_template_integrity(active_sheet, log_file ):
+       cell_ref_main_title = active_sheet['C3'].value  # must be PMTCT Form for CCS DHIS2
+       cell_ref_cpn_title  = active_sheet['B5'].value  # must be  CPN
+       cell_ref_ccr_title  = active_sheet['B31'].value  # must be CCR
+       cell_ref_maternidade_title = active_sheet['B43'].value  # must be Maternidade
+      
+
+       if cell_ref_main_title!='PMTCT Form for CCS DHIS2':
+           print(cell_ref_main_title)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula C3 deve ter o valor: PMTCT Form for CCS DHIS2\n'  )
+           print('Ha um erro no template excell.\n' )
+           print('A celula C3 deve ter o valor: PMTCT Form for CCS DHIS2\n'  )
+           return(False)
+       elif cell_ref_cpn_title!='CPN':
+           print(cell_ref_cpn_title)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula B5 deve ter o valor: CPN\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula B5 deve ter o valor: CPN\n'  )
+           return(False) 
+    
+       elif cell_ref_ccr_title!='CCR' :
+           print(cell_ref_ccr_title)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula B31 deve ter o valor: CCR\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula B31 deve ter o valor: CCR\n'  )
+           return(False) 
+       elif cell_ref_maternidade_title!='Maternidade':
+           print(cell_ref_maternidade_title)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula B43 deve ter o valor: Maternidade\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula B43 deve ter o valor: Maternidade\n'  )
+           return(False) 
+       else:
+           return(True)
+      

@@ -24,7 +24,7 @@ unidade_sanitaria:
 periodo:
 
 # Formularios
-# ['C&T_Resumo de Cuidados e Tratamento']
+# ['C&T_Resumo de Cuidados e Tratamento', 'PTV-Resumo Mensal de PTV']
 
 formulario:
 
