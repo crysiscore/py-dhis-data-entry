@@ -37,6 +37,15 @@ password = dhis_config['dhis2_password']
 district = dhis_config['distrito']
 us_name = dhis_config['unidade_sanitaria']
 period = dhis_config['periodo']
+if period[0:3] == "Mar":
+     #coded_period= period.encode('latin-1')
+     #decoded_period = coded_period.decode('utf-8')
+     print(period)
+     period = period.encode('ISO-8859-1')
+     period = period.decode('utf-8')
+     # print('o Periodo e %s', temp.decode('utf-8') )
+     print('o Periodo e %s', period )
+
 form_name = dhis_config['formulario']
 excell_location = dhis_config['excell_location']
 dhis_url = dhis_config['dhis_url']
@@ -77,12 +86,10 @@ for index, item  in enumerate(list_config):
                  sys.exit()
 
          elif index ==4:
-              other= item.encode('latin-1')
-              decoded = other.decode('latin-1')
-              print('decoded :' + decoded)
-              if decoded not in periodos:
-                  print("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis." % decoded)
-                  log_file.write("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis.\n" % decoded)
+              
+              if period not in periodos:
+                  print("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis." % period)
+                  log_file.write("O periodo : %s ,  esta mal escrito no ficheiro de configuracoes dhis_config.yaml ou nao pertence a lista de periodos no dhis.\n" % period)
                   log_file.write("Erro inesperado!! verifique  e corrige os erros  acima\n")
                   sys.exit()  
          elif index ==5:
@@ -197,14 +204,11 @@ if param_check:
                             time.sleep(2)
                             now = datetime.datetime.now()
                             # codificacao correcta de caracteres : problema com acentos
-                            coded_period= period.encode('latin-1')
-                            decoded_period = coded_period.decode('utf-8')
-                            print('decoded :' + decoded_period)
-                            if str(now.year) in decoded_period:
-                                 select_period(decoded_period,chrome_browser)
+                            if str(now.year) in period:
+                                 select_period(period,chrome_browser)
                             else:
                                  chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
-                                 select_period(decoded_period,chrome_browser)
+                                 select_period(period,chrome_browser)
                                        
                             time.sleep(3)
                             fill_indicator_elements('ptv_cpn',ptv_file_full_path,active_sheet,log_file,chrome_browser,override)
@@ -248,14 +252,11 @@ if param_check:
                             time.sleep(2)
                             now = datetime.datetime.now()
                             # codificacao correcta de caracteres : problema com acentos
-                            coded_period= period.encode('latin-1')
-                            decoded_period = coded_period.decode('utf-8')
-                            print('decoded :' + decoded_period)
-                            if str(now.year) in decoded_period:
-                                 select_period(decoded_period,chrome_browser)
+                            if str(now.year) in period:
+                                 select_period(period,chrome_browser)
                             else:
                                  chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
-                                 select_period(decoded_period,chrome_browser)
+                                 select_period(period,chrome_browser)
                                        
                             time.sleep(3)
                             #indicator_map_file,active_sheet,log_file,browser_webdriver)

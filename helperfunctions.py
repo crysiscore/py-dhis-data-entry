@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 def open_config_file(filename):
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='ISO-8859-1') as f:
         try:
             dict = yaml.safe_load(f)
         except IOError as err:
