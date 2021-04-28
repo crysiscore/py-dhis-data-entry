@@ -156,6 +156,13 @@ unidades_sanitarias:
     province: Maputo
     xpath: '//li[@id="orgUnitoKA7Ub02ze5"]/a'
 
+-  magoanine_ps:
+    name: Magoanine PS
+    district: Kamubukwana
+    province: Maputo
+    xpath: '//li[@id="orgUnito4HThkC2OEY"]/a'
+
+    
 -  zimpeto_ps:
     name: Zimpeto PS
     district: Kamubukwana

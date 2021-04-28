@@ -17,13 +17,13 @@ import sys
 indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_ml.yaml','tx_curr.yaml',
                     'tx_pvls.yaml','additional_data.yaml','ptv_cpn.yaml']
 
-tb_prev_file_full_path  = "mapping/" + indicators_files[0]
-tx_tb_file_full_path    = "mapping/" + indicators_files[1]
-tx_rtt_file_full_path   = "mapping/" + indicators_files[2]
-tx_new_file_full_path   = "mapping/" + indicators_files[3]
-tx_ml_file_full_path    = "mapping/" + indicators_files[4]
-tx_curr_file_full_path  = "mapping/" + indicators_files[5]
-tx_pvls_file_full_path  = "mapping/" + indicators_files[6]
+tb_prev_file_full_path    = "mapping/" + indicators_files[0]
+tx_tb_file_full_path      = "mapping/" + indicators_files[1]
+tx_rtt_file_full_path     = "mapping/" + indicators_files[2]
+tx_new_file_full_path     = "mapping/" + indicators_files[3]
+tx_ml_file_full_path      = "mapping/" + indicators_files[4]
+tx_curr_file_full_path    = "mapping/" + indicators_files[5]
+tx_pvls_file_full_path    = "mapping/" + indicators_files[6]
 addit_data_file_full_path = "mapping/" + indicators_files[7]
 ptv_file_full_path =  "mapping/" + indicators_files[8]
 
@@ -255,7 +255,7 @@ if param_check:
                             if str(now.year) in period:
                                  select_period(period,chrome_browser)
                             else:
-                                 chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
+                                 chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
                                  select_period(period,chrome_browser)
                                        
                             time.sleep(3)
