@@ -16,23 +16,23 @@ distrito: Kamubukwana
 #  'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 
 # Escolha a US
-unidade_sanitaria: magoanine_tenda_psa
+unidade_sanitaria: zimpeto_ps
 
 # Periodo
 # ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
 
-periodo: Fevereiro 2021
+periodo: Março 2021
 
 # Formularios
-# ['C&T_Resumo de Cuidados e Tratamento', 'PTV-Resumo Mensal de PTV']
+# ['C&T_Resumo de Cuidados e Tratamento', 'PTV-Resumo Mensal de PTV', 'C&T_Relatorio de Retencao e Modelos Diferenciados de Saude']
 
-formulario: 'PTV-Resumo Mensal de PTV'
+formulario: 'C&T_Relatorio de Retencao e Modelos Diferenciados de Saude'
 #formulario: 'C&T_Resumo de Cuidados e Tratamento'
 
 # Location do excell
 # default : entro da pasta C:\py-dhis-data-entry\data\ 
 #excell_location: 'ptv_janeiro_zimpeto.xlsx'
-excell_location: 'ct_dhis_actualizado.xlsx'
+excell_location: 'retencao_dsd_marco.xlsx'
 # nome da planilha 
 sheet_name: Sheet1
 
@@ -45,7 +45,7 @@ dhis_url: http://mail.ccsaude.org.mz:5459/dhis/
 # 
 #sobrescrever os dados existentes (Sim/Nao)
 # configurar Sim apenas se for para subscrever os dados existentes
-override : Nao
+override : Sim
 
 ##
 # directorio do projecto 

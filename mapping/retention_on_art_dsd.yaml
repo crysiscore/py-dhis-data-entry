@@ -1,205 +1,205 @@
 # All patients
 RETENTION_ART:
  - all_pat_1m_initiated_art:
-     xpath: 'Gjjtuk0NvJK-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="Gjjtuk0NvJK-yMpLKZDlcn1-val"]'
+     cell: 'C6'
  - all_pat_1m_alive_no_consultation:
-     xpath: 'QTl12yUryC5-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="QTl12yUryC5-yMpLKZDlcn1-val"]'
+     cell: 'D6'
  - all_pat_1m_alive_with_consultation:
-     xpath: 'm662fiArhRX-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="m662fiArhRX-yMpLKZDlcn1-val"]'
+     cell: 'E6'
  - all_pat_1m_dead:
-     xpath: 'SAcgYNDOtJY-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="SAcgYNDOtJY-yMpLKZDlcn1-val"]'
+     cell: 'F6'
  - all_pat_1m_transferred_out:
-     xpath: 'O3RzXR6tiXL-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="O3RzXR6tiXL-yMpLKZDlcn1-val"]'
+     cell: 'G6'
  - all_pat_1m_stopped_treat:
-     xpath: 'yURkwrG9gWI-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="yURkwrG9gWI-yMpLKZDlcn1-val"]'
+     cell: 'H6'
  - all_pat_3m_initiated_art:
-     xpath: 'DZomLevHomp-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="DZomLevHomp-yMpLKZDlcn1-val"]'
+     cell: 'J6'
  - all_pat_3m_alive_no_transferred_out_defaulter:
-     xpath: 'eGjhpxR5C4A-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="eGjhpxR5C4A-yMpLKZDlcn1-val"]'
+     cell: 'K6'
  - all_pat_3m_alive_no_transferred_out_treat:
-     xpath: 'aUHNp2QhG0Q-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="aUHNp2QhG0Q-yMpLKZDlcn1-val"]'
+     cell: 'L6'
  - all_pat_3m_dead:
-     xpath: 'mjIp8BQ6FW0-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="mjIp8BQ6FW0-yMpLKZDlcn1-val"]'
+     cell: 'M6'
  - all_pat_3m_lost_to_follow_up:
-     xpath: 'rPGBYKYRPFy-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="rPGBYKYRPFy-yMpLKZDlcn1-val"]'
+     cell: 'N6'
  - all_pat_3m_transferred_out:
-     xpath: 'RPJjpYwtoIP-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="RPJjpYwtoIP-yMpLKZDlcn1-val"]'
+     cell: 'O6'
  - all_pat_3m_stopped_treat:
-     xpath: 'H4wnBlIGrjR-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="H4wnBlIGrjR-yMpLKZDlcn1-val"]'
+     cell: 'P6'
 
 #pregnant women
  - preg_women_1m_initiated_art:                 
-     xpath: 'M097RqFwqWF-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="M097RqFwqWF-yMpLKZDlcn1-val"]'
+     cell: 'C7'
  - preg_women_1m_alive_no_consultation:
-     xpath: 'YpBVvdOMacJ-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="YpBVvdOMacJ-yMpLKZDlcn1-val"]'
+     cell: 'D7'
  - preg_women_1m_alive_with_consultation:
-     xpath: 'yPnC2zYr6Sy-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="yPnC2zYr6Sy-yMpLKZDlcn1-val"]'
+     cell: 'E7'
  - preg_women_1m_dead:
-     xpath: 'l9tTaFjt6xq-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="l9tTaFjt6xq-yMpLKZDlcn1-val"]'
+     cell: 'F7'
  - preg_women_1m_transferred_out:
-     xpath: 'uJBL1IyvC7L-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="uJBL1IyvC7L-yMpLKZDlcn1-val"]'
+     cell: 'G7'
  - preg_women_1m_stopped_treat:
-     xpath: 'Qo33jFOaZqQ-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="Qo33jFOaZqQ-yMpLKZDlcn1-val"]'
+     cell: 'H7'
  - preg_women_3m_initiated_art:
-     xpath: 'RAHPYOIlXtQ-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="RAHPYOIlXtQ-yMpLKZDlcn1-val"]'
+     cell: 'J7'
  - preg_women_3m_alive_no_transferred_out_defaulter:
-     xpath: 'QmyGA5ntruL-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="QmyGA5ntruL-yMpLKZDlcn1-val"]'
+     cell: 'K7'
  - preg_women_3m_alive_no_transferred_out_treat:
-     xpath: 'KiCukxTUZ6z-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="KiCukxTUZ6z-yMpLKZDlcn1-val"]'
+     cell: 'L7'
  - preg_women_3m_dead:
-     xpath: 'XwTAtZ4yAq6-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="XwTAtZ4yAq6-yMpLKZDlcn1-val"]'
+     cell: 'M7'
  - preg_women_3m_lost_to_follow_up:
-     xpath: 'yddfGB9u77K-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="yddfGB9u77K-yMpLKZDlcn1-val"]'
+     cell: 'N7'
  - preg_women_3m_transferred_out:
-     xpath: 'WHNM5mHQgOU-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="WHNM5mHQgOU-yMpLKZDlcn1-val"]'
+     cell: 'O7'
  - preg_women_3m_stopped_treat:
-     xpath: 'Ykvs0M9SBJ4-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="Ykvs0M9SBJ4-yMpLKZDlcn1-val"]'
+     cell: 'P7'
 
 # breastfeeding
  - breastfeeding_1m_initiated_art:
-     xpath: 'ps6XyDwlN2f-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="ps6XyDwlN2f-yMpLKZDlcn1-val"]'
+     cell: 'C8'
  - breastfeeding_1m_alive_no_consultation:
-     xpath: 'TBt1jgl5wI5-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="TBt1jgl5wI5-yMpLKZDlcn1-val"]'
+     cell: 'D8'
  - breastfeeding_1m_alive_with_consultation:
-     xpath: 'XWMW4Ko2Ri9-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="XWMW4Ko2Ri9-yMpLKZDlcn1-val"]'
+     cell: 'E8'
  - breastfeeding_1m_dead:
-     xpath: 'NUDYAk0x1kM-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="NUDYAk0x1kM-yMpLKZDlcn1-val"]'
+     cell: 'F8'
  - breastfeeding_1m_transferred_out:
-     xpath: 'ahcxDJQP1UZ-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="ahcxDJQP1UZ-yMpLKZDlcn1-val"]'
+     cell: 'G8'
  - breastfeeding_1m_stopped_treat:
-     xpath: 'JJulVF1ke95-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="JJulVF1ke95-yMpLKZDlcn1-val"]'
+     cell: 'H8'
  - breastfeeding_3m_initiated_art:
-     xpath: 'CEf399fLdCn-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="CEf399fLdCn-yMpLKZDlcn1-val"]'
+     cell: 'J8'
  - breastfeeding_3m_alive_no_transferred_out_defaulter:
-     xpath: 'AJXDMKFQIvs-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="AJXDMKFQIvs-yMpLKZDlcn1-val"]'
+     cell: 'K8'
  - breastfeeding_3m_alive_no_transferred_out_treat:
-     xpath: 'x7nmYzLuegA-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="x7nmYzLuegA-yMpLKZDlcn1-val"]'
+     cell: 'L8'
  - breastfeeding_3m_dead:
-     xpath: 'LT30jwHuhSv-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="LT30jwHuhSv-yMpLKZDlcn1-val"]'
+     cell: 'M8'
  - breastfeeding_3m_lost_to_follow_up:
-     xpath: 'ktJBUQhzdUr-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="ktJBUQhzdUr-yMpLKZDlcn1-val"]'
+     cell: 'N8'
  - breastfeeding_3m_transferred_out:
-     xpath: 'DeOLew8GisB-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="DeOLew8GisB-yMpLKZDlcn1-val"]'
+     cell: 'O8'
  - breastfeeding_3m_stopped_treat:
-     xpath: 'qkc0R5ZBCYs-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="qkc0R5ZBCYs-yMpLKZDlcn1-val"]'
+     cell: 'P8'
 
 # 0_14_Years
  - 0_14_years_1m_initiated_art:
-     xpath: 'HaCbf2z2FWP-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="HaCbf2z2FWP-yMpLKZDlcn1-val"]'
+     cell: 'C9'
  - 0_14_years_1m_alive_no_consultation:
-     xpath: 'gJFC2gOzOWS-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="gJFC2gOzOWS-yMpLKZDlcn1-val"]'
+     cell: 'D9'
  - 0_14_years_1m_alive_with_consultation:
-     xpath: 'ekPGRX1JsBh-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="ekPGRX1JsBh-yMpLKZDlcn1-val"]'
+     cell: 'E9'
  - 0_14_years_1m_dead:
-     xpath: 'hqab0u2ilWG-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="hqab0u2ilWG-yMpLKZDlcn1-val"]'
+     cell: 'F9'
  - 0_14_years_1m_transferred_out:
-     xpath: 'uieosw8YebH-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="uieosw8YebH-yMpLKZDlcn1-val"]'
+     cell: 'G9'
  - 0_14_years_1m_stopped_treat:
-     xpath: 'txBKaKNLDsl-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="txBKaKNLDsl-yMpLKZDlcn1-val"]'
+     cell: 'H9'
  - 0_14_years_3m_initiated_art:
-     xpath: 'yOaCEX4PZFb-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="yOaCEX4PZFb-yMpLKZDlcn1-val"]'
+     cell: 'J9'
  - 0_14_years_3m_alive_no_transferred_out_defaulter:
-     xpath: 'dewxybniRt2-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="dewxybniRt2-yMpLKZDlcn1-val"]'
+     cell: 'K9'
  - 0_14_years_3m_alive_no_transferred_out_treat:
-     xpath: 'izrWc5nYVkF-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="izrWc5nYVkF-yMpLKZDlcn1-val"]'
+     cell: 'L9'
  - 0_14_years_3m_dead:
-     xpath: 'OJGgCKAk2C8-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="OJGgCKAk2C8-yMpLKZDlcn1-val"]'
+     cell: 'M9'
  - 0_14_years_3m_lost_to_follow_up:
-     xpath: 'wFOFvZEu6dq-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="wFOFvZEu6dq-yMpLKZDlcn1-val"]'
+     cell: 'N9'
  - 0_14_years_3m_transferred_out:
-     xpath: 'qWmFRILldp7-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="qWmFRILldp7-yMpLKZDlcn1-val"]'
+     cell: 'O9'
  - 0_14_years_3m_stopped_treat:
-     xpath: 'dnun5AsSHPr-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="dnun5AsSHPr-yMpLKZDlcn1-val"]'
+     cell: 'P9'
 
 # Non_pregnant_adults
  - non_preg_adults_1m_initiated_art:
-     xpath: 'IRdQeTNsx1g-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="IRdQeTNsx1g-yMpLKZDlcn1-val"]'
+     cell: 'C10'
  - non_preg_adults_1m_alive_no_consultation:
-     xpath: 'aGGfm4qyUpF-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="aGGfm4qyUpF-yMpLKZDlcn1-val"]'
+     cell: 'D10'
  - non_preg_adults_1m_alive_with_consultation:
-     xpath: 'wHRFF5fR6RM-yMpLKZDlcn1-vall'
-     cell: ''
+     xpath: '//input[@id="wHRFF5fR6RM-yMpLKZDlcn1-val"]'
+     cell: 'E10'
  - non_preg_adults_1m_dead:
-     xpath: 'bZiU88DjbNz-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="bZiU88DjbNz-yMpLKZDlcn1-val"]'
+     cell: 'F10'
  - non_preg_adults_1m_transferred_out:
-     xpath: 'PEE00DYYwg8-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="PEE00DYYwg8-yMpLKZDlcn1-val"]'
+     cell: 'G10'
  - non_preg_adults_1m_stopped_treat:
-     xpath: 'YNAClxXHBtp-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="YNAClxXHBtp-yMpLKZDlcn1-val"]'
+     cell: 'H10'
  - non_preg_adults_3m_initiated_art:
-     xpath: 'KVdb6UaOBkK-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="KVdb6UaOBkK-yMpLKZDlcn1-val"]'
+     cell: 'J10'
  - non_preg_adults_3m_alive_no_transferred_out_defaulter:
-     xpath: 'DdfakBsuXLc-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="DdfakBsuXLc-yMpLKZDlcn1-val"]'
+     cell: 'K10'
  - non_preg_adults_3m_alive_no_transferred_out_treat:
-     xpath: 't0Q92U8ZRLD-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="t0Q92U8ZRLD-yMpLKZDlcn1-val"]'
+     cell: 'L10'
  - non_preg_adults_3m_dead:
-     xpath: 'DxVEulKhEu5-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="DxVEulKhEu5-yMpLKZDlcn1-val"]'
+     cell: 'M10'
  - non_preg_adults_3m_lost_to_follow_up:
-     xpath: 'lOskPEaHVwG-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="lOskPEaHVwG-yMpLKZDlcn1-val"]'
+     cell: 'N10'
  - non_preg_adults_3m_transferred_out:
-     xpath: 'mkC99VPz61B-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="mkC99VPz61B-yMpLKZDlcn1-val"]'
+     cell: 'O10'
  - non_preg_adults_3m_stopped_treat:
-     xpath: 'pzDvH87LsVU-yMpLKZDlcn1-val'
-     cell: ''
+     xpath: '//input[@id="pzDvH87LsVU-yMpLKZDlcn1-val"]'
+     cell: 'P10'

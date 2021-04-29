@@ -115,7 +115,7 @@ def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_f
     
     indicator_yaml = open_config_file(indicator_map_file)
 
-    if tipo_entrada=='Nao': # tipo_entrada refers to  the program behaviour beforre  entering the data ie override (tipo_entrada=='Sim')or not tipo_entrada=='Nao'
+    if tipo_entrada=='Nao': # tipo_entrada refers to  the program behaviour beforre  entering the data ie override (tipo_entrada=='Sim')or normal entry-> tipo_entrada=='Nao'
         for k in range(len(indicator_yaml[indicator_name])):
             key = str(indicator_yaml[indicator_name][k].keys())
             f_index = key.find("['")
@@ -241,7 +241,6 @@ def check_ct_template_integrity(active_sheet, log_file ):
        else:
            return(True)
 
-
 def check_ptv_template_integrity(active_sheet, log_file ):
        cell_ref_main_title = active_sheet['C3'].value  # must be PMTCT Form for CCS DHIS2
        cell_ref_cpn_title  = active_sheet['B5'].value  # must be  CPN
@@ -249,7 +248,7 @@ def check_ptv_template_integrity(active_sheet, log_file ):
        cell_ref_maternidade_title = active_sheet['B43'].value  # must be Maternidade
       
 
-       if cell_ref_main_title!='PMTCT Form for CCS DHIS2':
+       if cell_ref_main_title !='PMTCT Form for CCS DHIS2':
            print(cell_ref_main_title)
            log_file.write('Ha um erro no template excell.\n'  )
            log_file.write('A celula C3 deve ter o valor: PMTCT Form for CCS DHIS2\n'  )
@@ -277,6 +276,38 @@ def check_ptv_template_integrity(active_sheet, log_file ):
            log_file.write('A celula B43 deve ter o valor: Maternidade\n'  )
            print('Ha um erro no template excell.\n'  )
            print('A celula B43 deve ter o valor: Maternidade\n'  )
+           return(False) 
+       else:
+           return(True)
+    
+def check_retencao_dsd_template_integrity(active_sheet, log_file ):
+       cell_ref_cohort= active_sheet['A4'].value  # must have the value 'Cohort'
+       cell_ref_dsd_model = active_sheet['A13'].value  # must have the value 'DSD Model'
+       cell_ref_total_under_10  = active_sheet['Q47'].value  # must have the 'Total Under 10'
+ 
+      
+
+       if cell_ref_cohort != 'Cohort':
+           print(cell_ref_cohort)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula A4 deve ter o valor: Cohort\n'  )
+           print('Ha um erro no template excell.\n' )
+           print('A celula C3 deve ter o valor: Cohort\n'  )
+           return(False)
+       elif cell_ref_dsd_model!='DSD Model':
+           print(cell_ref_dsd_model)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula B5 deve ter o valor: DSD Model\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula B5 deve ter o valor: DSD Model\n'  )
+           return(False) 
+    
+       elif cell_ref_total_under_10 !='Total Under 10' :
+           print(cell_ref_total_under_10)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula B31 deve ter o valor: Total Under 10\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula B31 deve ter o valor: Total Under 10\n'  )
            return(False) 
        else:
            return(True)

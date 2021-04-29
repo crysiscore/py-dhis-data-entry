@@ -1,262 +1,262 @@
 #DSD: Denominator: Numero de Pacientes Activos em TARV
+DSD_MODELS:
  - denomin_eligible_activos_tarv_adults_15:
-     xpath: 'JEyR6j86j3L-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="JEyR6j86j3L-yMpLKZDlcn1-val"]'
+    cell: 'H21'
  - denomin_eligible_activos_tarv_2_4:
-     xpath: 'Fc0EgTOZe2v-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="Fc0EgTOZe2v-yMpLKZDlcn1-val"]'
+    cell: 'I21'
  - denomin_eligible_activos_tarv_5_9:
-     xpath: 'AFd80p1zSsS-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="AFd80p1zSsS-yMpLKZDlcn1-val"]'
+    cell: 'J21'
  - denomin_eligible_activos_tarv_10_14:
-     xpath: 'iQd3t2QdXbZ-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="iQd3t2QdXbZ-yMpLKZDlcn1-val"]'
+    cell: 'K21'
  - denomin_not_eligible_activos_tarv_adults_15:
-     xpath: 'X94pQK65KYQ-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="X94pQK65KYQ-yMpLKZDlcn1-val"]'
+    cell: 'M21'
  - denomin_not_eligible_activos_tarv_less_2:
-     xpath: 'o0pmNCflCV2-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="o0pmNCflCV2-yMpLKZDlcn1-val"]'
+    cell: 'N21'
  - denomin_not_eligible_activos_tarv_2_4:
-     xpath: 'vQ5tWi7MKKS-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="vQ5tWi7MKKS-yMpLKZDlcn1-val"]'
+    cell: 'O21'
  - denomin_not_eligible_activos_tarv_5_9:
-     xpath: 'syMA3oQTtVB-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="syMA3oQTtVB-yMpLKZDlcn1-val"]'
+    cell: 'P21'
  - denomin_not_eligible_activos_tarv_10_14:
-     xpath: 'jZji852t1z6-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="jZji852t1z6-yMpLKZDlcn1-val"]'
+    cell: 'Q21'
  
  #DSD: Numerator: Numero de Pacientes em pelo menos um modelo
  - numerator_eligible_at_least_one_model_adults_15:
-     xpath: 'PsErPNR4qoO-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="PsErPNR4qoO-yMpLKZDlcn1-val"]'
+    cell: 'H22'
  - numerator_eligible_at_least_one_model_2_4:
-     xpath: 'uKqihTUKzAo-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="uKqihTUKzAo-yMpLKZDlcn1-val"]'
+    cell: 'I22'
  - numerator_eligible_at_least_one_model_5_9:
-     xpath: 'UHLvZjWRQ7d-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="UHLvZjWRQ7d-yMpLKZDlcn1-val"]'
+    cell: 'J22'
  - numerator_eligible_at_least_one_model_10_14:
-     xpath: 'DJlWWEUamlW-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="DJlWWEUamlW-yMpLKZDlcn1-val"]'
+    cell: 'K22'
  - numerator_not_eligible_at_least_one_model_adults_15:
-     xpath: 'fTQ2QvwLAJL-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="fTQ2QvwLAJL-yMpLKZDlcn1-val"]'
+    cell: 'M22'
  - numerator_not_eligible_at_least_one_model_less_2:
-     xpath: 's5NDdypNrqz-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="s5NDdypNrqz-yMpLKZDlcn1-val"]'
+    cell: 'N22'
  - numerator_not_eligible_at_least_one_model_2_4:
-     xpath: 'GzO3kDdyvFP-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="GzO3kDdyvFP-yMpLKZDlcn1-val"]'
+    cell: 'O22'
  - numerator_not_eligible_at_least_one_model_5_9:
-     xpath: 'mT2T49qHtct-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="mT2T49qHtct-yMpLKZDlcn1-val"]'
+    cell: 'P22'
  - numerator_not_eligible_at_least_one_model_10_14:
-     xpath: 'AGX0nwKo9i2-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="AGX0nwKo9i2-yMpLKZDlcn1-val"]'
+    cell: 'Q22'
  
 #DSD: Numerator: Numero de Pacientes em Dispensa Trimestral (DT)
  - numerator_eligible_disp_trimestral_adults_15:
-     xpath: 'c7nknbLSNYF-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="c7nknbLSNYF-yMpLKZDlcn1-val"]'
+    cell: 'H23'
  - numerator_eligible_disp_trimestral_2_4:
-     xpath: 'Y6vn7eltBEv-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="Y6vn7eltBEv-yMpLKZDlcn1-val"]'
+    cell: 'I23'
  - numerator_eligible_disp_trimestral_5_9:
-     xpath: 'KqBNTFO1PMI-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="KqBNTFO1PMI-yMpLKZDlcn1-val"]'
+    cell: 'J23'
  - numerator_eligible_disp_trimestral_10_14:
-     xpath: 'LdY0NHiFNOm-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="LdY0NHiFNOm-yMpLKZDlcn1-val"]'
+    cell: 'K23'
  - numerator_not_eligible_disp_trimestral_adults_15:
-     xpath: 'VrytgXmR8JM-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="VrytgXmR8JM-yMpLKZDlcn1-val"]'
+    cell: 'M23'
  - numerator_not_eligible_disp_trimestral_less_2:
-     xpath: 'WOj4BpHmd3O-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="WOj4BpHmd3O-yMpLKZDlcn1-val"]'
+    cell: 'N23'
  - numerator_not_eligible_disp_trimestral_2_4:
-     xpath: 'IXYpztzhfA2-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="IXYpztzhfA2-yMpLKZDlcn1-val"]'
+    cell: 'O23'
  - numerator_not_eligible_disp_trimestral_5_9:
-     xpath: 'pUEMMHyYJlv-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="pUEMMHyYJlv-yMpLKZDlcn1-val"]'
+    cell: 'P23'
  - numerator_not_eligible_disp_trimestral_10_14:
-     xpath: 'r6vVfvDaNk7-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="r6vVfvDaNk7-yMpLKZDlcn1-val"]'
+    cell: 'Q23'
  
-
  #DSD: Numerator: Numero de Pacientes em Fluxo Rapido (FR)
  - numerator_eligible_fluxo_rapido_adults_15:
-     xpath: 'RgeIBE1xuli-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="RgeIBE1xuli-yMpLKZDlcn1-val"]'
+    cell: 'H24'
  - numerator_eligible_fluxo_rapido_2_4:
-     xpath: 'MK6cZVXvOal-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="MK6cZVXvOal-yMpLKZDlcn1-val"]'
+    cell: 'I24'
  - numerator_eligible_fluxo_rapido_5_9:
-     xpath: 'uyq0cYqiBcH-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="uyq0cYqiBcH-yMpLKZDlcn1-val"]'
+    cell: 'J24'
  - numerator_eligible_fluxo_rapido_10_14:
-     xpath: 'kzd1LPFd5gn-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="kzd1LPFd5gn-yMpLKZDlcn1-val"]'
+    cell: 'K24'
  - numerator_not_eligible_fluxo_rapido_adults_15:
-     xpath: 'Ywia91jPLbq-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="Ywia91jPLbq-yMpLKZDlcn1-val"]'
+    cell: 'M24'
  - numerator_not_eligible_fluxo_rapido_less_2:
-     xpath: 'A5AHX9zL4l6-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="A5AHX9zL4l6-yMpLKZDlcn1-val"]'
+    cell: 'N24'
  - numerator_not_eligible_fluxo_rapido_2_4:
-     xpath: 'sbyNeRUgvsT-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="sbyNeRUgvsT-yMpLKZDlcn1-val"]'
+    cell: 'O24'
  - numerator_not_eligible_fluxo_rapido_5_9:
-     xpath: 'BfTa75DfU7F-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="BfTa75DfU7F-yMpLKZDlcn1-val"]'
+    cell: 'P24'
  - numerator_not_eligible_fluxo_rapido_10_14:
-     xpath: 'KNFSNq8vVWr-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="KNFSNq8vVWr-yMpLKZDlcn1-val"]'
+    cell: 'Q24'
  
 #DSD: Numerator: Numero de Pacientes em GAAC
  - numerator_eligible_gaac_adults_15:
-     xpath: 'hwK0p7lT6e7-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="hwK0p7lT6e7-yMpLKZDlcn1-val"]'
+    cell: 'H25'
  - numerator_eligible_gaac_2_4:
-     xpath: 'z0rjYsu8CUm-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="z0rjYsu8CUm-yMpLKZDlcn1-val"]'
+    cell: 'I25'
  - numerator_eligible_gaac_5_9:
-     xpath: 'vsV1SOifIAd-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="vsV1SOifIAd-yMpLKZDlcn1-val"]'
+    cell: 'J25'
  - numerator_eligible_gaac_10_14:
-     xpath: 'Y5wdy1rjyxS-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="Y5wdy1rjyxS-yMpLKZDlcn1-val"]'
+    cell: 'K25'
  - numerator_not_eligible_gaac_adults_15:
-     xpath: 'yklgRX4H4V7-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="yklgRX4H4V7-yMpLKZDlcn1-val"]'
+    cell: 'M25'
  - numerator_not_eligible_gaac_less_2:
-     xpath: 'EVQgnk0tido-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="EVQgnk0tido-yMpLKZDlcn1-val"]'
+    cell: 'N25'
  - numerator_not_eligible_gaac_2_4:
-     xpath: 'aQMHvNtmpth-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="aQMHvNtmpth-yMpLKZDlcn1-val"]'
+    cell: 'O25'
  - numerator_not_eligible_gaac_5_9:
-     xpath: 'ByoyF3GJCwB-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="ByoyF3GJCwB-yMpLKZDlcn1-val"]'
+    cell: 'P25'
  - numerator_not_eligible_gaac_10_14:
-     xpath: 'C5tKNeghJck-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="C5tKNeghJck-yMpLKZDlcn1-val"]'
+    cell: 'Q25'
  
 #DSD: Numerator: Numero de Pacientes em Abordagem Familiar(AF)
  - numerator_eligible_ab_familiar_adults_15:
-     xpath: 'YiBvoArSJdE-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="YiBvoArSJdE-yMpLKZDlcn1-val"]'
+    cell: 'H26'
  - numerator_eligible_ab_familiar_2_4:
-     xpath: 'Zgo0NSW5X0l-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="Zgo0NSW5X0l-yMpLKZDlcn1-val"]'
+    cell: 'I26'
  - numerator_eligible_ab_familiar_5_9:
-     xpath: 'iIyDNPykCWJ-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="iIyDNPykCWJ-yMpLKZDlcn1-val"]'
+    cell: 'J26'
  - numerator_eligible_ab_familiar_10_14:
-     xpath: 'fWYYnjnzV7x-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="fWYYnjnzV7x-yMpLKZDlcn1-val"]'
+    cell: 'K26'
  - numerator_not_eligible_ab_familiar_adults_15:
-     xpath: 'CHHLUiWwiNT-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="CHHLUiWwiNT-yMpLKZDlcn1-val"]'
+    cell: 'M26'
  - numerator_not_eligible_ab_familiar_less_2:
-     xpath: 'O5wVd1ECQ73-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="O5wVd1ECQ73-yMpLKZDlcn1-val"]'
+    cell: 'N26'
  - numerator_not_eligible_ab_familiar_2_4:
-     xpath: 'BNvPHMv4P79-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="BNvPHMv4P79-yMpLKZDlcn1-val"]'
+    cell: 'O26'
  - numerator_not_eligible_ab_familiar_5_9:
-     xpath: 'eeH5TMxbxqn-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="eeH5TMxbxqn-yMpLKZDlcn1-val"]'
+    cell: 'P26'
  - numerator_not_eligible_ab_familiar_10_14:
-     xpath: 'uAJ3iPcVyfX-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="uAJ3iPcVyfX-yMpLKZDlcn1-val"]'
+    cell: 'Q26'
  
 #DSD: Numerator: Numero de Pacientes em Clubes de Adesao (CA)
  - numerator_eligible_clubes_ades_adults_15:
-     xpath: 'on34lYwCt7r-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="on34lYwCt7r-yMpLKZDlcn1-val"]'
+    cell: 'H27'
  - numerator_eligible_clubes_ades_2_4:
-     xpath: 'jTPTZurIFgq-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="jTPTZurIFgq-yMpLKZDlcn1-val"]'
+    cell: 'I27'
  - numerator_eligible_clubes_ades_5_9:
-     xpath: 'Gwo0xbkDaYo-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="Gwo0xbkDaYo-yMpLKZDlcn1-val"]'
+    cell: 'J27'
  - numerator_eligible_clubes_ades_10_14:
-     xpath: 'KzlExoCHD3b-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="KzlExoCHD3b-yMpLKZDlcn1-val"]'
+    cell: 'K27'
  - numerator_not_eligible_clubes_ades_adults_15:
-     xpath: 'NZKbiWnLKcm-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="NZKbiWnLKcm-yMpLKZDlcn1-val"]'
+    cell: 'M27'
  - numerator_not_eligible_clubes_ades_less_2:
-     xpath: 'GGTq6qYwZgg-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="GGTq6qYwZgg-yMpLKZDlcn1-val"]'
+    cell: 'N27'
  - numerator_not_eligible_clubes_ades_2_4:
-     xpath: 'eUPBBmOuEVO-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="eUPBBmOuEVO-yMpLKZDlcn1-val"]'
+    cell: 'O27'
  - numerator_not_eligible_clubes_ades_5_9:
-     xpath: 'ly4jE4JH97B-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="ly4jE4JH97B-yMpLKZDlcn1-val"]'
+    cell: 'P27'
  - numerator_not_eligible_clubes_ades_10_14:
-     xpath: 'J0Ary37opNn-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="J0Ary37opNn-yMpLKZDlcn1-val"]'
+    cell: 'Q27'
 
 #DSD: Numerator: Numero de Pacientes em Dispensa Semestral (DS)
  - numerator_eligible_disp_semestr_adults_15:
-     xpath: 'BeMseNhfvEH-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="BeMseNhfvEH-yMpLKZDlcn1-val"]'
+    cell: 'H28'
  - numerator_eligible_disp_semestr_2_4:
-     xpath: 'aOkEhVL61ce-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="aOkEhVL61ce-yMpLKZDlcn1-val"]'
+    cell: 'I28'
  - numerator_eligible_disp_semestr_5_9:
-     xpath: 'LM1JY01oaTr-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="LM1JY01oaTr-yMpLKZDlcn1-val"]'
+    cell: 'J28'
  - numerator_eligible_disp_semestr_10_14:
-     xpath: 'BvYSZy4ixK8-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="BvYSZy4ixK8-yMpLKZDlcn1-val"]'
+    cell: 'K28'
  - numerator_not_eligible_disp_semestr_adults_15:
-     xpath: 'jmd1UdA6lxf-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="jmd1UdA6lxf-yMpLKZDlcn1-val"]'
+    cell: 'M28'
  - numerator_not_eligible_disp_semestr_less_2:
-     xpath: 'dSEwYoH1NrF-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="dSEwYoH1NrF-yMpLKZDlcn1-val"]'
+    cell: 'N28'
  - numerator_not_eligible_disp_semestr_2_4:
-     xpath: 'zLcMevmzNyl-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="k1OnV4CRAhD-yMpLKZDlcn1-val"]'
+    cell: 'O28'
  - numerator_not_eligible_disp_semestr_5_9:
-     xpath: 'ly4jE4JH97B-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="zLcMevmzNyl-yMpLKZDlcn1-val"]'
+    cell: 'P28'
  - numerator_not_eligible_disp_semestr_10_14:
-     xpath: 'POFz0wF19SZ-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="POFz0wF19SZ-yMpLKZDlcn1-val"]'
+    cell: 'Q28'
 
 #DSD: Numerator: Numero de Pacientes em Dispensa Cumunitaria (DC)
  - numerator_eligible_disp_comun_adults_15:
-     xpath: 'MBEO9WwnebN-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="MBEO9WwnebN-yMpLKZDlcn1-val"]'
+    cell: 'H29'
  - numerator_eligible_disp_comun_2_4:
-     xpath: 'YxaxB4EUpfG-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="YxaxB4EUpfG-yMpLKZDlcn1-val"]'
+    cell: 'I29'
  - numerator_eligible_disp_comun_5_9:
-     xpath: 'zr24nmeNoF5-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="zr24nmeNoF5-yMpLKZDlcn1-val"]'
+    cell: 'J29'
  - numerator_eligible_disp_comun_10_14:
-     xpath: 'TYKOTSwN5w5-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="TYKOTSwN5w5-yMpLKZDlcn1-val"]'
+    cell: 'K29'
  - numerator_not_eligible_disp_comun_adults_15:
-     xpath: 'nM58KiUZaA1-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="nM58KiUZaA1-yMpLKZDlcn1-val"]'
+    cell: 'M29'
  - numerator_not_eligible_disp_comun_less_2:
-     xpath: 'SYJPbxnEAN1-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="SYJPbxnEAN1-yMpLKZDlcn1-val"]'
+    cell: 'N29'
  - numerator_not_eligible_disp_comun_2_4:
-     xpath: 'qW4ELy7GNLV-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="qW4ELy7GNLV-yMpLKZDlcn1-val"]'
+    cell: 'O29'
  - numerator_not_eligible_disp_comun_5_9:
-     xpath: 'UfvxHyslNR8-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="UfvxHyslNR8-yMpLKZDlcn1-val"]'
+    cell: 'P29'
  - numerator_not_eligible_disp_comun_10_14:
-     xpath: 'kC0bH11nQ0T-yMpLKZDlcn1-val'
-     cell: ''
+    xpath: '//input[@id="kC0bH11nQ0T-yMpLKZDlcn1-val"]'
+    cell: 'Q29'
  

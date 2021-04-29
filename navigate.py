@@ -13,25 +13,29 @@ from config.extra_config import *
 from os import chdir
 import sys
 
-
+# DHIS/Excell Mapping files
 indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_ml.yaml','tx_curr.yaml',
-                    'tx_pvls.yaml','additional_data.yaml','ptv_cpn.yaml']
+                    'tx_pvls.yaml','additional_data.yaml','ptv_cpn.yaml', 'retention_on_art_dsd.yaml','dsd_models.yaml','12_month_retention.yaml']
 
-tb_prev_file_full_path    = "mapping/" + indicators_files[0]
-tx_tb_file_full_path      = "mapping/" + indicators_files[1]
-tx_rtt_file_full_path     = "mapping/" + indicators_files[2]
-tx_new_file_full_path     = "mapping/" + indicators_files[3]
-tx_ml_file_full_path      = "mapping/" + indicators_files[4]
-tx_curr_file_full_path    = "mapping/" + indicators_files[5]
-tx_pvls_file_full_path    = "mapping/" + indicators_files[6]
-addit_data_file_full_path = "mapping/" + indicators_files[7]
-ptv_file_full_path =  "mapping/" + indicators_files[8]
+tb_prev_file_full_path          = "mapping/" + indicators_files[0]
+tx_tb_file_full_path            = "mapping/" + indicators_files[1]
+tx_rtt_file_full_path           = "mapping/" + indicators_files[2]
+tx_new_file_full_path           = "mapping/" + indicators_files[3]
+tx_ml_file_full_path            = "mapping/" + indicators_files[4]
+tx_curr_file_full_path          = "mapping/" + indicators_files[5]
+tx_pvls_file_full_path          = "mapping/" + indicators_files[6]
+addit_data_file_full_path       = "mapping/" + indicators_files[7]
+ptv_file_full_path_full_path    = "mapping/" + indicators_files[8]
+ret_on_art_1_3_month_full_path  = "mapping/" + indicators_files[9]
+ret_on_art_dsd_models_full_path = "mapping/" + indicators_files[10]
+ret_on_art_12_month_full_path   = "mapping/" + indicators_files[11]
 
-# Read dhis2 dhis_config.yaml
+# Read dhis2 dhis_config.yaml  ( Uncoment the following lines if run on windows or linux)
+# Windows
 #dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
-
-
+# Linux
 dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
+
 username = dhis_config['dhis2_username']
 password = dhis_config['dhis2_password']
 district = dhis_config['distrito']
@@ -62,13 +66,13 @@ chdir(working_dir)
 list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name,override]
 
 
-# ficheiro de logs
+# Open Log file
 # (same directory) in append mode and 
 log_file = open("logs.txt","a+") 
 log_file.truncate(0)
 log_file.seek(0)
-# check dhis configuration parameters
 
+# check dhis configuration parameters
 for index, item  in enumerate(list_config):
      if item:
          if index ==2:
@@ -211,7 +215,7 @@ if param_check:
                                  select_period(period,chrome_browser)
                                        
                             time.sleep(3)
-                            fill_indicator_elements('ptv_cpn',ptv_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('ptv_cpn',ptv_file_full_path_full_path,active_sheet,log_file,chrome_browser,override)
 
                        else:
                             print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 47, verfique o template e tente novamente\n" % excell_location)
@@ -272,7 +276,50 @@ if param_check:
                        else:
                             print("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n" % excell_location)
                             log_file.write("Erro o template excell  %s nao tem o formato correcto. \n A ultima linha prenchida deve ser 144, verfique o template e tente novamente\n"  % excell_location)
-                       
+                  elif form_name == "C&T_Relatorio de Retencao e Modelos Diferenciados de Saude":
+                       if check_retencao_dsd_template_integrity(active_sheet, log_file):
+                            chrome_browser.get(dhis_url)
+                            time.sleep(7)
+                            chrome_browser.find_element_by_id("j_username").send_keys(username)
+                            chrome_browser.find_element_by_id("j_password").send_keys(password)
+                            chrome_browser.find_element_by_id("submit").click()
+                            time.sleep(15)
+                            chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                            #tempo para a pagina terminar de carregar
+                            time.sleep(10)
+                            wait = WebDriverWait(chrome_browser, 15)
+                            if user_role == "admin":
+                                 xpath="//li[@id='orgUnitj9Inbtfw3Wu']/span/img[contains(@src, '/images/colapse.png')]"
+                                 expand_root_tree =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                                 expand_root_tree.click()
+                                 expand_province_tree('Cidade De Maputo',chrome_browser)
+                                 expand_district_tree(district,chrome_browser)
+                                 select_province(us_name, chrome_browser)
+                                 #time.sleep(4)
+                                 select_form(form_name,chrome_browser)
+                                 #time.sleep(3)
+                            else:
+                                 expand_district_tree(district,chrome_browser)
+                                 #time.sleep(4)
+                                 select_province(us_name, chrome_browser)
+                                 #time.sleep(4)
+                                 select_form(form_name,chrome_browser)
+                                 #time.sleep(3)
+                            time.sleep(2)
+                            now = datetime.datetime.now()
+                            # codificacao correcta de caracteres : problema com acentos
+                            if str(now.year) in period:
+                                 select_period(period,chrome_browser)
+                            else:
+                                 chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
+                                 select_period(period,chrome_browser)
+                                       
+                            time.sleep(3)
+                            #indicator_map_file,active_sheet,log_file,browser_webdriver)
+                            fill_indicator_elements('RETENTION_ART', ret_on_art_1_3_month_full_path ,active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('DSD_MODELS', ret_on_art_dsd_models_full_path , active_sheet,log_file,chrome_browser,override)
+                            fill_indicator_elements('12_MONTH_RETENTION', ret_on_art_12_month_full_path,active_sheet,log_file,chrome_browser,override)
+
              else:
                  print('planilha com nome %s nao foi encontrado' % sheet_name )
                  log_file.write('planilha com nome %s nao foi encontrado.\n' % sheet_name )
