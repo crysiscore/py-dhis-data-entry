@@ -1,248 +1,248 @@
 ATS_PART_A_INPATIENT_SERVICES:
  # DSD: HTS_TST (Facility) - PITC Modality: Pediatric Services female (positive)
  - positive_unknown_age_female:
-     xpath: 'amAnTeHf2sk-yMpLKZDlcn1-val'
+     xpath: '//input[@id="amAnTeHf2sk-yMpLKZDlcn1-val"]'
      cell:  'B10'
  - positive_less_1_female:
-     xpath: 'PfOqov0jcaK-yMpLKZDlcn1-val'
+     xpath: '//input[@id="PfOqov0jcaK-yMpLKZDlcn1-val"]'
      cell:  'D10'
  - positive_1_4_female:
-     xpath: 'LLH134r2AmU-yMpLKZDlcn1-val'
+     xpath: '//input[@id="LLH134r2AmU-yMpLKZDlcn1-val"]'
      cell:  'F10'
  - positive_5_9_female:
-     xpath: 'sTBq87u06vT-yMpLKZDlcn1-val'
+     xpath: '//input[@id="sTBq87u06vT-yMpLKZDlcn1-val"]'
      cell:  'H10'
  - positive_10_14_female:
-     xpath: 'lAg37iG36lX-yMpLKZDlcn1-val'
+     xpath: '//input[@id="lAg37iG36lX-yMpLKZDlcn1-val"]'
      cell:  'J10'
  - positive_15_19_female:
-     xpath: 'C9PVpu7lM6u-yMpLKZDlcn1-val'
+     xpath: '//input[@id="C9PVpu7lM6u-yMpLKZDlcn1-val"]'
      cell:  'L10'
  - positive_20_24_female:
-     xpath: 'dt64jMKS8D3-yMpLKZDlcn1-val'
+     xpath: '//input[@id="dt64jMKS8D3-yMpLKZDlcn1-val"]'
      cell:  'N10'
  - positive_25_29_female:
-     xpath: 'wmBitXKmv3n-yMpLKZDlcn1-val'
+     xpath: '//input[@id="wmBitXKmv3n-yMpLKZDlcn1-val"]'
      cell:  'P10'
  - positive_30_34_female:
-     xpath: 'rz9sqL3YQhr-yMpLKZDlcn1-val'
+     xpath: '//input[@id="rz9sqL3YQhr-yMpLKZDlcn1-val"]'
      cell:  'R10'
  - positive_35_39_female:
-     xpath: 'BdcwI8HZBeC-yMpLKZDlcn1-val'
+     xpath: '//input[@id="BdcwI8HZBeC-yMpLKZDlcn1-val"]'
      cell:  'T10'
  - positive_40_44_female:
-     xpath: 'Hz134AbxSAo-yMpLKZDlcn1-val'
+     xpath: '//input[@id="Hz134AbxSAo-yMpLKZDlcn1-val"]'
      cell:  'V10'
  - positive_45_49_female:
-     xpath: 'EEDzHYVvEga-yMpLKZDlcn1-val'
+     xpath: '//input[@id="EEDzHYVvEga-yMpLKZDlcn1-val"]'
      cell:  'X10'
  - positive_50_plus_female:
-     xpath: 'b2civ19bIgy-yMpLKZDlcn1-val'
+     xpath: '//input[@id="b2civ19bIgy-yMpLKZDlcn1-val"]'
      cell:  'Z10'
 
 # DSD: HTS_TST (Facility) - PITC Modality: Pediatric Services male (positive) 
  - positive_unknown_age_male:
-     xpath: 'zHHD4LeFGuf-yMpLKZDlcn1-val'
+     xpath: '//input[@id="zHHD4LeFGuf-yMpLKZDlcn1-val"]'
      cell:  'C10'
  - positive_less_1_male:
-     xpath: 'GevnJbq4cuM-yMpLKZDlcn1-val'
+     xpath: '//input[@id="GevnJbq4cuM-yMpLKZDlcn1-val"]'
      cell:  'E10'
  - positive_1_4_male:
-     xpath: 'ARb8dkxjKCJ-yMpLKZDlcn1-val'
+     xpath: '//input[@id="ARb8dkxjKCJ-yMpLKZDlcn1-val"]'
      cell:  'G10'
  - positive_5_9_male:
-     xpath: 'eFQh1HjMpbF-yMpLKZDlcn1-val'
+     xpath: '//input[@id="eFQh1HjMpbF-yMpLKZDlcn1-val"]'
      cell:  'I10'
  - positive_10_14_male:
-     xpath: 'OtqUmdlpdtX-yMpLKZDlcn1-val'
+     xpath: '//input[@id="OtqUmdlpdtX-yMpLKZDlcn1-val"]'
      cell:  'K10'
  - positive_15_19_male:
-     xpath: 'fbZTFa38f9d-yMpLKZDlcn1-val'
+     xpath: '//input[@id="fbZTFa38f9d-yMpLKZDlcn1-val"]'
      cell:  'M10'
  - positive_20_24_male:
-     xpath: 'juR5EZmHEkV-yMpLKZDlcn1-val'
+     xpath: '//input[@id="juR5EZmHEkV-yMpLKZDlcn1-val"]'
      cell:  'O10'
  - positive_25_29_male:
-     xpath: 'rsQsxQQvN16-yMpLKZDlcn1-val'
+     xpath: '//input[@id="rsQsxQQvN16-yMpLKZDlcn1-val"]'
      cell:  'Q10'
  - positive_30_34_male:
-     xpath: 'yhAdgC5ZQ7v-yMpLKZDlcn1-val'
+     xpath: '//input[@id="yhAdgC5ZQ7v-yMpLKZDlcn1-val"]'
      cell:  'S10'
  - positive_35_39_male:
-     xpath: 'VbqkBKaXzMs-yMpLKZDlcn1-val'
+     xpath: '//input[@id="VbqkBKaXzMs-yMpLKZDlcn1-val"]'
      cell:  'U10'
  - positive_40_44_male:
-     xpath: 'WaurHMeB6XU-yMpLKZDlcn1-val'
+     xpath: '//input[@id="WaurHMeB6XU-yMpLKZDlcn1-val"]'
      cell:  'W10'
  - positive_45_49_male:
-     xpath: 'X3O3m3ZZypK-yMpLKZDlcn1-val'
+     xpath: '//input[@id="X3O3m3ZZypK-yMpLKZDlcn1-val"]'
      cell:  'Y10'
  - positive_50_plus_male:
-     xpath: 'Meco27cYhLa-yMpLKZDlcn1-val'
+     xpath: '//input[@id="Meco27cYhLa-yMpLKZDlcn1-val"]'
      cell:  'AA10'
 
 
  # DSD: HTS_TST (Facility) - PITC Modality: Pediatric Services female (negative)
  - negative_unknown_age_female:
-     xpath: 'RZnfqgFosof-yMpLKZDlcn1-val'
+     xpath: '//input[@id="RZnfqgFosof-yMpLKZDlcn1-val"]'
      cell:  'B12'
  - negative_u_less_1_female:
-     xpath: 'X6YAKyc3YE3-yMpLKZDlcn1-val'
+     xpath: '//input[@id="X6YAKyc3YE3-yMpLKZDlcn1-val"]'
      cell:  'D12'
  - negative_1_4_female:
-     xpath: 'OiDGmZ9XNup-yMpLKZDlcn1-val'
+     xpath: '//input[@id="OiDGmZ9XNup-yMpLKZDlcn1-val"]'
      cell:  'F12'
  - negative_5_9_female:
-     xpath: 'IcLPxht1eI0-yMpLKZDlcn1-val'
+     xpath: '//input[@id="IcLPxht1eI0-yMpLKZDlcn1-val"]'
      cell:  'H12'
  - negative_10_14_female:
-     xpath: 'bRGGOgJ30FM-yMpLKZDlcn1-val'
+     xpath: '//input[@id="bRGGOgJ30FM-yMpLKZDlcn1-val"]'
      cell:  'J12'
  - negative_15_19_female:
-     xpath: 'UWL4mnHExDt-yMpLKZDlcn1-val'
+     xpath: '//input[@id="UWL4mnHExDt-yMpLKZDlcn1-val"]'
      cell:  'L12'
  - negative_20_24_female:
-     xpath: 'U8uZmorQAvS-yMpLKZDlcn1-val'
+     xpath: '//input[@id="U8uZmorQAvS-yMpLKZDlcn1-val"]'
      cell:  'N12'
  - negative_25_29_female:
-     xpath: 'AgOfdnQqRc5-yMpLKZDlcn1-val'
+     xpath: '//input[@id="AgOfdnQqRc5-yMpLKZDlcn1-val"]'
      cell:  'P12'
  - negative_30_34_female:
-     xpath: 'pHZVmgSMRAE-yMpLKZDlcn1-val'
+     xpath: '//input[@id="pHZVmgSMRAE-yMpLKZDlcn1-val"]'
      cell:  'R12'
  - negative_35_39_female:
-     xpath: 'zUrXK2BhD8n-yMpLKZDlcn1-val'
+     xpath: '//input[@id="zUrXK2BhD8n-yMpLKZDlcn1-val"]'
      cell: 'T12'
  - negative_40_44_female:
-     xpath: 'UPCkLpGKaWk-yMpLKZDlcn1-val'
+     xpath: '//input[@id="UPCkLpGKaWk-yMpLKZDlcn1-val"]'
      cell:  'V12'
  - negative_45_49_female:
-     xpath: 'HIPS0mAfGuy-yMpLKZDlcn1-val'
+     xpath: '//input[@id="HIPS0mAfGuy-yMpLKZDlcn1-val"]'
      cell:  'X12'
  - negative_50_plus_female:
-     xpath: 'TN1WcBRGEF7-yMpLKZDlcn1-val'
+     xpath: '//input[@id="TN1WcBRGEF7-yMpLKZDlcn1-val"]'
      cell:  'Z12'
 
 # DSD: HTS_TST (Facility) - PITC Modality: Pediatric Services male (negative)
  - negative_unknown_age_male:
-     xpath: 'vFHgMqRDZ4P-yMpLKZDlcn1-val'
+     xpath: '//input[@id="vFHgMqRDZ4P-yMpLKZDlcn1-val"]'
      cell:  'C12'
  - negative_less_1_male:
-     xpath: 'qogXmuOFiHC-yMpLKZDlcn1-val'
+     xpath: '//input[@id="qogXmuOFiHC-yMpLKZDlcn1-val"]'
      cell:  'E12'
  - negative_1_4_male:
-     xpath: 'fhBDYBpio8Q-yMpLKZDlcn1-val'
+     xpath: '//input[@id="fhBDYBpio8Q-yMpLKZDlcn1-val"]'
      cell:  'G12'
  - negative_5_9_male:
-     xpath: 'bugs6aAhah8-yMpLKZDlcn1-val'
+     xpath: '//input[@id="bugs6aAhah8-yMpLKZDlcn1-val"]'
      cell:  'I12'
  - negative_10_14_male:
-     xpath: 'BIccGEDX6BF-yMpLKZDlcn1-val'
+     xpath: '//input[@id="BIccGEDX6BF-yMpLKZDlcn1-val"]'
      cell:  'K12'
  - negative_15_19_male:
-     xpath: 'xmDebPJEqlB-yMpLKZDlcn1-val'
+     xpath: '//input[@id="xmDebPJEqlB-yMpLKZDlcn1-val"]'
      cell:  'M12'
  - negative_20_24_male:
-     xpath: 'zdMxUm1yL2E-yMpLKZDlcn1-val'
+     xpath: '//input[@id="zdMxUm1yL2E-yMpLKZDlcn1-val"]'
      cell:  'O12'
  - negative_25_29_male:
-     xpath: 'JaksUlGawjN-yMpLKZDlcn1-val'
+     xpath: '//input[@id="JaksUlGawjN-yMpLKZDlcn1-val"]'
      cell:  'Q12'
  - negative_30_34_male:
-     xpath: 'CiIU4apd7dh-yMpLKZDlcn1-val'
+     xpath: '//input[@id="CiIU4apd7dh-yMpLKZDlcn1-val"]'
      cell:  'S12'
  - negative_35_39_male:
-     xpath: 'BuVWhlnokMj-yMpLKZDlcn1-val'
+     xpath: '//input[@id="BuVWhlnokMj-yMpLKZDlcn1-val"]'
      cell: 'U12'
  - negative_40_44_male:
-     xpath: 'y96zUJPopkb-yMpLKZDlcn1-val'
+     xpath: '//input[@id="y96zUJPopkb-yMpLKZDlcn1-val"]'
      cell:  'W12'
  - negative_45_49_male:
-     xpath: 'W0feJI7Jm4a-yMpLKZDlcn1-val'
+     xpath: '//input[@id="W0feJI7Jm4a-yMpLKZDlcn1-val"]'
      cell:  'Y12'
  - negative_50_plus_male:
-     xpath: 'UJEKoCLR4oJ-yMpLKZDlcn1-val'
+     xpath: '//input[@id="UJEKoCLR4oJ-yMpLKZDlcn1-val"]'
      cell:  'AA12'
 
 
  # DSD: HTS_TST (Facility) - PITC Modality: Pediatric Services female (linkege)
  - linkege_unknown_female:
-     xpath: 'KXjKIaeUFRA-yMpLKZDlcn1-val'
+     xpath: '//input[@id="KXjKIaeUFRA-yMpLKZDlcn1-val"]'
      cell:  'B14'
  - linkege_less_1_female:
-     xpath: 'PRxIEPzgKO9-yMpLKZDlcn1-val'
+     xpath: '//input[@id="PRxIEPzgKO9-yMpLKZDlcn1-val"]'
      cell:  'D14'
  - linkege_1_4_female:
-     xpath: 'mKZWxvOBIKq-yMpLKZDlcn1-val'
+     xpath: '//input[@id="mKZWxvOBIKq-yMpLKZDlcn1-val"]'
      cell:  'F14'
  - linkege_5_9_female:
-     xpath: 'ez1jv97HS2v-yMpLKZDlcn1-val'
+     xpath: '//input[@id="ez1jv97HS2v-yMpLKZDlcn1-val"]'
      cell:  'H14'
  - linkege_10_14_female:
-     xpath: 'O5TQ1cbKz3m-yMpLKZDlcn1-val'
+     xpath: '//input[@id="O5TQ1cbKz3m-yMpLKZDlcn1-val"]'
      cell:  'J14'
  - linkege_15_19_female:
-     xpath: 'vipiIC9hjIo-yMpLKZDlcn1-val'
+     xpath: '//input[@id="vipiIC9hjIo-yMpLKZDlcn1-val"]'
      cell:  'L14'
  - linkege_20_24_female:
-     xpath: 'NslnayYTsrz-yMpLKZDlcn1-val'
+     xpath: '//input[@id="NslnayYTsrz-yMpLKZDlcn1-val"]'
      cell:  'N14'
  - linkege_25_29_female:
-     xpath: 'yJ6a3ml4wvi-yMpLKZDlcn1-val'
+     xpath: '//input[@id="yJ6a3ml4wvi-yMpLKZDlcn1-val"]'
      cell:  'P14'
  - linkege_30_34_female:
-     xpath: 'UHrYWlqTDrj-yMpLKZDlcn1-val'
+     xpath: '//input[@id="UHrYWlqTDrj-yMpLKZDlcn1-val"]'
      cell:  'R14'
  - linkege_35_39_female:
-     xpath: 'o02zc9j43Lo-yMpLKZDlcn1-val'
+     xpath: '//input[@id="o02zc9j43Lo-yMpLKZDlcn1-val"]'
      cell: 'T14'
  - linkege_40_44_female:
-     xpath: 'pPfEnaHzrZ3-yMpLKZDlcn1-val'
+     xpath: '//input[@id="pPfEnaHzrZ3-yMpLKZDlcn1-val"]'
      cell:  'V14'
  - linkege_45_49_female:
-     xpath: 'wrlVjgXiMTh-yMpLKZDlcn1-val'
+     xpath: '//input[@id="wrlVjgXiMTh-yMpLKZDlcn1-val"]'
      cell:  'X14'
  - linkege_50_plus_female:
-     xpath: 'gkGj83DK6uk-yMpLKZDlcn1-val'
+     xpath: '//input[@id="gkGj83DK6uk-yMpLKZDlcn1-val"]'
      cell:  'Z14'
 
 # DSD: HTS_TST (Facility) - PITC Modality: Pediatric Services male (linkege)
  - linkege_unknown_male:
-     xpath: 'KagQVAW1MnF-yMpLKZDlcn1-val'
+     xpath: '//input[@id="KagQVAW1MnF-yMpLKZDlcn1-val"]'
      cell:  'C14'
  - linkege_less_1_male:
-     xpath: 'g71Fcg5zSxy-yMpLKZDlcn1-val'
+     xpath: '//input[@id="g71Fcg5zSxy-yMpLKZDlcn1-val"]'
      cell:  'E14'
  - linkege_1_4_male:
-     xpath: 'Q7ysWIagoBh-yMpLKZDlcn1-val'
+     xpath: '//input[@id="Q7ysWIagoBh-yMpLKZDlcn1-val"]'
      cell:  'G14'
  - linkege_5_9_male:
-     xpath: 'cMWlLsMrAhj-yMpLKZDlcn1-val'
+     xpath: '//input[@id="cMWlLsMrAhj-yMpLKZDlcn1-val"]'
      cell:  'I14'
  - linkege_10_14_male:
-     xpath: 'kawcXOmeAMn-yMpLKZDlcn1-val'
+     xpath: '//input[@id="kawcXOmeAMn-yMpLKZDlcn1-val"]'
      cell:  'K14'
  - linkege_15_19_male:
-     xpath: 'gkFliNYhPIB-yMpLKZDlcn1-val'
+     xpath: '//input[@id="gkFliNYhPIB-yMpLKZDlcn1-val"]'
      cell:  'M14'
  - linkege_20_24_male:
-     xpath: 'Lz3B2xhvQNw-yMpLKZDlcn1-val'
+     xpath: '//input[@id="Lz3B2xhvQNw-yMpLKZDlcn1-val"]'
      cell:  'O14'
  - linkege_25_29_male:
-     xpath: 'h5kNvaloqps-yMpLKZDlcn1-val'
+     xpath: '//input[@id="h5kNvaloqps-yMpLKZDlcn1-val"]'
      cell:  'Q14'
  - linkege_30_34_male:
-     xpath: 'PLchUlgefBX-yMpLKZDlcn1-val'
+     xpath: '//input[@id="PLchUlgefBX-yMpLKZDlcn1-val"]'
      cell:  'S14'
  - linkege_35_39_male:
-     xpath: 'Iak4IOerFjC-yMpLKZDlcn1-val'
+     xpath: '//input[@id="Iak4IOerFjC-yMpLKZDlcn1-val"]'
      cell:  'U14'
  - linkege_40_44_male:
-     xpath: 'cYcZPbO0igF-yMpLKZDlcn1-val'
+     xpath: '//input[@id="cYcZPbO0igF-yMpLKZDlcn1-val"]'
      cell:  'W14'
  - linkege_45_49_male:
-     xpath: 'GcVdfFj50zS-yMpLKZDlcn1-val'
+     xpath: '//input[@id="GcVdfFj50zS-yMpLKZDlcn1-val"]'
      cell:  'Y14'
  - linkege_50_plus_male:
-     xpath: 'UPQOhpcjdAd-yMpLKZDlcn1-val'
+     xpath: '//input[@id="UPQOhpcjdAd-yMpLKZDlcn1-val"]'
      cell:  'AA14'
