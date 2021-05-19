@@ -1,248 +1,248 @@
 ATS_PART_A_OTHER_PITC:
  # DSD: HTS_TST (Facility) - PITC Modality: Other PITC female (positive)
  - positive_unknown_female:
-     xpath: 'JILbjxy0DXG-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="JILbjxy0DXG-yMpLKZDlcn1-val"]'
      cell:  'B58'
  - positive_less_1_female:
-     xpath: 'kSyfqnZWuui-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="kSyfqnZWuui-yMpLKZDlcn1-val"]'
      cell:  'D58'
  - positive_1_4_female:
-     xpath: 'y2W60czyya9-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="y2W60czyya9-yMpLKZDlcn1-val"]'
      cell:  'F58'
  - positive_5_9_female:
-     xpath: 'kuhVSANodrh-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="kuhVSANodrh-yMpLKZDlcn1-val"]'
      cell:  'H58'
  - positive_10_14_female:
-     xpath: 'lppqNjhvRBv-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="lppqNjhvRBv-yMpLKZDlcn1-val"]'
      cell:  'J58'
  - positive_15_19_female:
-     xpath: 'avoLkegpkeU-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="avoLkegpkeU-yMpLKZDlcn1-val"]'
      cell:  'L58'
  - positive_20_24_female:
-     xpath: 'LtjaVFslq6s-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="LtjaVFslq6s-yMpLKZDlcn1-val"]'
      cell:  'N58'
  - positive_25_29_female:
-     xpath: 'Fuo3kHPAbSV-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="Fuo3kHPAbSV-yMpLKZDlcn1-val"]'
      cell:  'P58'
  - positive_30_34_female:
-     xpath: 'XX9VvBpejeX-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="XX9VvBpejeX-yMpLKZDlcn1-val"]'
      cell:  'R58'
  - positive_35_39_female:
-     xpath: 'mED2AikIkJR-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="mED2AikIkJR-yMpLKZDlcn1-val"]'
      cell:  'T58'
  - positive_40_44_female:
-     xpath: 'yCUeoF24qCZ-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="yCUeoF24qCZ-yMpLKZDlcn1-val"]'
      cell:  'V58'
  - positive_45_49_female:
-     xpath: 'xNijk4Dk1l2-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="xNijk4Dk1l2-yMpLKZDlcn1-val"]'
      cell:  'X58'
  - positive_50_plus_female:
-     xpath: 'uQpvPstuZKH-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="uQpvPstuZKH-yMpLKZDlcn1-val"]'
      cell:  'Z58'
 
 # DSD: HTS_TST (Facility) - PITC Modality: Other PITC male (positive)
  - positive_unknown_age_male:
-     xpath: 'hiVGd5TRlXC-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="hiVGd5TRlXC-yMpLKZDlcn1-val"]'
      cell:  'C58'
  - positive_less_1_male:
-     xpath: 'LCEt0PmZLV4-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="LCEt0PmZLV4-yMpLKZDlcn1-val"]'
      cell:  'E58'
  - positive_1_4_male:
-     xpath: 'gZftgIcDWp0-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="gZftgIcDWp0-yMpLKZDlcn1-val"]'
      cell:  'G58'
  - positive_5_9_male:
-     xpath: 'wQGoj6VqNhX-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="wQGoj6VqNhX-yMpLKZDlcn1-val"]'
      cell:  'I58'
  - positive_10_14_male:
-     xpath: 'esqQn8iMPK0-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="esqQn8iMPK0-yMpLKZDlcn1-val"]'
      cell:  'K58'
  - positive_15_19_male:
-     xpath: 'REBt0aQWTpY-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="REBt0aQWTpY-yMpLKZDlcn1-val"]'
      cell:  'M58'
  - positive_20_24_male:
-     xpath: 'N1vdX5hk1Yz-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="N1vdX5hk1Yz-yMpLKZDlcn1-val"]'
      cell:  'O58'
  - positive_25_29_male:
-     xpath: 'QLQ53tM4r5x-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="QLQ53tM4r5x-yMpLKZDlcn1-val"]'
      cell:  'Q58'
  - positive_30_34_male:
-     xpath: 'xKsJRTR3woo-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="xKsJRTR3woo-yMpLKZDlcn1-val"]'
      cell:  'S58'
  - positive_35_39_male:
-     xpath: 'tKdjLi2IaFm-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="tKdjLi2IaFm-yMpLKZDlcn1-val"]'
      cell:  'U58'
  - positive_40_44_male:
-     xpath: 'glE2rurWcMr-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="glE2rurWcMr-yMpLKZDlcn1-val"]'
      cell:  'W58'
  - positive_45_49_male:
-     xpath: 'inbuuSt6Uyk-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="inbuuSt6Uyk-yMpLKZDlcn1-val"]'
      cell:  'Y58'
  - positive_50_plus_male:
-     xpath: 'Gr5FJ1ltaB4-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="Gr5FJ1ltaB4-yMpLKZDlcn1-val"]'
      cell:  'AA58'
 
 
  # DSD: HTS_TST (Facility) - PITC Modality: Other PITC female (negative)
  - negative_unknown_age_female:
-     xpath: 'ol7ZQL8HcbK-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="ol7ZQL8HcbK-yMpLKZDlcn1-val"]'
      cell:  'B60'
  - negative_less_1_female:
-     xpath: 'kHg7p8nohxt-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="kHg7p8nohxt-yMpLKZDlcn1-val"]'
      cell:  'D60'
  - negative_1_4_female:
-     xpath: 'YYbnKXugQa6-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="YYbnKXugQa6-yMpLKZDlcn1-val"]'
      cell:  'F60'
  - negative_5_9_female:
-     xpath: 'dY2I9K9H2cu-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="dY2I9K9H2cu-yMpLKZDlcn1-val"]'
      cell:  'H60'
  - negative_10_14_female:
-     xpath: 'i2d1ZUZsjzZ-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="i2d1ZUZsjzZ-yMpLKZDlcn1-val"]'
      cell:  'J60'
  - negative_15_19_female:
-     xpath: 'KdDongSQ9CW-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="KdDongSQ9CW-yMpLKZDlcn1-val"]'
      cell:  'L60'
  - negative_20_24_female:
-     xpath: 'RzWrJovkz9l-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="RzWrJovkz9l-yMpLKZDlcn1-val"]'
      cell:  'N60'
  - negative_25_29_female:
-     xpath: 'sAlNZRoRaqI-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="sAlNZRoRaqI-yMpLKZDlcn1-val"]'
      cell:  'P60'
  - negative_30_34_female:
-     xpath: 'VMwNcM56Kdh-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="VMwNcM56Kdh-yMpLKZDlcn1-val"]'
      cell:  'R60'
  - negative_35_39_female:
-     xpath: 'afSM58Hvklp-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="afSM58Hvklp-yMpLKZDlcn1-val"]'
      cell:  'T60'
  - negative_40_44_female:
-     xpath: 'NEAl0ra1iid-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="NEAl0ra1iid-yMpLKZDlcn1-val"]'
      cell:  'V60'
  - negative_45_49_female:
-     xpath: 'Ceh8KKhd8ZZ-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="Ceh8KKhd8ZZ-yMpLKZDlcn1-val"]'
      cell:  'X60'
  - negative_50_plus_female:
-     xpath: 'eOLcSQOrcmY-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="eOLcSQOrcmY-yMpLKZDlcn1-val"]'
      cell:  'Z60'
 
 # DSD: HTS_TST (Facility) - PITC Modality: Other PITC male (negative)
  - negative_unknown_age_male:
-     xpath: 'aGQ0VXbRQdI-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="aGQ0VXbRQdI-yMpLKZDlcn1-val"]'
      cell:  'C60'
  - negative_less_1_male:
-     xpath: 'C9yH7W17xxe-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="C9yH7W17xxe-yMpLKZDlcn1-val"]'
      cell:  'E60'
  - negative_1_4_male:
-     xpath: 'zXzosYEiJkz-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="zXzosYEiJkz-yMpLKZDlcn1-val"]'
      cell:  'G60'
  - negative_5_9_male:
-     xpath: 'z9KEoz67MBF-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="z9KEoz67MBF-yMpLKZDlcn1-val"]'
      cell:  'I60'
  - negative_10_14_male:
-     xpath: 'gZh9sLdQ7z7-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="gZh9sLdQ7z7-yMpLKZDlcn1-val"]'
      cell:  'K60'
  - negative_15_19_male:
-     xpath: 'jTCSArsTJOq-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="jTCSArsTJOq-yMpLKZDlcn1-val"]'
      cell:  'M60'
  - negative_20_24_male:
-     xpath: 'LjDtGWXwFn5-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="LjDtGWXwFn5-yMpLKZDlcn1-val"]'
      cell:  'O60'
  - negative_25_29_male:
-     xpath: 'aOrYQT84ZwA-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="aOrYQT84ZwA-yMpLKZDlcn1-val"]'
      cell:  'Q60'
  - negative_30_34_male:
-     xpath: 'hpjPfkifqOW-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="hpjPfkifqOW-yMpLKZDlcn1-val"]'
      cell:  'S60'
  - negative_35_39_male:
-     xpath: 'pLwVg61fjyf-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="pLwVg61fjyf-yMpLKZDlcn1-val"]'
      cell:  'U60'
  - negative_40_44_male:
-     xpath: 'S6nC5FSYMvg-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="S6nC5FSYMvg-yMpLKZDlcn1-val"]'
      cell:  'W60'
  - negative_45_49_male:
-     xpath: 'GNrceBsUqjr-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="GNrceBsUqjr-yMpLKZDlcn1-val"]'
      cell:  'Y60'
  - negative_50_plus_male:
-     xpath: 'HXqvvzbhLea-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="HXqvvzbhLea-yMpLKZDlcn1-val"]'
      cell:  'AA60'
 
 
 # DSD: HTS_TST (Facility) - PITC Modality: Other PITC female (linkege)
  - linkege_unknown_age_female:
-     xpath: 'bthYm1rcJ3w-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="bthYm1rcJ3w-yMpLKZDlcn1-val"]'
      cell:  'B62'
  - linkege_less_1_female:
-     xpath: 'EIrFWtXcJey-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="EIrFWtXcJey-yMpLKZDlcn1-val"]'
      cell:  'D62'
  - linkege_1_4_female:
-     xpath: 'CToldYXDtJe-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="CToldYXDtJe-yMpLKZDlcn1-val"]'
      cell:  'F62'
  - linkege_5_9_female:
-     xpath: 'eEk45xeXaul-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="eEk45xeXaul-yMpLKZDlcn1-val"]'
      cell:  'H62'
  - linkege_10_14_female:
-     xpath: 'qZAr3l2Dex2-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="qZAr3l2Dex2-yMpLKZDlcn1-val"]'
      cell:  'J62'
  - linkege_15_19_female:
-     xpath: 'Fo3pJOWSbz5-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="Fo3pJOWSbz5-yMpLKZDlcn1-val"]'
      cell:  'L62'
  - linkege_20_24_female:
-     xpath: 'WxMlcHpFxoN-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="WxMlcHpFxoN-yMpLKZDlcn1-val"]'
      cell:  'N62'
  - linkege_25_29_female:
-     xpath: 'PMnj2Z8f9Gn-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="PMnj2Z8f9Gn-yMpLKZDlcn1-val"]'
      cell:  'P62'
  - linkege_30_34_female:
-     xpath: 'I5FcqorIt3x-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="I5FcqorIt3x-yMpLKZDlcn1-val"]'
      cell:  'R62'
  - linkege_35_39_female:
-     xpath: 'QRX9XtUfP3e-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="QRX9XtUfP3e-yMpLKZDlcn1-val"]'
      cell:  'T62'
  - linkege_40_44_female:
-     xpath: 'YgcJva4BBJF-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="YgcJva4BBJF-yMpLKZDlcn1-val"]'
      cell:  'U62'
  - linkege_45_49_female:
-     xpath: 'APkGyC8rsuI-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="APkGyC8rsuI-yMpLKZDlcn1-val"]'
      cell:  'X62'
  - linkege_50_plus_female:
-     xpath: 'bNBEcLgal7r-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="bNBEcLgal7r-yMpLKZDlcn1-val"]'
      cell:  'Z62'
 
 # DSD: HTS_TST (Facility) - PITC Modality: Other PITC male (linkege)
  - linkege_unknown_age_male:
-     xpath: 'KGzHoMQ9OOd-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="KGzHoMQ9OOd-yMpLKZDlcn1-val"]'
      cell:  'C62'
  - linkege_less_1_male:
-     xpath: 'NJVFJae2KOG-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="NJVFJae2KOG-yMpLKZDlcn1-val"]'
      cell:  'E62'
  - linkege_1_4_male:
-     xpath: 'Kq6icvhpgLH-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="Kq6icvhpgLH-yMpLKZDlcn1-val"]'
      cell:  'G62'
  - linkege_5_9_male:
-     xpath: 'yPWBLiRbYe6-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="yPWBLiRbYe6-yMpLKZDlcn1-val"]'
      cell:  'I62'
  - linkege_10_14_male:
-     xpath: 'mXZ757eledC-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="mXZ757eledC-yMpLKZDlcn1-val"]'
      cell:  'K62'
  - linkege_15_19_male:
-     xpath: 'NrRdfHnotWF-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="NrRdfHnotWF-yMpLKZDlcn1-val"]'
      cell:  'M62'
  - linkege_20_24_male:
-     xpath: 'kXrJM7he9kJ-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="kXrJM7he9kJ-yMpLKZDlcn1-val"]'
      cell:  'O62'
  - linkege_25_29_male:
-     xpath: 'xRnNJdXeV0P-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="xRnNJdXeV0P-yMpLKZDlcn1-val"]'
      cell:  'Q62'
  - linkege_30_34_male:
-     xpath: 'g64pXewjcsO-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="g64pXewjcsO-yMpLKZDlcn1-val"]'
      cell:  'S62'
  - linkege_35_39_male:
-     xpath: 'h3fPcQIUXNt-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="h3fPcQIUXNt-yMpLKZDlcn1-val"]'
      cell: 'V62'
  - linkege_40_44_male:
-     xpath: 'XpALrrwEX7Q-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="XpALrrwEX7Q-yMpLKZDlcn1-val"]'
      cell:  'W62'
  - linkege_45_49_male:
-     xpath: 'DTXXgvwp3X5-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="DTXXgvwp3X5-yMpLKZDlcn1-val"]'
      cell:  'Y62'
  - linkege_50_plus_male:
-     xpath: 'gJvdCzrQDqv-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="gJvdCzrQDqv-yMpLKZDlcn1-val"]'
      cell:  'AA62'

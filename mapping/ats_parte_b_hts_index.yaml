@@ -270,3 +270,205 @@ ATS_PART_B_HTS_INDEX:
  - contacts_tested_50_plus_male:
      xpath: '//input[@id="WGPC8Yh3Xk0-yMpLKZDlcn1-val"]'
      cell:  'N23'
+
+
+
+ # DSD: HTS_TST (Facility) - Newly Tested Positives female
+ - newly_tested_positive_unknown_age_female:
+     xpath: '//input[@id="DmPPp9akTm3-yMpLKZDlcn1-val"]'
+     cell:  'B45'
+ - newly_tested_positive_less_1_female:
+     xpath: '//input[@id="ciDzIh7Ifvi-yMpLKZDlcn1-val"]'
+     cell:  'C45'
+ - newly_tested_positive_1_4_female:
+     xpath: '//input[@id="tASiSzgz13w-yMpLKZDlcn1-val"]'
+     cell:  'D45'
+ - newly_tested_positive_5_9_female:
+     xpath: '//input[@id="WDGfxlfHv8T-yMpLKZDlcn1-val"]'
+     cell:  'E45'
+ - newly_tested_positive_10_14_female:
+     xpath: '//input[@id="opDJPJaP6Q3-yMpLKZDlcn1-val"]'
+     cell:  'F45'
+ - newly_tested_positive_15_19_female:
+     xpath: '//input[@id="RZAO0zgSovE-yMpLKZDlcn1-val"]'
+     cell:  'G45'
+ - newly_tested_positive_20_24_female:
+     xpath: '//input[@id="KZ5qvRwbuHJ-yMpLKZDlcn1-val"]'
+     cell:  'H45'
+ - newly_tested_positive_25_29_female:
+     xpath: '//input[@id="pXxvAMY1uO3-yMpLKZDlcn1-val"]'
+     cell:  'I45'
+ - newly_tested_positive_30_34_female:
+     xpath: '//input[@id="B1UddzXapYQ-yMpLKZDlcn1-val"]'
+     cell:  'J45'
+ - newly_tested_positive_35_39_female:
+     xpath: '//input[@id="Lrx5k0GQeXb-yMpLKZDlcn1-val"]'
+     cell:  'K45'
+ - newly_tested_positive_40_44_female:
+     xpath: '//input[@id="XakDSwKTmtN-yMpLKZDlcn1-val"]'
+     cell:  'L45'
+ - newly_tested_positive_45_49_female:
+     xpath: '//input[@id="sHxxhSw1wIS-yMpLKZDlcn1-val"]'
+     cell:  'M45'
+ - newly_tested_positive_50_plus_female:
+     xpath: '//input[@id="cVRCOlNuHhq-yMpLKZDlcn1-val"]'
+     cell:  'N45'
+
+ # DSD: HTS_TST (Facility) - Newly Tested Positives male
+ - newly_tested_positive_unknown_age_male:
+     xpath: '//input[@id="mua8diVUJNr-yMpLKZDlcn1-val"]'
+     cell:  'B47'
+ - newly_tested_positive_less_1_male:
+     xpath: '//input[@id="yVspUz6Ghub-yMpLKZDlcn1-val"]'
+     cell:  'C47'
+ - newly_tested_positive_1_4_male:
+     xpath: '//input[@id="mULxqxykd0Y-yMpLKZDlcn1-val"]'
+     cell:  'D47'
+ - newly_tested_positive_5_9_male:
+     xpath: '//input[@id="YI3gQ0G68Ur-yMpLKZDlcn1-val"]'
+     cell:  'E47'
+ - newly_tested_positive_10_14_male:
+     xpath: '//input[@id="OeWB9cM5QwV-yMpLKZDlcn1-val"]'
+     cell:  'F47'
+ - newly_tested_positive_15_19_male:
+     xpath: '//input[@id="CwIdANFwfjS-yMpLKZDlcn1-val"]'
+     cell:  'G47'
+ - newly_tested_positive_20_24_male:
+     xpath: '//input[@id="svYGoBsR3cK-yMpLKZDlcn1-val"]'
+     cell:  'H47'
+ - newly_tested_positive_25_29_male:
+     xpath: '//input[@id="jLPDzDuxV3w-yMpLKZDlcn1-val"]'
+     cell:  'I47'
+ - newly_tested_positive_30_34_male:
+     xpath: '//input[@id="bArmunP0a85-yMpLKZDlcn1-val"]'
+     cell:  'J47'
+ - newly_tested_positive_35_39_male:
+     xpath: '//input[@id="NWRfH3EeCpu-yMpLKZDlcn1-val"]'
+     cell:  'K47'
+ - newly_tested_positive_40_44_male:
+     xpath: '//input[@id="DzbSOg4umXJ-yMpLKZDlcn1-val"]'
+     cell:  'L47'
+ - newly_tested_positive_45_49_male:
+     xpath: '//input[@id="lUnHq6P8Bri-yMpLKZDlcn1-val"]'
+     cell:  'M47'
+ - newly_tested_positive_50_plus_male:
+     xpath: '//input[@id="czea8S7lSRt-yMpLKZDlcn1-val"]'
+     cell:  'N47'
+
+
+
+ # DSD: HTS_TST (Facility) - Newly Tested Negatives female
+ - newly_tested_negative_unknown_age_female:
+     xpath: '//input[@id="Dnc7fON5uJ0-yMpLKZDlcn1-val"]'
+     cell:  'B52'
+ - newly_tested_negative_less_1_female:
+     xpath: '//input[@id="uFW0X55FwBs-yMpLKZDlcn1-val"]'
+     cell:  'C52'
+ - newly_tested_negative_1_4_female:
+     xpath: '//input[@id="Zxq37Suy1Q1-yMpLKZDlcn1-val"]'
+     cell:  'D52'
+ - newly_tested_negative_5_9_female:
+     xpath: '//input[@id="PgKMHBDWGNS-yMpLKZDlcn1-val"]'
+     cell:  'E52'
+ - newly_tested_negative_10_14_female:
+     xpath: '//input[@id="mWKbNLF5SZr-yMpLKZDlcn1-val"]'
+     cell:  'F52'
+ - newly_tested_negative_15_19_female:
+     xpath: '//input[@id="qU7tv7ozkn9-yMpLKZDlcn1-val"]'
+     cell:  'G52'
+ - newly_tested_negative_20_24_female:
+     xpath: '//input[@id="yWoSv7TLnF3-yMpLKZDlcn1-val"]'
+     cell:  'H52'
+ - newly_tested_negative_25_29_female:
+     xpath: '//input[@id="NpiN9Qi6OIb-yMpLKZDlcn1-val"]'
+     cell:  'I52'
+ - newly_tested_negative_30_34_female:
+     xpath: '//input[@id="Ko5CvvK4iRx-yMpLKZDlcn1-val"]'
+     cell:  'J52'
+ - newly_tested_negative_35_39_female:
+     xpath: '//input[@id="ckTfgdS9XSy-yMpLKZDlcn1-val"]'
+     cell:  'K52'
+ - newly_tested_negative_40_44_female:
+     xpath: '//input[@id="nnpli0plmVi-yMpLKZDlcn1-val"]'
+     cell:  'L52'
+ - newly_tested_negative_45_49_female:
+     xpath: '//input[@id="Nf6W5BI2AJL-yMpLKZDlcn1-val"]'
+     cell:  'M52'
+ - newly_tested_negative_50_plus_female:
+     xpath: '//input[@id="bCfaJKKXidt-yMpLKZDlcn1-val"]'
+     cell:  'N52'
+
+
+
+# DSD: HTS_TST (Facility) - Newly Tested Negatives male
+ - newly_tested_negative_unknown_age_male:
+     xpath: '//input[@id="MfVArhnGImb-yMpLKZDlcn1-val"]'
+     cell:  'B54'
+ - newly_tested_negative_less_1_male:
+     xpath: '//input[@id="tAkHUEZ008K-yMpLKZDlcn1-val"]'
+     cell:  'C54'
+ - newly_tested_negative_1_4_male:
+     xpath: '//input[@id="Jg9ky8zW4Fn-yMpLKZDlcn1-val"]'
+     cell:  'D54'
+ - newly_tested_negative_5_9_male:
+     xpath: '//input[@id="PQ1PCRxAVZ8-yMpLKZDlcn1-val"]'
+     cell:  'E54'
+ - newly_tested_negative_10_14_male:
+     xpath: '//input[@id="Uqsk4LIvBYf-yMpLKZDlcn1-val"]'
+     cell:  'F54'
+ - newly_tested_negative_15_19_male:
+     xpath: '//input[@id="wZwW2yfBo4Z-yMpLKZDlcn1-val"]'
+     cell:  'G54'
+ - newly_tested_negative_20_24_male:
+     xpath: '//input[@id="b92tukY0hPs-yMpLKZDlcn1-val"]'
+     cell:  'H54'
+ - newly_tested_negative_25_29_male:
+     xpath: '//input[@id="zhN6ONwUI7o-yMpLKZDlcn1-val"]'
+     cell:  'I54'
+ - newly_tested_negative_30_34_male:
+     xpath: '//input[@id="coSSHjRUGq7-yMpLKZDlcn1-val"]'
+     cell:  'J54'
+ - newly_tested_negative_35_39_male:
+     xpath: '//input[@id="RIl9J6BgMK2-yMpLKZDlcn1-val"]'
+     cell:  'K54'
+ - newly_tested_negative_40_44_male:
+     xpath: '//input[@id="i13LVwsInZR-yMpLKZDlcn1-val"]'
+     cell:  'L54'
+ - newly_tested_negative_45_49_male:
+     xpath: '//input[@id="WUUUtA2xNfP-yMpLKZDlcn1-val"]'
+     cell:  'M54'
+ - newly_tested_negative_50_plus_male:
+     xpath: '//input[@id="ucZQSIlOwWB-yMpLKZDlcn1-val"]'
+     cell:  'N54'
+
+# DSD: HTS_TST (Facility) -Disaggregated by key population type / Result: 
+ - newly_disaggregated_by_key_pop_pwid_positive:
+     xpath: '//input[@id="aBtbk6nEl9G-yMpLKZDlcn1-val"]'
+     cell:  'B67'
+ - newly_disaggregated_by_key_pop_pwid_negative:
+     xpath: '//input[@id="kaqXvgcodVn-yMpLKZDlcn1-val"]'
+     cell:  'B69'
+ - newly_disaggregated_by_key_pop_msm_positive:
+     xpath: '//input[@id="kGsyRAwT8K1-yMpLKZDlcn1-val"]'
+     cell:  'E67'
+ - newly_disaggregated_by_key_pop_msm_negative:
+     xpath: '//input[@id="DiPAHwbBlqp-yMpLKZDlcn1-val"]'
+     cell:  'E69'
+ - newly_disaggregated_by_key_pop_transgender_people_positive:
+     xpath: '//input[@id="SDdZZZrzniY-yMpLKZDlcn1-val"]'
+     cell:  'H67'
+ - newly_disaggregated_by_key_pop_transgender_people_negative:
+     xpath: '//input[@id="WYjHRm5ZQwR-yMpLKZDlcn1-val"]'
+     cell:  'H69'
+ - newly_disaggregated_by_key_pop_fsw_positive:
+     xpath: '//input[@id="pOQ2uNqggZ5-yMpLKZDlcn1-val"]'
+     cell:  'K67'
+ - newly_disaggregated_by_key_pop_fsw_negative:
+     xpath: '//input[@id="gecNvZXKBQ3-yMpLKZDlcn1-val"]'
+     cell:  'K69'
+ - newly_disaggregated_by_key_pop_pipolin_prison_positive:
+     xpath: '//input[@id="Zd3NHdcxYZY-yMpLKZDlcn1-val"]'
+     cell:  'N67'
+ - newly_disaggregated_by_key_pop_pipolin_priso_negative:
+     xpath: '//input[@id="jOGjkvqwQqF-yMpLKZDlcn1-val"]'
+     cell:  'N69'
