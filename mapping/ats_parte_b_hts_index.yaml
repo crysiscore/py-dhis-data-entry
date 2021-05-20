@@ -48,7 +48,7 @@ ATS_PART_B_HTS_INDEX:
      xpath: '//input[@id="gH3xT2E44FV-yMpLKZDlcn1-val"]'
      cell:  'C15'
  - index_case_offered_1_4_male:
-     xpath: '//input[@id="OxwTfFUuHc6p-yMpLKZDlcn1-val"]'
+     xpath: '//input[@id="xwTfFUuHc6p-yMpLKZDlcn1-val"]'
      cell:  'D15'
  - index_case_offered_5_9_male:
      xpath: '//input[@id="L6ENFmb2Ox7-yMpLKZDlcn1-val"]'
@@ -86,7 +86,7 @@ ATS_PART_B_HTS_INDEX:
  - index_case_accepted_unknown_age_female:
      xpath: '//input[@id="LOYWxIQkz22-yMpLKZDlcn1-val"]'
      cell:  'B21'
-- index_case_accepted_less_1_female:
+ - index_case_accepted_less_1_female:
      xpath: '//input[@id="wFWX211XEq8-yMpLKZDlcn1-val"]'
      cell:  'C21'
  - index_case_accepted_1_4_female:
@@ -193,7 +193,7 @@ ATS_PART_B_HTS_INDEX:
  - contacts_tested_unknown_age_female:
      xpath: '//input[@id="Fko8VjZBg5L-yMpLKZDlcn1-val"]'
      cell:  'B38'
-- contacts_tested_less_1_female:
+ - contacts_tested_less_1_female:
      xpath: '//input[@id="YkfuVYgAPA4-yMpLKZDlcn1-val"]'
      cell:  'C38'
  - contacts_tested_1_4_female:
@@ -269,7 +269,7 @@ ATS_PART_B_HTS_INDEX:
      cell:  'M40'
  - contacts_tested_50_plus_male:
      xpath: '//input[@id="WGPC8Yh3Xk0-yMpLKZDlcn1-val"]'
-     cell:  'N23'
+     cell:  'N40'
 
 
 

@@ -126,7 +126,7 @@ ATS_PART_A_PEDIATRIC_SERVICE:
 # DSD: HTS_TST (Facility) - PITC Modality: pediatric Services male (negative)
  - negative_unknown_age_male:
      xpath: '//input[@id="RIMvgaxKtQp-yMpLKZDlcn1-val"]'
-     cell:  ''
+     cell:  'C28'
  - negative_less_1_male:
      xpath: '//input[@id="w2J6KJeDEKA-yMpLKZDlcn1-val"]'
      cell:  'E28'

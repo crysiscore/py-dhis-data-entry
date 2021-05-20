@@ -86,7 +86,7 @@ ATS_PART_A_VCT:
  - negative_unknown_age_female:
      xpath: '//input[@id="FJpstKpvERJ-yMpLKZDlcn1-val"]'
      cell:  'B76'
-- negative_less_1_female:
+ - negative_less_1_female:
      xpath: '//input[@id="tsi9zHWAiO1-yMpLKZDlcn1-val"]'
      cell:  'D76'
  - negative_1_4_female:

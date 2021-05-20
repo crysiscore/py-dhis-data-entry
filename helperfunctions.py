@@ -311,4 +311,44 @@ def check_retencao_dsd_template_integrity(active_sheet, log_file ):
            return(False) 
        else:
            return(True)
-      
+
+def check_ats_template_integrity(sheet1,sheet2, log_file ):
+       cell_ref_vct_linkage = sheet1['A78'].value  # must be Linkege
+       cell_ref_vct_sub_total  = sheet1['AA80'].value  # must be  Subtotal   
+       cell_ref_pediatric_services_20_24  = sheet1['N22'].value  # must be 20-24
+       cell_ref_parte_b_elicited  = sheet2['B25'].value  # must be Number of contacts elicited by age/sex
+
+       if cell_ref_vct_linkage.strip() !='Linkege':
+           print(cell_ref_vct_linkage)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula A78 (Sheet1) deve ter o valor:Linkege\n'  )
+           print('Ha um erro no template excell.\n' )
+           print('A celula A78 (Sheet1) deve ter o valor:Linkege\n' )
+           return(False)
+       elif cell_ref_vct_sub_total.strip() !='Subtotal':
+           print(cell_ref_vct_sub_total)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula AA80 (Sheet1) deve ter o valor: Subtotal\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula AA80 (Sheet1) deve ter o valor: Subtotal\n'  )
+           return(False) 
+    
+       elif cell_ref_pediatric_services_20_24.strip() !='20-24' :
+           print(cell_ref_pediatric_services_20_24)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula N22 (Sheet1) deve ter o valor: CCR\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula N22  (Sheet1)deve ter o valor: CCR\n'  )
+           return(False) 
+
+       elif cell_ref_parte_b_elicited.strip() !='Number of contacts elicited by age/sex' :
+           print(cell_ref_parte_b_elicited)
+           log_file.write('Ha um erro no template excell.\n'  )
+           log_file.write('A celula B25 (Sheet2) deve ter o valor: CCR\n'  )
+           print('Ha um erro no template excell.\n'  )
+           print('A celula B25  (Sheet2)deve ter o valor: CCR\n'  )
+           return(False) 
+
+       else:
+           return(True)
+    
