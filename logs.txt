@@ -29,6 +29,7 @@ J40 esta vazia no ficheiro excell.
 K40 esta vazia no ficheiro excell.
 L40 esta vazia no ficheiro excell.
 M40 esta vazia no ficheiro excell.
+N40 esta vazia no ficheiro excell.
 B45 esta vazia no ficheiro excell.
 B47 esta vazia no ficheiro excell.
 B52 esta vazia no ficheiro excell.

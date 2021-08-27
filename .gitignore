@@ -108,5 +108,5 @@ ENV/
 
 # hide dhis credentials
 config/dhis_config.yaml
-
 logs.txt
+drivers/

@@ -317,7 +317,7 @@ def check_ats_template_integrity(sheet1,sheet2, log_file ):
        cell_ref_vct_sub_total  = sheet1['AA64'].value  # must be  Subtotal   
        cell_ref_pediatric_services_20_24  = sheet1['N22'].value  # must be 20-24
        cell_ref_parte_b_elicited  = sheet2['B25'].value  # must be Number of contacts elicited by age/sex
-       #TODO - verificar primeiro se nao e vazio
+
        if(cell_ref_vct_linkage is None or cell_ref_vct_sub_total is None or cell_ref_pediatric_services_20_24 is None  or cell_ref_parte_b_elicited is None ):
             print('Ha um erro no template excell.\n' )
             print('A celula A78 (Sheet1) deve ter o valor:Linkege\n' )

@@ -21,7 +21,7 @@ unidade_sanitaria: magoanine_tenda_psa
 # Periodo
 # ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
 
-periodo: Maio 2021
+periodo: Agosto 2021
 
 # Formularios
 # ['C&T_Resumo de Cuidados e Tratamento', 'PTV-Resumo Mensal de PTV', 'C&T_Relatorio de Retencao e Modelos Diferenciados de Saude','ATS-Resumo Mensal de Aconselhamento e Testagem em Saude']
@@ -39,8 +39,8 @@ sheet_name: Sheet1
 
 # DHIS url
 # default http://mail.ccsaude.org.mz:9090/dhis/
-dhis_url: http://192.168.1.10:5459/dhis/
-
+# dhis_url: http://192.168.1.10:5459/dhis/
+dhis_url: http://mail.ccsaude.org.mz:5459/dhis/
 
 # 
 #sobrescrever os dados existentes (Sim/Nao)

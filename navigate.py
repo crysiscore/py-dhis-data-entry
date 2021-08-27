@@ -10,7 +10,7 @@ from helperfunctions import *
 from openpyxl import load_workbook
 import datetime
 from config.extra_config import *
-from os import chdir
+from os import chdir, system
 import sys
 
 # DHIS/Excell Mapping files
@@ -49,6 +49,7 @@ ats_parte_b_hts_index_full_path           = "mapping/" + indicators_files[17]
 # Windows
 #dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
 # Linux
+
 dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
 
 username = dhis_config['dhis2_username']
@@ -223,13 +224,21 @@ if param_check:
                                  #time.sleep(3)
                             time.sleep(2)
                             now = datetime.datetime.now()
-                            # codificacao correcta de caracteres : problema com acentos
+                            # Codificacao correcta de caracteres : problema com acentos
                             if str(now.year) in period:
                                  select_period(period,chrome_browser)
+                            elif '2020' in period and str(now.year) == '2021':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
+                                  select_period(period,chrome_browser)
+                            elif '2021' in period and str(now.year) == '2022':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                  select_period(period,chrome_browser)   
                             else:
-                                 chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous ear
+                                 # This is less likely to happen
+                                 chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
                                  select_period(period,chrome_browser)
-                                       
+                                 sys.exit('Nao foi possivel processar o periodo')
+
                             time.sleep(3)
                             fill_indicator_elements('ptv_cpn',ptv_file_full_path_full_path,active_sheet,log_file,chrome_browser,override)
 
@@ -271,12 +280,20 @@ if param_check:
                                  #time.sleep(3)
                             time.sleep(2)
                             now = datetime.datetime.now()
-                            # codificacao correcta de caracteres : problema com acentos
+                            # Codificacao correcta de caracteres : problema com acentos
                             if str(now.year) in period:
                                  select_period(period,chrome_browser)
+                            elif '2020' in period and str(now.year) == '2021':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
+                                  select_period(period,chrome_browser)
+                            elif '2021' in period and str(now.year) == '2022':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                  select_period(period,chrome_browser)   
                             else:
+                                 # This is less likely to happen
                                  chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
                                  select_period(period,chrome_browser)
+                                 sys.exit('Nao foi possivel processar o periodo')
                                        
                             time.sleep(3)
                             #indicator_map_file,active_sheet,log_file,browser_webdriver)
@@ -325,12 +342,20 @@ if param_check:
                                  #time.sleep(3)
                             time.sleep(2)
                             now = datetime.datetime.now()
-                            # codificacao correcta de caracteres : problema com acentos
+                            # Codificacao correcta de caracteres : problema com acentos
                             if str(now.year) in period:
                                  select_period(period,chrome_browser)
+                            elif '2020' in period and str(now.year) == '2021':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
+                                  select_period(period,chrome_browser)
+                            elif '2021' in period and str(now.year) == '2022':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                  select_period(period,chrome_browser)   
                             else:
+                                 # This is less likely to happen
                                  chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
                                  select_period(period,chrome_browser)
+                                 sys.exit('Nao foi possivel processar o periodo')
                                        
                             time.sleep(3)
                             #indicator_map_file,active_sheet,log_file,browser_webdriver)
@@ -375,12 +400,20 @@ if param_check:
                                         #time.sleep(3)
                                    time.sleep(2)
                                    now = datetime.datetime.now()
-                                   # codificacao correcta de caracteres : problema com acentos
+                                   # Codificacao correcta de caracteres : problema com acentos
                                    if str(now.year) in period:
                                         select_period(period,chrome_browser)
+                                   elif '2020' in period and str(now.year) == '2021':
+                                        chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
+                                        select_period(period,chrome_browser)
+                                   elif '2021' in period and str(now.year) == '2022':
+                                        chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                        select_period(period,chrome_browser)   
                                    else:
+                                        # This is less likely to happen
                                         chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
                                         select_period(period,chrome_browser)
+                                        sys.exit('Nao foi possivel processar o periodo')
                                              
                                    time.sleep(3)
                                    fill_indicator_elements('ATS_PART_A_EMERGENCY_WARD', ats_parte_a_emergency_ward_full_path ,active_sheet,log_file,chrome_browser,override)
