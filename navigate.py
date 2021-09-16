@@ -344,7 +344,7 @@ if param_check:
                             now = datetime.datetime.now()
                             # Codificacao correcta de caracteres : problema com acentos
                             if str(now.year) in period:
-                                 select_period(period,chrome_browser)
+                                  select_period(period,chrome_browser)
                             elif '2020' in period and str(now.year) == '2021':
                                   chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
                                   select_period(period,chrome_browser)
