@@ -38,24 +38,14 @@ sheet_name: Sheet1
 
 # DHIS url
 # default http://mail.ccsaude.org.mz:9090/dhis/
-dhis_url: http://mail.ccsaude.org.mz:5459/dhis/
-
+dhis_url: http://localhost:8080/dhis-web-commons/security/login.action
+dhis_server_url: http://localhost:8080/
 
 # 
 #sobrescrever os dados existentes (Sim/Nao)
 # configurar Sim apenas se for para subscrever os dados existentes
 override:
 
-##
-# directorio do projecto 
-#default to C:/py-dhis-data-entry
-
-working_dir: C:/py-dhis-data-entry
-
-
-# OS windows otr linux
-os_type: windows
-
 # Tipo de usuario do DHIS > mea , admin
 # default: mea
-user_role: mea
+user_role: admin

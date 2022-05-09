@@ -186,25 +186,42 @@ if param_check:
                  print(osname)
                  # Making a get request
                  if osname == 'Windows':
-                      driver_loc = r'C:/py-dhis-data-entry/drivers'
+                      driver_loc = r'C:/py-dhis-data-entry/drivers/chromedriver.exe'
                       chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
-                      chrome_options = webdriver.ChromeOptions()
-                      chrome_options.add_argument("download.default_directory=C://py-dhis-data-entry//downloads")
+                      # If  chrome driver is not compactible with the browser version then dowload compactible version
+                      driver_conpatible = check_driver_compactibilty(chrome_browser)
+                      if driver_conpatible==False:
+                         chrome_version = chrome_version(chrome_browser)
+                         print('Chrome Version: '+ chrome_version[0:10])
+                         chrome_browser.close()
+                         chrome_browser.quit()
+
+                          # Clean up zombie ChromeDriver
+                         PROCNAME = "chromedriver"
+                         clean_zombie_driver(PROCNAME)
+                         dowload_appropritate_driver(chrome_version[0:10])
+                         chrome_browser = webdriver.Chrome(driver_loc)
+                         
                  elif osname == "Linux":
                       driver_loc = "/usr/bin/chromedriver"
                       #driver_loc = "/home/agnaldo/Git/py-dhis-data-entry/drivers"
                       chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
-                      chrome_options = webdriver.ChromeOptions()
-                      chrome_options.add_argument("download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")    
+                      # If  chrome driver is not compactible with the browser version then dowload compactible version
+                      driver_conpatible = check_driver_compactibilty(chrome_browser)
+                      if driver_conpatible==False:
+                         chrome_version = chrome_version(chrome_browser)
+                         print('Chrome Version: '+ chrome_version[0:10])
+                         chrome_browser.close()
+                         chrome_browser.quit()
+                         # Clean up zombie ChromeDriver
+                         PROCNAME = "chromedriver"
+                         clean_zombie_driver(PROCNAME)
+                         dowload_appropritate_driver(chrome_version[0:10])
+                         chrome_browser = webdriver.Chrome(driver_loc)    
                  else:         
                      sys.exit("Tipo de Sistema operativo nao identificado")
                                   
                  # If  chrome driver is not compactible with the browser version then dowload compactible version
-                 driver_conpatible = check_driver_compactibilty(chrome_browser)
-                 if(driver_conpatible==False):
-                    chrome_version = chrome_version()
-                    print('Chrome Version: '+ chrome_version[0:10])
-                    dowload_appropritate_driver(chrome_browser,chrome_version[0:10])
                  print('Acessando o DHIS em :' + dhis_server_url)
                  chdir(working_dir)
                  if form_name == "PTV-Resumo Mensal de PTV" :

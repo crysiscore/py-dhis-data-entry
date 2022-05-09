@@ -12,6 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import urllib.request
 import zipfile
+import psutil
 
 def open_config_file(filename):
     with open(filename, 'r', encoding='ISO-8859-1') as f:
@@ -367,25 +368,8 @@ def check_ats_template_integrity(sheet1,sheet2, log_file ):
             else:
                 return(True)
 
-def chrome_version():
-
-    osname = platform.system()
-    if osname == 'Windows':
-        installpath1 = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-        installpath2 = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-        if os.path.exists(installpath1):
-            installpath=installpath1
-        elif os.path.exists(installpath2):
-            installpath=installpath2
-        else:
-             return 'unknown'    
-    elif osname == 'Linux':
-        installpath = "/usr/bin/google-chrome"
-    else:
-        raise NotImplemented(f"Unknown OS '{osname}'")
-
-    verstr = os.popen(f"{installpath} --version").read().strip('Google Chrome ').strip()
-    print(verstr)
+def chrome_version(web_driver):
+    verstr = web_driver.capabilities['browserVersion']
     return(verstr)
 
 
@@ -396,18 +380,28 @@ def check_driver_compactibilty(web_driver):
 
     print("BrowserVersion: " +str1[0:str1.find('.')])
     print("DriverVersion: "  +str2[0:str2.find('.')])
-    if str1[0:3] == str2[0:3]: 
+    if str1[0:str1.find('.')] == str2[0:str2.find('.')]: 
        print("Chrome driver compactivel")
-       return (True) 
+       return(True) 
     else:
         print("Chrome driver incopactivel- deve descarregar o chromedriver mais recente.")
         return(False)
 
 def unzip_driver(zip_file,directory_to_extract_to):
   with zipfile.ZipFile(zip_file, 'r') as zip_ref:
-    zip_ref.extractall(directory_to_extract_to)
+      osname = platform.system()
+      if osname == 'Windows':
+          if os.path.exists(directory_to_extract_to +'chromedriver.exe'):
+             print('Removing old chrome driver:' + directory_to_extract_to +'chromedriver.exe')
+             os.remove(directory_to_extract_to +'chromedriver.exe')
+             zip_ref.extractall(directory_to_extract_to)
+      elif osname == 'Linux':
+           if os.path.exists(directory_to_extract_to +'chromedriver'):
+             print('Removing old chrome driver:' + directory_to_extract_to +'chromedriver')
+             os.remove(directory_to_extract_to +'chromedriver.exe')
+             zip_ref.extractall(directory_to_extract_to)
 
-def dowload_appropritate_driver(web_driver, chrome_version):
+def dowload_appropritate_driver(chrome_version):
 
     osname = platform.system()
     # Making a get request
@@ -418,43 +412,57 @@ def dowload_appropritate_driver(web_driver, chrome_version):
         if osname == 'Windows':
             # print response
             print(response.text)
-            print('Ok. Iniciando o download...')
             download_url = 'https://chromedriver.storage.googleapis.com/'+ response.text + '/chromedriver_win32.zip'
             download_default_directory=r'C:/py-dhis-data-entry/downloads'
+            chrome_driver_directory= r'C:/py-dhis-data-entry/drivers/'
             os.chdir(download_default_directory)
-            os.remove('chromedriver_win32.zip')
+            if os.path.exists('chromedriver_win32.zip'):
+                os.remove('chromedriver_win32.zip')
             # Download the file from `url` and save it locally under `file_name`:
+            print('Ok. Iniciando o download: '+ download_url )
             with urllib.request.urlopen(download_url) as response, open('chromedriver_win32.zip', 'wb') as out_file:
                 data = response.read() # a `bytes` object
                 out_file.write(data)
             if os.path.exists('chromedriver_win32.zip'):
                 unzip_driver('chromedriver_win32.zip',chrome_driver_directory)
                 print('Download finished: chromedriver_win32.zip')
+                return(True)
             else:
                 sys.exit('Download falhou!!! deve baixar manualmente o driver do Chrome em : https://chromedriver.chromium.org/downloads ')
+
         elif osname == 'Linux':
             # print response
             print(response.text)
-            print('Ok. Iniciando o download...')
             download_url = 'https://chromedriver.storage.googleapis.com/'+ response.text + '/chromedriver_linux64.zip'
             download_default_directory='/home/agnaldo/Git/py-dhis-data-entry/downloads'
-            chrome_driver_directory='/home/agnaldo/Git/py-dhis-data-entry/drivers'
+            chrome_driver_directory='/usr/bin/'
             os.chdir(download_default_directory)
-            os.remove('chromedriver_linux64.zip')
+            if os.path.exists('chromedriver_win32.zip'):
+                os.remove('chromedriver_linux64.zip')
             # Download the file from `url` and save it locally under `file_name`:
+            print('Ok. Iniciando o download: '+ download_url )
             with urllib.request.urlopen(download_url) as response, open('chromedriver_linux64.zip', 'wb') as out_file:
                 data = response.read() # a `bytes` object
                 out_file.write(data)
             if os.path.exists('chromedriver_linux64.zip'):
                 unzip_driver('chromedriver_linux64.zip',chrome_driver_directory)
                 print('Download finished: chromedriver_linux64.zip')
+                return(True)
             else:
                 sys.exit('Download falhou!!! deve baixar manualmente o driver do Chrome em : https://chromedriver.chromium.org/downloads ') 
 
         else:
             raise NotImplemented(f"Unknown OS '{osname}'")
+            sys.exit(f"Unknown OS '{osname}'")
+
     elif response.status_code == 404:
         sys.exit('Not Found! Nao foi possivel encontrar o driver compactivel.. deve baixar manualmente em https://chromedriver.chromium.org/downloads')    
     else:
         sys.exit('Nao foi possivel encontrar o driver compactivel.. deve baixar manualmente em https://chromedriver.chromium.org/downloads')
     
+def clean_zombie_driver(drive_name):
+    # Clean up zombie ChromeDriver
+    for proc in psutil.process_iter():
+         # check whether the process name matches
+         if proc.name() == drive_name:
+            proc.kill()
