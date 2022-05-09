@@ -110,3 +110,4 @@ ENV/
 config/dhis_config.yaml
 logs.txt
 drivers/
+downloads/

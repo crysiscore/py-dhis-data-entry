@@ -13,5 +13,6 @@ This is a python tool to import excell data into CCS DHIS forms.
 <ul wfd-id="162">
 <li wfd-id="171">pyselenium</li>
 <li wfd-id="170">openpyxl</li>
-  <li wfd-id="170">pyyaml</li>
+<li wfd-id="172">pyyaml</li>
+<li wfd-id="173"> requests</li>
 </ul>

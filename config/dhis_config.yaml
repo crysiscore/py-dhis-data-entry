@@ -1,12 +1,12 @@
 # dhis2 credentials
-dhis2_username: Agnaldo.Samuel
+dhis2_username: Agnaldo.Samuel  
 dhis2_password: MysticHigh2020!
 
 
 # Parametrizacao 
 #  ['Kamaxakeni', 'Kampfumu', 'Kamubukwana', 'Kanyaka', 'Katembe', 'Nlhamankulu','Kamavota']
 #  Escolha o distrito
-distrito: Kamubukwana
+distrito: Kamavota
 
 
 #  [ '1_de_junho_cs', 'albasine_cs', 'hulene_psa', 'mavalane_cs', 'mavalane_hg', 'pescadores_ps','romao_psa', '1_de_maio_cs',
@@ -16,23 +16,23 @@ distrito: Kamubukwana
 #  'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 
 # Escolha a US
-unidade_sanitaria: magoanine_tenda_psa
+unidade_sanitaria: albasine_cs
 
 # Periodo
 # ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
 
-periodo: Agosto 2021
+periodo: 'Dezembro 2021'
 
 # Formularios
 # ['C&T_Resumo de Cuidados e Tratamento', 'PTV-Resumo Mensal de PTV', 'C&T_Relatorio de Retencao e Modelos Diferenciados de Saude','ATS-Resumo Mensal de Aconselhamento e Testagem em Saude']
 
-formulario: 'ATS-Resumo Mensal de Aconselhamento e Testagem em Saude'
-#formulario: 'C&T_Resumo de Cuidados e Tratamento'
+#formulario: 'ATS-Resumo Mensal de Aconselhamento e Testagem em Saude'
+formulario: 'C&T_Resumo de Cuidados e Tratamento'
 
 # Location do excell
 # default : entro da pasta C:\py-dhis-data-entry\data\ 
 #excell_location: 'ptv_janeiro_zimpeto.xlsx'
-excell_location: 'ats_maio_zimpeto.xlsx'
+excell_location: 'ct_dhis_actualizado.xlsx'
 # nome da planilha 
 sheet_name: Sheet1
 
@@ -40,8 +40,8 @@ sheet_name: Sheet1
 # DHIS url
 # default http://mail.ccsaude.org.mz:9090/dhis/
 # dhis_url: http://192.168.1.10:5459/dhis/
-dhis_url: http://mail.ccsaude.org.mz:5459/dhis/
-
+dhis_url: http://localhost:8080/dhis-web-commons/security/login.action
+dhis_server_url: http://localhost:8080/
 # 
 #sobrescrever os dados existentes (Sim/Nao)
 # configurar Sim apenas se for para subscrever os dados existentes

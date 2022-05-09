@@ -12,6 +12,7 @@ import datetime
 from config.extra_config import *
 from os import chdir, system
 import sys
+import platform
 
 # DHIS/Excell Mapping files
 indicators_files =['tb_prev.yaml','tx_tb.yaml','tx_rtt.yaml','tx_new.yaml','tx_ml.yaml','tx_curr.yaml',
@@ -49,27 +50,27 @@ ats_parte_b_hts_index_full_path           = "mapping/" + indicators_files[17]
 # Windows
 #dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
 # Linux
-
 dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
 
 username = dhis_config['dhis2_username']
 password = dhis_config['dhis2_password']
 district = dhis_config['distrito']
-us_name = dhis_config['unidade_sanitaria']
-period = dhis_config['periodo']
+us_name  = dhis_config['unidade_sanitaria']
+period   = dhis_config['periodo']
 
+
+# Portuguese character enconding to UTF-8
 if period[0:3] == "Mar":
-     #coded_period= period.encode('latin-1')
-     #decoded_period = coded_period.decode('utf-8')
      print(period)
      period = period.encode('ISO-8859-1')
      period = period.decode('utf-8')
-     # Print('o Periodo e %s', temp.decode('utf-8') )
      print('o Periodo e %s', period )
 
+# Read parameter from config file
 form_name = dhis_config['formulario']
 excell_location = dhis_config['excell_location']
 dhis_url = dhis_config['dhis_url']
+dhis_server_url = dhis_config['dhis_server_url']
 sheet_name = dhis_config['sheet_name']
 override = dhis_config['override']
 working_dir = dhis_config['working_dir']
@@ -78,7 +79,7 @@ user_role = dhis_config['user_role']
 param_check =True
 
 
-# TODO check if dir exists
+# TODO check if dir exists 
 chdir(working_dir)
 list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name,override]
 
@@ -175,24 +176,36 @@ if param_check:
         if check_us_in_district(us_name,district ):
              print("%s was found in %s ..." %(us_name,district))
              workbook = load_workbook('data/'+ excell_location)
-               # grab the active worksheet
+             # grab the active worksheet
              if sheet_name in workbook.sheetnames:
-                  active_sheet = workbook[sheet_name]
-                  # Open chrome browser - Chrome options
-                  #driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
-                  if os_type == "linux":
-                        driver_loc = "/usr/bin/chromedriver"
-                  else:
-                        driver_loc = "C:/py-dhis-data-entry/drivers/chromedriver.exe"
-                       
-                  #chrome_options = webdriver.ChromeOptions()
+                 active_sheet = workbook[sheet_name]
 
-                  # default_directory  must be a configurable parameter, and thus should be written to a file
-                  #chrome_options.add_argument(
-                  #    "download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")
-                  chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
-                  #
-                  if   form_name == "PTV-Resumo Mensal de PTV" :
+                 # Open chrome browser - Chrome options
+                 osname = platform.system()
+                 print(osname)
+                 # Making a get request
+                 if osname == 'Windows':
+                      driver_loc = r'C:/py-dhis-data-entry/drivers'
+                      chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
+                      chrome_options = webdriver.ChromeOptions()
+                      chrome_options.add_argument("download.default_directory=C://py-dhis-data-entry//downloads")
+                 elif osname == "Linux":
+                      driver_loc = "/usr/bin/chromedriver"
+                      chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
+                      chrome_options = webdriver.ChromeOptions()
+                      chrome_options.add_argument("download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")    
+                 else:         
+                     sys.exit("Tipo de Sistema operativo nao identificado")
+                                  
+                 # If  chrome driver is not compactible with the browser version then dowload compactible version
+                 driver_conpatible = check_driver_compactibilty(chrome_browser)
+                 if(driver_conpatible==False):
+                    chrome_version = chrome_version()
+                    print('Chrome Version: '+ chrome_version[0:10])
+                    dowload_appropritate_driver(chrome_browser,chrome_version[0:10])
+
+                 sys.exit("driver version")
+                 if   form_name == "PTV-Resumo Mensal de PTV" :
                        if check_ptv_template_integrity(active_sheet,log_file):
                             chrome_browser.get(dhis_url)
                             time.sleep(7)
@@ -201,7 +214,7 @@ if param_check:
                             chrome_browser.find_element_by_id("submit").click()
 
                             time.sleep(15)
-                            chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                            chrome_browser.get(dhis_server_url + 'dhis-web-dataentry/index.action')
                             #tempo para a pagina terminar de carregar
                             time.sleep(10)
                             wait = WebDriverWait(chrome_browser, 15)
@@ -212,7 +225,7 @@ if param_check:
                                  expand_province_tree('Cidade De Maputo',chrome_browser)
                                  expand_district_tree(district,chrome_browser)
                                  select_province(us_name, chrome_browser)
-                                 #time.sleep(4)
+                                 time.sleep(2)
                                  select_form(form_name,chrome_browser)
                                  #time.sleep(3)
                             else:
@@ -225,14 +238,23 @@ if param_check:
                             time.sleep(2)
                             now = datetime.datetime.now()
                             # Codificacao correcta de caracteres : problema com acentos
+            
                             if str(now.year) in period:
                                  select_period(period,chrome_browser)
                             elif '2020' in period and str(now.year) == '2021':
                                   chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
                                   select_period(period,chrome_browser)
+                            elif '2020' in period and str(now.year) == '2022': ## click prev button twice
+                                  chrome_browser.find_element_by_id("prevButton").click() 
+                                  time.sleep(1)
+                                  chrome_browser.find_element_by_id("prevButton").click() 
+                                  select_period(period,chrome_browser)
                             elif '2021' in period and str(now.year) == '2022':
                                   chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
                                   select_period(period,chrome_browser)   
+                            elif '2022' in period and str(now.year) == '2023':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                  select_period(period,chrome_browser)       
                             else:
                                  # This is less likely to happen
                                  chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
@@ -245,10 +267,8 @@ if param_check:
                        else:
                              print('Verifique os problemas acima' )
                              log_file.write('Verifique os problemas acima' )
-                             sys.exit('Verifique os problemas acima' )  
-                       
-                       #exccutar_validacao(chrome_browser)
-                  elif form_name == "C&T_Resumo de Cuidados e Tratamento" :
+                             sys.exit('Verifique os problemas acima' )                                           
+                 elif form_name == "C&T_Resumo de Cuidados e Tratamento" :
                        if check_ct_template_integrity(active_sheet,log_file):
                             chrome_browser.get(dhis_url)
                             time.sleep(7)
@@ -257,7 +277,7 @@ if param_check:
                             chrome_browser.find_element_by_id("submit").click()
 
                             time.sleep(15)
-                            chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                            chrome_browser.get(dhis_server_url + 'dhis-web-dataentry/index.action')
                             #tempo para a pagina terminar de carregar
                             time.sleep(10)
                             wait = WebDriverWait(chrome_browser, 15)
@@ -286,9 +306,17 @@ if param_check:
                             elif '2020' in period and str(now.year) == '2021':
                                   chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
                                   select_period(period,chrome_browser)
+                            elif '2020' in period and str(now.year) == '2022': ## click prev button twice
+                                  chrome_browser.find_element_by_id("prevButton").click() 
+                                  time.sleep(1)
+                                  chrome_browser.find_element_by_id("prevButton").click() 
+                                  select_period(period,chrome_browser)
                             elif '2021' in period and str(now.year) == '2022':
                                   chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
                                   select_period(period,chrome_browser)   
+                            elif '2022' in period and str(now.year) == '2023':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                  select_period(period,chrome_browser)         
                             else:
                                  # This is less likely to happen
                                  chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
@@ -311,7 +339,7 @@ if param_check:
                             print('Verifique os problemas acima' )
                             log_file.write('Verifique os problemas acima' )
                             sys.exit('Verifique os problemas acima' )  
-                  elif form_name == "C&T_Relatorio de Retencao e Modelos Diferenciados de Saude":
+                 elif form_name == "C&T_Relatorio de Retencao e Modelos Diferenciados de Saude":
                        if check_retencao_dsd_template_integrity(active_sheet, log_file):
                             chrome_browser.get(dhis_url)
                             time.sleep(7)
@@ -319,7 +347,7 @@ if param_check:
                             chrome_browser.find_element_by_id("j_password").send_keys(password)
                             chrome_browser.find_element_by_id("submit").click()
                             time.sleep(15)
-                            chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                            chrome_browser.get(dhis_server_url + 'dhis-web-dataentry/index.action')
                             #tempo para a pagina terminar de carregar
                             time.sleep(10)
                             wait = WebDriverWait(chrome_browser, 15)
@@ -342,15 +370,23 @@ if param_check:
                                  #time.sleep(3)
                             time.sleep(2)
                             now = datetime.datetime.now()
-                            # Codificacao correcta de caracteres : problema com acentos
+                             # Codificacao correcta de caracteres : problema com acentos
                             if str(now.year) in period:
-                                  select_period(period,chrome_browser)
+                                 select_period(period,chrome_browser)
                             elif '2020' in period and str(now.year) == '2021':
                                   chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
+                                  select_period(period,chrome_browser)
+                            elif '2020' in period and str(now.year) == '2022': ## click prev button twice
+                                  chrome_browser.find_element_by_id("prevButton").click() 
+                                  time.sleep(1)
+                                  chrome_browser.find_element_by_id("prevButton").click() 
                                   select_period(period,chrome_browser)
                             elif '2021' in period and str(now.year) == '2022':
                                   chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
                                   select_period(period,chrome_browser)   
+                            elif '2022' in period and str(now.year) == '2023':
+                                  chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                  select_period(period,chrome_browser)       
                             else:
                                  # This is less likely to happen
                                  chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
@@ -366,7 +402,7 @@ if param_check:
                              print('Verifique os problemas acima' )
                              log_file.write('Verifique os problemas acima' )
                              sys.exit('Verifique os problemas acima' )  
-                  elif form_name == "ATS-Resumo Mensal de Aconselhamento e Testagem em Saude" :
+                 elif form_name == "ATS-Resumo Mensal de Aconselhamento e Testagem em Saude" :
                          #print(workbook.sheetnames)
                          if "Sheet2" in workbook.sheetnames: # ATS Excell template must have 2 sheets  (part A and part B)
                               active_sheet_2 = workbook["Sheet2"]
@@ -377,7 +413,7 @@ if param_check:
                                    chrome_browser.find_element_by_id("j_password").send_keys(password)
                                    chrome_browser.find_element_by_id("submit").click()
                                    time.sleep(15)
-                                   chrome_browser.get(dhis_url + 'dhis-web-dataentry/index.action')
+                                   chrome_browser.get(dhis_server_url + 'dhis-web-dataentry/index.action')
                                    #tempo para a pagina terminar de carregar
                                    time.sleep(10)
                                    wait = WebDriverWait(chrome_browser, 15)
@@ -400,15 +436,23 @@ if param_check:
                                         #time.sleep(3)
                                    time.sleep(2)
                                    now = datetime.datetime.now()
-                                   # Codificacao correcta de caracteres : problema com acentos
+                                     # Codificacao correcta de caracteres : problema com acentos
                                    if str(now.year) in period:
                                         select_period(period,chrome_browser)
                                    elif '2020' in period and str(now.year) == '2021':
                                         chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year
                                         select_period(period,chrome_browser)
+                                   elif '2020' in period and str(now.year) == '2022': ## click prev button twice
+                                        chrome_browser.find_element_by_id("prevButton").click() 
+                                        time.sleep(1)
+                                        chrome_browser.find_element_by_id("prevButton").click() 
+                                        select_period(period,chrome_browser)
                                    elif '2021' in period and str(now.year) == '2022':
                                         chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
                                         select_period(period,chrome_browser)   
+                                   elif '2022' in period and str(now.year) == '2023':
+                                        chrome_browser.find_element_by_id("prevButton").click() # prevButton for the previous year  
+                                        select_period(period,chrome_browser)          
                                    else:
                                         # This is less likely to happen
                                         chrome_browser.find_element_by_id("nextButton").click() # prevButton for the previous year
@@ -445,9 +489,7 @@ if param_check:
             log_file.write("Erro: A unidade sanitaria: %s nao pertence ao distrito  %s no dhis.\n:"  % ( us_name, district ) )
             log_file.write("Verifique as configuracoes  dhis_config.yaml e tente novamente.\n")
             sys.exit("Erro inesperado!! verifique os logs")
-             #ler o ficheiro com dados
-      
-                        
+                 
     except FileNotFoundError as fe:
              print("Erro: Ficheiro nao encontrado ( %s ) "  % excell_location)
              print(fe.args)
