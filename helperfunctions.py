@@ -92,15 +92,16 @@ def check_us_in_district(us_name,district_name):
                 return(False)
     return(found)       
 
- 
 def select_form(form_name, browser_webdriver ):
-     #select_form_box_element = browser_webdriver.find_element_by_xpath("//*[@id='selectedDataSetId']")
+      #select_form_box_element = browser_webdriver.find_element_by_xpath("//*[@id='selectedDataSetId']")
      #select_form_box_element.click()
      #form_name ='C&T_Resumo de Cuidados e Tratamento'
      xpath = "//select[@name='selectedDataSetId']/option[text()=" + "'" + form_name + "' ]"
+     print(xpath)
      #print(xpath)
      wait = WebDriverWait(browser_webdriver, 10)
      #expand_prov_tree = browser_webdriver.find_element_by_xpath("//li[@id='orgUnitebcn8hWYrg3']/span/img")
+     browser_webdriver.refresh()
      form_element =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))  
      #form_element = browser_webdriver.find_element_by_xpath(xpath).click()
      form_element.click()
