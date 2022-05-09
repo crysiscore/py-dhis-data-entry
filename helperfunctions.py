@@ -393,8 +393,9 @@ def check_driver_compactibilty(web_driver):
     
     str1 = web_driver.capabilities['browserVersion']
     str2 = web_driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0]
-    print("BrowserVersion: " +str1[0:3])
-    print("DriverVersion: "  +str2[0:3])
+
+    print("BrowserVersion: " +str1[0:str1.find('.')])
+    print("DriverVersion: "  +str2[0:str2.find('.')])
     if str1[0:3] == str2[0:3]: 
        print("Chrome driver compactivel")
        return (True) 

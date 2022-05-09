@@ -16,12 +16,12 @@ distrito: Kamavota
 #  'chamanculo_hg','jose_macamo_cs','jose_macamo_HG','xipamanine_csurb']
 
 # Escolha a US
-unidade_sanitaria: albasine_cs
+unidade_sanitaria: pescadores_ps
 
 # Periodo
 # ['Novembro 2020', 'Dezembro 2020','Janeiro 2021','Fevereiro 2021','Março 2021','Abril 2021','Maio 2021','Junho 2021','Julho 2021','Agosto 2021','Setembro 2021']
 
-periodo: 'Dezembro 2021'
+periodo: 'Janeiro 2022'
 
 # Formularios
 # ['C&T_Resumo de Cuidados e Tratamento', 'PTV-Resumo Mensal de PTV', 'C&T_Relatorio de Retencao e Modelos Diferenciados de Saude','ATS-Resumo Mensal de Aconselhamento e Testagem em Saude']
@@ -46,16 +46,6 @@ dhis_server_url: http://localhost:8080/
 #sobrescrever os dados existentes (Sim/Nao)
 # configurar Sim apenas se for para subscrever os dados existentes
 override : Nao
-
-##
-# directorio do projecto 
-#default to C:/py-dhis-data-entry
-
-working_dir: /home/agnaldo/Git/py-dhis-data-entry
-
-# OS windows otr linux
-os_type: linux
-
 
 # Tipo de usuario do DHIS > mea , admin
 # default: admin

@@ -46,26 +46,33 @@ ats_parte_a_vct_full_path                 = "mapping/" + indicators_files[16]
 ats_parte_b_hts_index_full_path           = "mapping/" + indicators_files[17]
 
 
-# Read dhis2 dhis_config.yaml  ( Uncoment the following lines if run on windows or linux)
-# Windows
-#dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
-# Linux
-dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
+# Read dhis2 dhis_config.yaml 
+osname = platform.system()
+print(osname)
+if osname == 'Windows':
+    dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
+    working_dir = r'C:/py-dhis-data-entry/'
+    data_dir = r'C:/py-dhis-data-entry/data'
+elif osname == 'Linux':
+    dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
+    working_dir = '/home/agnaldo/Git/py-dhis-data-entry'
+    data_dir = '/home/agnaldo/Git/py-dhis-data-entry/data'
+else:
+    raise NotImplemented(f"Unknown OS '{osname}'")
+    sys.exit(f"Unknown OS '{osname}'")
 
+chdir(working_dir)
 username = dhis_config['dhis2_username']
 password = dhis_config['dhis2_password']
 district = dhis_config['distrito']
 us_name  = dhis_config['unidade_sanitaria']
 period   = dhis_config['periodo']
-
-
 # Portuguese character enconding to UTF-8
 if period[0:3] == "Mar":
-     print(period)
-     period = period.encode('ISO-8859-1')
-     period = period.decode('utf-8')
-     print('o Periodo e %s', period )
-
+    print(period)
+    period = period.encode('ISO-8859-1')
+    period = period.decode('utf-8')
+    print('o Periodo e %s', period )
 # Read parameter from config file
 form_name = dhis_config['formulario']
 excell_location = dhis_config['excell_location']
@@ -73,19 +80,13 @@ dhis_url = dhis_config['dhis_url']
 dhis_server_url = dhis_config['dhis_server_url']
 sheet_name = dhis_config['sheet_name']
 override = dhis_config['override']
-working_dir = dhis_config['working_dir']
-os_type = dhis_config['os_type']
 user_role = dhis_config['user_role']
 param_check =True
 
-
-# TODO check if dir exists 
-chdir(working_dir)
 list_config = [username,password,district,us_name,period,form_name,excell_location,dhis_url,sheet_name,override]
 
 
-# Open Log file
-# (same directory) in append mode and 
+# Open Log file: (same directory) in append mode and 
 log_file = open("logs.txt","a+") 
 log_file.truncate(0)
 log_file.seek(0)
@@ -174,7 +175,7 @@ if param_check:
     try:
         # verifica se a us pertence ao devido distrito
         if check_us_in_district(us_name,district ):
-             print("%s was found in %s ..." %(us_name,district))
+             print("%s encontrado no distrito:  %s ..." %(us_name,district))
              workbook = load_workbook('data/'+ excell_location)
              # grab the active worksheet
              if sheet_name in workbook.sheetnames:
@@ -191,6 +192,7 @@ if param_check:
                       chrome_options.add_argument("download.default_directory=C://py-dhis-data-entry//downloads")
                  elif osname == "Linux":
                       driver_loc = "/usr/bin/chromedriver"
+                      #driver_loc = "/home/agnaldo/Git/py-dhis-data-entry/drivers"
                       chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
                       chrome_options = webdriver.ChromeOptions()
                       chrome_options.add_argument("download.default_directory=/home/agnaldo/Git/py-dhis-data-entry/downloads")    
@@ -203,9 +205,9 @@ if param_check:
                     chrome_version = chrome_version()
                     print('Chrome Version: '+ chrome_version[0:10])
                     dowload_appropritate_driver(chrome_browser,chrome_version[0:10])
-
-                 sys.exit("driver version")
-                 if   form_name == "PTV-Resumo Mensal de PTV" :
+                 print('Acessando o DHIS em :' + dhis_server_url)
+                 chdir(working_dir)
+                 if form_name == "PTV-Resumo Mensal de PTV" :
                        if check_ptv_template_integrity(active_sheet,log_file):
                             chrome_browser.get(dhis_url)
                             time.sleep(7)
