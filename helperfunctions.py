@@ -397,7 +397,7 @@ def dowload_appropritate_driver(chrome_version):
 
     osname = platform.system()
     # Making a get request
-    print('Baixando a versao compactivel do driver chrome...')
+    print('Baixando a versao compactivel do chrome driver ...')
     response = requests.get( 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE_'+chrome_version )
     # 200 ok 
     if response.status_code==200:
