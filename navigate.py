@@ -187,21 +187,28 @@ if param_check:
                  # Making a get request
                  if osname == 'Windows':
                       driver_loc = r'C:/py-dhis-data-entry/drivers/chromedriver.exe'
-                      chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
-                      # If  chrome driver is not compactible with the browser version then dowload compactible version
-                      driver_conpatible = check_driver_compactibilty(chrome_browser)
-                      if driver_conpatible==False:
-                         chrome_version = chrome_version(chrome_browser)
-                         print('Chrome Version: '+ chrome_version[0:10])
-                         chrome_browser.close()
-                         chrome_browser.quit()
 
-                          # Clean up zombie ChromeDriver
-                         PROCNAME = "chromedriver"
-                         clean_zombie_driver(PROCNAME)
-                         dowload_appropritate_driver(chrome_version[0:10])
-                         chrome_browser = webdriver.Chrome(driver_loc)
-                         
+                      if os.path.isfile(driver_loc): 
+                            chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
+                            # If  chrome driver is not compactible with the browser version then dowload compactible version
+                            driver_conpatible = check_driver_compactibilty(chrome_browser)
+                            if driver_conpatible==False:
+                                 chrome_version = chrome_version(chrome_browser)
+                                 print('Chrome Version: '+ chrome_version[0:10])
+                                 chrome_browser.close()
+                                 chrome_browser.quit()
+                                 # Clean up zombie ChromeDriver
+                                 PROCNAME = "chromedriver"
+                                 clean_zombie_driver(PROCNAME)
+                                 dowload_appropritate_driver(chrome_version[0:10])
+                                 chrome_browser = webdriver.Chrome(driver_loc)
+                      else:
+                            #Clean up zombie ChromeDriver
+                            PROCNAME = "chromedriver"
+                            clean_zombie_driver(PROCNAME)
+                            dowload_appropritate_driver(chrome_version[0:10])
+                            chrome_browser = webdriver.Chrome(driver_loc)
+
                  elif osname == "Linux":
                       driver_loc = "/usr/bin/chromedriver"
                       #driver_loc = "/home/agnaldo/Git/py-dhis-data-entry/drivers"
@@ -248,7 +255,7 @@ if param_check:
                                  select_form(form_name,chrome_browser)
                                  #time.sleep(3)
                             else:
-                                 expand_district_tree(district,chrome_browser)
+                                 #expand_district_tree(district,chrome_browser)
                                  #time.sleep(4)
                                  select_province(us_name, chrome_browser)
                                  #time.sleep(4)
@@ -311,7 +318,7 @@ if param_check:
                                  select_form(form_name,chrome_browser)
                                  #time.sleep(3)
                             else:
-                                 expand_district_tree(district,chrome_browser)
+                                 #expand_district_tree(district,chrome_browser)
                                  #time.sleep(4)
                                  select_province(us_name, chrome_browser)
                                  #time.sleep(4)
@@ -381,7 +388,7 @@ if param_check:
                                  select_form(form_name,chrome_browser)
                                  #time.sleep(3)
                             else:
-                                 expand_district_tree(district,chrome_browser)
+                                 #expand_district_tree(district,chrome_browser)
                                  #time.sleep(4)
                                  select_province(us_name, chrome_browser)
                                  #time.sleep(4)
@@ -447,7 +454,7 @@ if param_check:
                                         select_form(form_name,chrome_browser)
                                         #time.sleep(3)
                                    else:
-                                        expand_district_tree(district,chrome_browser)
+                                        #expand_district_tree(district,chrome_browser)
                                         #time.sleep(4)
                                         select_province(us_name, chrome_browser)
                                         #time.sleep(4)

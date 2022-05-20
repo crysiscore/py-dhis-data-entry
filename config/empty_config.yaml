@@ -38,8 +38,8 @@ sheet_name: Sheet1
 
 # DHIS url
 # default http://mail.ccsaude.org.mz:9090/dhis/
-dhis_url: http://localhost:8080/dhis-web-commons/security/login.action
-dhis_server_url: http://localhost:8080/
+dhis_url: https://mail.ccsaude.org.mz:5459/dhis-web-dashboard/#/
+dhis_server_url: https://mail.ccsaude.org.mz:5459/
 
 # 
 #sobrescrever os dados existentes (Sim/Nao)
@@ -48,4 +48,4 @@ override:
 
 # Tipo de usuario do DHIS > mea , admin
 # default: mea
-user_role: admin
+user_role: mea

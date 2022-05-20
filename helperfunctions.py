@@ -93,20 +93,14 @@ def check_us_in_district(us_name,district_name):
     return(found)       
 
 def select_form(form_name, browser_webdriver ):
-      #select_form_box_element = browser_webdriver.find_element_by_xpath("//*[@id='selectedDataSetId']")
-     #select_form_box_element.click()
-     #form_name ='C&T_Resumo de Cuidados e Tratamento'
-     xpath = "//select[@name='selectedDataSetId']/option[text()=" + "'" + form_name + "' ]"
-     print(xpath)
-     #print(xpath)
-     wait = WebDriverWait(browser_webdriver, 10)
-     #expand_prov_tree = browser_webdriver.find_element_by_xpath("//li[@id='orgUnitebcn8hWYrg3']/span/img")
-     browser_webdriver.refresh()
-     form_element =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))  
-     #form_element = browser_webdriver.find_element_by_xpath(xpath).click()
-     form_element.click()
+    xpath = "//select[@name='selectedDataSetId']/option[text()=" + "'" + form_name + "' ]"
+    wait = WebDriverWait(browser_webdriver, 10)
+    browser_webdriver.refresh()
+    form_element =wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))  
+    #form_element = browser_webdriver.find_element_by_xpath(xpath).click()
+    form_element.click()
 
-def exccutar_validacao(browser_webdriver):
+def executar_validacao(browser_webdriver):
     time.sleep(2) 
     btn_validate =  browser_webdriver.find_element_by_xpath('//input[@id="validateButton"][@value="Executar validação"][@style="width:120px margin-bottom: 3px"][@style=""]')
     btn_validate.click()
@@ -124,7 +118,7 @@ def fill_indicator_elements(indicator_name,indicator_map_file,active_sheet,log_f
     
     indicator_yaml = open_config_file(indicator_map_file)
 
-    if tipo_entrada=='Nao': # tipo_entrada refers to  the program behaviour beforre  entering the data ie override (tipo_entrada=='Sim')or normal entry-> tipo_entrada=='Nao'
+    if tipo_entrada=='Nao': # tipo_entrada refers to  the software behaviour beforre  entering the data ie override (tipo_entrada=='Sim')or normal entry-> tipo_entrada=='Nao'
         for k in range(len(indicator_yaml[indicator_name])):
             key = str(indicator_yaml[indicator_name][k].keys())
             f_index = key.find("['")
@@ -293,9 +287,6 @@ def check_retencao_dsd_template_integrity(active_sheet, log_file ):
        cell_ref_cohort= active_sheet['A4'].value  # must have the value 'Cohort'
        cell_ref_dsd_model = active_sheet['A13'].value  # must have the value 'DSD Model'
        cell_ref_total_under_10  = active_sheet['Q47'].value  # must have the 'Total Under 10'
- 
-      
-
        if cell_ref_cohort != 'Cohort':
            print(cell_ref_cohort)
            log_file.write('Ha um erro no template excell.\n'  )
