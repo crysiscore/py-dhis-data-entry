@@ -50,9 +50,9 @@ ats_parte_b_hts_index_full_path           = "mapping/" + indicators_files[17]
 osname = platform.system()
 print(osname)
 if osname == 'Windows':
-    dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
-    working_dir = r'C:/py-dhis-data-entry/'
-    data_dir = r'C:/py-dhis-data-entry/data'
+    dhis_config = open_config_file("C:\\Program Files (x86)\\Dhis-Data-Import-Tool\\python\\config\\dhis_config.yaml")
+    working_dir = r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python'
+    data_dir =    r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python/data'
 elif osname == 'Linux':
     dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
     working_dir = '/home/agnaldo/Git/py-dhis-data-entry'
@@ -186,7 +186,7 @@ if param_check:
                  print(osname)
                  # Making a get request
                  if osname == 'Windows':
-                      driver_loc = r'C:/py-dhis-data-entry/drivers/chromedriver.exe'
+                      driver_loc = r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python/drivers/chromedriver.exe'
 
                       if os.path.isfile(driver_loc): 
                             chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
