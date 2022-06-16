@@ -405,8 +405,8 @@ def dowload_appropritate_driver(chrome_version):
             # print response
             print(response.text)
             download_url = 'https://chromedriver.storage.googleapis.com/'+ response.text + '/chromedriver_win32.zip'
-            download_default_directory=r'C:/py-dhis-data-entry/downloads'
-            chrome_driver_directory= r'C:/py-dhis-data-entry/drivers/'
+            download_default_directory=r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python/downloads'
+            chrome_driver_directory= r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python/drivers/'
             os.chdir(download_default_directory)
             if os.path.exists('chromedriver_win32.zip'):
                 os.remove('chromedriver_win32.zip')

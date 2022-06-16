@@ -50,9 +50,9 @@ ats_parte_b_hts_index_full_path           = "mapping/" + indicators_files[17]
 osname = platform.system()
 print(osname)
 if osname == 'Windows':
-    dhis_config = open_config_file("C:\\py-dhis-data-entry\\config\\dhis_config.yaml")
-    working_dir = r'C:/py-dhis-data-entry/'
-    data_dir = r'C:/py-dhis-data-entry/data'
+    dhis_config = open_config_file("C:\\Program Files (x86)\\Dhis-Data-Import-Tool\\python\\config\\dhis_config.yaml")
+    working_dir = r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python'
+    data_dir =    r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python/data'
 elif osname == 'Linux':
     dhis_config = open_config_file("/home/agnaldo/Git/py-dhis-data-entry/config/dhis_config.yaml")
     working_dir = '/home/agnaldo/Git/py-dhis-data-entry'
@@ -176,7 +176,8 @@ if param_check:
         # verifica se a us pertence ao devido distrito
         if check_us_in_district(us_name,district ):
              print("%s encontrado no distrito:  %s ..." %(us_name,district))
-             workbook = load_workbook('data/'+ excell_location)
+             workbook = load_workbook(excell_location)
+             #workbook = load_workbook('data/'+ excell_location)
              # grab the active worksheet
              if sheet_name in workbook.sheetnames:
                  active_sheet = workbook[sheet_name]
@@ -186,7 +187,7 @@ if param_check:
                  print(osname)
                  # Making a get request
                  if osname == 'Windows':
-                      driver_loc = r'C:/py-dhis-data-entry/drivers/chromedriver.exe'
+                      driver_loc = r'C:/Program Files (x86)/Dhis-Data-Import-Tool/python/drivers/chromedriver.exe'
 
                       if os.path.isfile(driver_loc): 
                             chrome_browser = webdriver.Chrome(driver_loc) #Optional argument, if not specified will search path.
@@ -203,7 +204,12 @@ if param_check:
                                  dowload_appropritate_driver(chrome_version[0:10])
                                  chrome_browser = webdriver.Chrome(driver_loc)
                       else:
-                            #Clean up zombie ChromeDriver
+                            #Clean up zombie ChromeDrive
+                            chrome_browser = webdriver.Chrome()
+                            chrome_version = chrome_version(chrome_browser)
+                            print('Chrome Version: '+ chrome_version[0:10])
+                            chrome_browser.close()
+                            chrome_browser.quit()
                             PROCNAME = "chromedriver"
                             clean_zombie_driver(PROCNAME)
                             dowload_appropritate_driver(chrome_version[0:10])
@@ -289,6 +295,7 @@ if param_check:
 
                             time.sleep(3)
                             fill_indicator_elements('ptv_cpn',ptv_file_full_path_full_path,active_sheet,log_file,chrome_browser,override)
+                            print('Importacao Concluida.' )
 
                        else:
                              print('Verifique os problemas acima' )
@@ -360,6 +367,7 @@ if param_check:
                             fill_indicator_elements('TX_TB', tx_tb_file_full_path,active_sheet,log_file,chrome_browser,override)
                             fill_indicator_elements('TX_PVLS', tx_pvls_file_full_path,active_sheet,log_file,chrome_browser,override) 
                             fill_indicator_elements('ADDITIONAL_DATA', addit_data_file_full_path,active_sheet,log_file,chrome_browser,override)
+                            print('Importacao Concluida.' )
 
                        else:
                             print('Verifique os problemas acima' )
@@ -424,6 +432,7 @@ if param_check:
                             fill_indicator_elements('RETENTION_ART', ret_on_art_1_3_month_full_path ,active_sheet,log_file,chrome_browser,override)
                             fill_indicator_elements('DSD_MODELS', ret_on_art_dsd_models_full_path , active_sheet,log_file,chrome_browser,override)
                             fill_indicator_elements('12_MONTH_RETENTION', ret_on_art_12_month_full_path,active_sheet,log_file,chrome_browser,override)
+                            print('Importacao Concluida.' )
                        else:
                              print('Verifique os problemas acima' )
                              log_file.write('Verifique os problemas acima' )
@@ -492,6 +501,7 @@ if param_check:
                                    fill_indicator_elements('ATS_PART_A_VCT', ats_parte_a_vct_full_path ,active_sheet,log_file,chrome_browser,override)
                                    fill_indicator_elements('ATS_PART_A_PEDIATRIC_SERVICE', ats_parte_a_pediatric_services_full_path , active_sheet,log_file,chrome_browser,override)
                                    fill_indicator_elements('ATS_PART_B_HTS_INDEX', ats_parte_b_hts_index_full_path,active_sheet_2,log_file,chrome_browser,override)
+                                   print('Importacao Concluida.' )
                               else:
                                    print('Verifique os problemas acima' )
                                    log_file.write('Verifique os problemas acima' )
